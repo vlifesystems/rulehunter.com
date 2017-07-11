@@ -122,7 +122,7 @@ This rule is quite complicated at first sight.  To unpack it we could say that w
   * Everyone else must not call segment 'b'
   * Everyone can call segment 'c'
 
-Below the rule on the right you can see that it passes all the goals specified.  Below on the left you can see the results that this rule gives for the various aggregators specified.  The improvement column is the difference between the result for this rule and the `true()` rule.  The `true()` rule represents all the records being used for the aggregators.  This rule will always be at the end of the report as can be seen below:
+Below the rule on the right you can see that it passes all the goals specified and on the left you can see the results that this rule gives for the various aggregators specified.  The improvement column is the difference between the result for this rule and the `true()` rule.  The `true()` rule represents all the records being used for the aggregators.  This rule will always be at the end of the report as can be seen below:
 
 <img src="/img/acmeprinters_who_should_call_which_segment_bottom.png" class="outline" style="margin-bottom: 2em;" alt="screenshot of report">
 
