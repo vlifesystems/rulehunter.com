@@ -4,7 +4,7 @@ languageCode: en-us
 title: Rulehunter - Find simple rules in your data to meet your goals
 theme: "kube"
 pygmentsStyle: "xcode"
-publicDir: "../gh-pages"
+publishDir: "../gh-pages"
 Params:
   RSSLink: "/index.xml"
 permalinks:
