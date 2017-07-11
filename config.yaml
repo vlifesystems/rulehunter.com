@@ -1,0 +1,19 @@
+baseURL: http://rulehunter.com
+disablePathToLower: true
+languageCode: en-us
+title: Rulehunter - Find simple rules in your data to meet your goals
+theme: "kube"
+pygmentsStyle: "xcode"
+publicDir: "../gh-pages"
+Params:
+  RSSLink: "/index.xml"
+permalinks:
+  news: news/:year/:month/:day/:slug/
+menu:
+  main:
+    - name: "Docs"
+      weight: -110
+      url: "/docs/"
+    - name: "News"
+      weight: -100
+      url: "/news/"
