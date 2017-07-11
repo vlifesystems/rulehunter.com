@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.25-DEV" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Experiments </title>
+
+  
+  <meta name="description" content="How to describe an Experiment"> 
+  
+  
+  
+  
+  
+
+    
+
+  <meta name="author" content="">
+
+
+  <meta property="og:title" content="Experiments" />
+<meta property="og:description" content="How to describe an Experiment" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://rulehunter.com/docs/experiments/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+
+  <link rel="canonical" href="http://rulehunter.com/docs/experiments/">  
+
+  <link rel="shortcut icon" type="image/png" href="data:image/png;base64,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RvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3Eld+D/AfhEhmLqHBsfAAAAAElFTkSuQmCC">
+
+
+  <link href="/css/font.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="/css/highlight.css" rel="stylesheet" type="text/css">
+  <link href="/css/master.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.demo.css" rel="stylesheet" type="text/css">
+
+ <link href="/css/custom.css" rel="stylesheet" type="text/css">
+
+  <script src="/js/jquery-2.1.4.min.js" type="text/javascript">
+  </script>
+
+  <script type="text/javascript" src="/js/tocbot.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="/">Rulehunter</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="/" title="home">Rulehunter</a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="/docs/" >Docs</a></li>
+    
+    <li><a href="/news/" >News</a></li>
+    
+      </ul>
+    </nav>
+  </div>
+
+ </header>
+  <main>
+  <div id="main">
+    <div id="hero">
+      <h1> Experiments </h1>
+      <p class="hero-lead">
+           An experiment describes what you want Rulehunter to do.
+      </p>
+
+    </div> 
+    <div id="kube-component" class="content">
+    
+<nav id="contents">
+    <ol class="js-toc">
+    </ol>
+</nav>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded",
+function(){
+tocbot.init({
+
+tocSelector: '.js-toc',
+
+contentSelector: '.content',
+
+headingSelector: 'h3'
+})
+}
+);
+</script>
+
+
+
+    
+
+<h3 id="an-experiment-file">An Experiment file</h3>
+
+<p>An <em>experiment</em> is what describes the dataset that you want to process and what you want the generated rules to aim for.  Each experiment is described by a <code>.yaml</code> or a <code>.json</code> file located in the <code>experimentsDir</code> of <code>config.yaml</code>.  This will look as follows:</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># The title of the report</span>
+<span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;What</span><span style="color: #000000"> </span><span style="color: #C41A16">would</span><span style="color: #000000"> </span><span style="color: #C41A16">indicate</span><span style="color: #000000"> </span><span style="color: #C41A16">good</span><span style="color: #000000"> </span><span style="color: #C41A16">flow?&quot;</span>
+
+<span style="color: #177500"># The tags associated with the report</span>
+<span style="color: #1C01CE">tags</span>:
+  - <span style="color: #1C01CE">test</span>
+  - <span style="color: #C41A16">&quot;fred</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">ned&quot;</span>
+
+<span style="color: #177500"># The type of the dataset (csv or sql)</span>
+<span style="color: #1C01CE">dataset</span>: <span style="color: #C41A16">&quot;csv&quot;</span>
+
+<span style="color: #177500"># Describe the CSV file</span>
+<span style="color: #1C01CE">csv</span>:
+  <span style="color: #177500"># The name of the CSV file</span>
+  <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;fixtures/flow.csv&quot;</span>
+  <span style="color: #177500"># Whether the CSV file contains a header line</span>
+  <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
+  <span style="color: #177500"># What separator the CSV file is using</span>
+  <span style="color: #1C01CE">separator</span>:  <span style="color: #C41A16">&quot;,&quot;</span>
+
+<span style="color: #177500"># The names of the fields to be used by Rulehunter</span>
+<span style="color: #1C01CE">fields</span>:
+  - <span style="color: #1C01CE">group</span>
+  - <span style="color: #1C01CE">district</span>
+  - <span style="color: #1C01CE">height</span>
+  - <span style="color: #1C01CE">flow</span>
+
+<span style="color: #177500"># The fields that can be used in the rules</span>
+<span style="color: #1C01CE">ruleFields</span>:
+  - <span style="color: #1C01CE">group</span>
+  - <span style="color: #1C01CE">district</span>
+  - <span style="color: #1C01CE">height</span>
+
+<span style="color: #177500"># How complex the rules should be</span>
+<span style="color: #1C01CE">ruleComplexity</span>:
+  <span style="color: #177500"># Whether the arithmetic rules should be generated</span>
+  <span style="color: #1C01CE">arithmetic</span>: <span style="color: #1C01CE">true</span>
+
+<span style="color: #177500"># Describe aggregators</span>
+<span style="color: #1C01CE">aggregators</span>:
+    <span style="color: #177500"># The name of the aggregator</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;goodFlowMCC&quot;</span>
+    <span style="color: #177500"># The function to use (calc, count, mcc, mean, precision, recall, sum)</span>
+    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;mcc&quot;</span>
+    <span style="color: #177500"># The argument to pass to the aggregator function</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;flow</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">60&quot;</span>
+
+<span style="color: #177500"># What goals to try to achieve</span>
+<span style="color: #1C01CE">goals</span>:
+  - <span style="color: #C41A16">&quot;goodFlowMCC</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">0&quot;</span>
+
+<span style="color: #177500"># The order to sort the rules in</span>
+<span style="color: #1C01CE">sortOrder</span>:
+  - <span style="color: #1C01CE">aggregatorName</span>: <span style="color: #C41A16">&quot;goodFlowMCC&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregatorName</span>: <span style="color: #C41A16">&quot;numMatches&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+
+<span style="color: #177500"># When to run the experiment (default: !hasRun)</span>
+<span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRunToday</span><span style="color: #000000"> </span><span style="color: #C41A16">||</span><span style="color: #000000"> </span><span style="color: #C41A16">sinceLastRunHours</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">2&quot;</span>
+</pre></div>
+
+
+<h3 id="sql">SQL</h3>
+
+<p>To connect to a database using SQL you can replace the <code>csv</code> field above with something like this:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Describe the SQL connection</span>
+<span style="color: #1C01CE">sql</span>:
+  <span style="color: #177500"># The name of the driver to use (mssql, mysql, sqlite3)</span>
+  <span style="color: #1C01CE">driverName</span>: <span style="color: #C41A16">&quot;mssql&quot;</span>
+  <span style="color: #177500"># The details of the data source</span>
+  <span style="color: #1C01CE">dataSourceName</span>: <span style="color: #C41A16">&quot;Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein&quot;</span>
+  <span style="color: #177500"># An SQL query to run on the data source to create the dataset</span>
+  <span style="color: #1C01CE">query</span>: <span style="color: #C41A16">&quot;select</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">from</span><span style="color: #000000"> </span><span style="color: #C41A16">flow&quot;</span>
+</pre></div>
+</p>
+
+<p>For more information about dataSourceName see the following for each driver:</p>
+
+<ul>
+<li><code>mssql</code> - MS SQL Server - <a href="https://github.com/denisenkom/go-mssqldb/blob/master/README.md">README</a>.</li>
+<li><code>mysql</code> - MySQL - <a href="https://github.com/go-sql-driver/mysql#dsn-data-source-name">README</a>.</li>
+<li><code>sqlite3</code> - sqlite3 - This just uses the filename of the database.</li>
+</ul>
+
+<p><em>For security reasons any user specified for an SQL source should only have read access to the tables/database as the queries can&rsquo;t be checked for safety.</em></p>
+
+<h3 id="aggregators">Aggregators</h3>
+
+<p>The aggregators are used to collect data on the records that match against a rule.  There are the following functions:</p>
+
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>calc(expr)</code></td>
+<td>Calculate the result of expression using as variables any aggregatorNames used in the expression</td>
+</tr>
+
+<tr>
+<td><code>count(expr)</code></td>
+<td>Count the number of records that match a rule and the supplied expression</td>
+</tr>
+
+<tr>
+<td><code>mcc(expr)</code></td>
+<td>Calculate the <a href="https://en.wikipedia.org/wiki/Matthews_correlation_coefficient">Matthews correlation coefficient</a> of a rule to match against the expression passed.  A coefficient of +1 represents a perfect prediction, 0 no better than random prediction and −1 indicates total disagreement between prediction and observation.</td>
+</tr>
+
+<tr>
+<td><code>mean(expr)</code></td>
+<td>Calculate the mean value for an expression calculated on records that match a rule</td>
+</tr>
+
+<tr>
+<td><code>precision(expr)</code></td>
+<td>Calculate the <a href="https://en.wikipedia.org/wiki/Precision_and_recall">precision</a> of a rule to match against the expression passed</td>
+</tr>
+
+<tr>
+<td><code>recall(expr)</code></td>
+<td>Calculate the <a href="https://en.wikipedia.org/wiki/Precision_and_recall">recall</a> of a rule to match against the expression passed</td>
+</tr>
+
+<tr>
+<td><code>sum(expr)</code></td>
+<td>calculates the sum for an expression calculated on records that match a rule</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="sort-order">Sort Order</h3>
+
+<p>The rules in the report are sorted in the order of the entries for the <code>sortOrder</code> field.  The aggregators that can be used are the names specified in the <code>aggregators</code> field as well as the following built-in aggregators.</p>
+
+<table>
+<thead>
+<tr>
+<th>Aggregator</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>numMatches</code></td>
+<td>The number of records that a rule matches against</td>
+</tr>
+
+<tr>
+<td><code>percentMatches</code></td>
+<td>The percent of records in the dataset that a rule matches against</td>
+</tr>
+
+<tr>
+<td><code>goalsScore</code></td>
+<td>How well a rule passes the goals.  The higher the number the better the match</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="when-expressions">When Expressions</h3>
+
+<p>The <code>when</code> field determines when the experiment is to be run and how often.  It is an expression that supports the following variables:</p>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>hasRun</code></td>
+<td>Whether the experiment has been ever been run</td>
+</tr>
+
+<tr>
+<td><code>hasRunToday</code></td>
+<td>Whether the experiment has been run today</td>
+</tr>
+
+<tr>
+<td><code>hasRunThisWeek</code></td>
+<td>Whether the experiment has been run this week</td>
+</tr>
+
+<tr>
+<td><code>hasRunThisMonth</code></td>
+<td>Whether the experiment has been run this month</td>
+</tr>
+
+<tr>
+<td><code>hasRunThisYear</code></td>
+<td>Whether the experiment has been run this year</td>
+</tr>
+
+<tr>
+<td><code>sinceLastRunMinutes</code></td>
+<td>The number of minutes since the experiment was last run</td>
+</tr>
+
+<tr>
+<td><code>sinceLastRunHours</code></td>
+<td>The number of hours since the experiment was last run</td>
+</tr>
+
+<tr>
+<td><code>isWeekday</code></td>
+<td>Whether today is a weekday</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="expressions">Expressions</h3>
+
+<p>Any expressions used in the experiment file conform to fairly standard Go expressions and can use the following functions:</p>
+
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>in(n, h ...)</code></td>
+<td>Return whether <code>n</code> is in the rest of the arguments</td>
+</tr>
+
+<tr>
+<td><code>ni(n, h ...)</code></td>
+<td>Return whether <code>n</code> is not in the rest of the arguments</td>
+</tr>
+
+<tr>
+<td><code>max(n ...)</code></td>
+<td>Return the biggest number supplied</td>
+</tr>
+
+<tr>
+<td><code>min(n ...)</code></td>
+<td>Return the smallest number supplied</td>
+</tr>
+
+<tr>
+<td><code>pow(b, e)</code></td>
+<td>Raise <code>b</code> to power of <code>e</code></td>
+</tr>
+
+<tr>
+<td><code>roundto(n, p)</code></td>
+<td>Round <code>n</code> to <code>p</code> decimal places</td>
+</tr>
+
+<tr>
+<td><code>sqrt(x)</code></td>
+<td>Return the square root of <code>x</code></td>
+</tr>
+</tbody>
+</table>
+
+
+    
+    </div>
+    </div>
+</main>
+  <footer>   <footer id="footer">
+    <nav>
+      <ul>
+        <li><span><a href="/">Rulehunter</a><span></li>
+        <li><a href="http://vlifesystems.com">Company</a></li>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/docs/">Docs</a></li>
+      </ul>
+    </nav>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />The content of this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+   </p>
+  </footer>
+
+ </footer>
+
+
+  <script src="/js/kube.js" type="text/javascript">
+  </script>
+  <script src="/js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="/js/master.js" type="text/javascript">
+  </script>
+</body>
+
+</html>

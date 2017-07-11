@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Release on Rulehunter - Find simple rules in your data to meet your goals</title>
+    <link>http://rulehunter.com/tags/release/</link>
+    <description>Recent content in Release on Rulehunter - Find simple rules in your data to meet your goals</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://rulehunter.com/tags/release/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rulehunter v0.1 Released</title>
+      <link>http://rulehunter.com/news/2017/07/10/rulehunter-v0.1-released/</link>
+      <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/news/2017/07/10/rulehunter-v0.1-released/</guid>
+      <description>The first official version of Rulehunter has been released. It is fully functional and has been tested on Linux and Windows. It is available to install and run immediately.</description>
+    </item>
+    
+  </channel>
+</rss>

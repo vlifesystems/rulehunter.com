@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://rulehunter.com/docs/overview/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/installation/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/configuration/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/experiments/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/usage/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/example_call_centre_printer_repairs/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/contributing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/licence/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/news/2017/07/10/rulehunter-v0.1-released/</loc>
+    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/news/</loc>
+    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/tags/release/</loc>
+    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/</loc>
+    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/tags/</loc>
+    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

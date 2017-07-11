@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Rulehunter - Find simple rules in your data to meet your goals</title>
+    <link>http://rulehunter.com/categories/</link>
+    <description>Recent content in Categories on Rulehunter - Find simple rules in your data to meet your goals</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://rulehunter.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Rulehunter - Find simple rules in your data to meet your goals</title>
+    <link>http://rulehunter.com/docs/</link>
+    <description>Recent content in Docs on Rulehunter - Find simple rules in your data to meet your goals</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://rulehunter.com/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Overview</title>
+      <link>http://rulehunter.com/docs/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/overview/</guid>
+      <description>Welcome This site aims to be a comprehensive guide to Rulehunter. It will cover how to get Rulehunter up &amp;amp; running, examples of use and how to make the most of it.
+Overview of Rulehunter Rulehunter works through a series of experiments located in the experimentsDir specified in config.yaml. It will process each experiment and output a report in html. The html report is part of a website created in the wwwDir specified in config.</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>http://rulehunter.com/docs/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/installation/</guid>
+      <description>Rulehunter is written in Go and therefore to compile Rulehunter you must first Download and install Go. Rulehunter is then fetched, compiled and installed with: go get github.com/vlifesystems/rulehunter go install  There are several files needed to render the html properly these are located in the support/ directory.
+Twitter Bootstrap Copy directories from support/bootstrap to the wwwDir directory specified in config.yaml.
+jQuery Copy directory support/jquery/js to the wwwDir directory specified in config.</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>http://rulehunter.com/docs/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/configuration/</guid>
+      <description>Rulehunter is configured using a config.yaml file as follows: # The location of the experiment files. experimentsDir: &amp;quot;/usr/local/rulehunter/experiments&amp;quot; # The location of the html files produced. wwwDir: &amp;quot;/var/www/rulehunter&amp;quot; # The location of the build files created while running. buildDir: &amp;quot;/usr/local/rulehunter/build&amp;quot; # The source URL for the code to comply with the requirements of the AGPL. # (default: https://github.com/vlifesystems/rulehunter) sourceUrl: &amp;quot;https://example.com/somecode/rulehunter&amp;quot; # The base URL for the html files produced. This is so that you could for # example base the Rulehunter generated site at &amp;#39;/rulehunter/&amp;#39; on an intranet.</description>
+    </item>
+    
+    <item>
+      <title>Experiments</title>
+      <link>http://rulehunter.com/docs/experiments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/experiments/</guid>
+      <description>An Experiment file An experiment is what describes the dataset that you want to process and what you want the generated rules to aim for. Each experiment is described by a .yaml or a .json file located in the experimentsDir of config.yaml. This will look as follows:
+# The title of the report title: &amp;quot;Whatwouldindicategoodflow?&amp;quot; # The tags associated with the report tags: - test - &amp;quot;fred/ned&amp;quot; # The type of the dataset (csv or sql) dataset: &amp;quot;csv&amp;quot; # Describe the CSV file csv: # The name of the CSV file filename: &amp;quot;fixtures/flow.</description>
+    </item>
+    
+    <item>
+      <title>Usage</title>
+      <link>http://rulehunter.com/docs/usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/usage/</guid>
+      <description>Rulehunter is run using the rulehunter executable created by go install. You can use this command in a number of ways:
+
+To processes the experiments in the experimentsDir directory specified in config.yaml located in the current directory: rulehunter  
+To run Rulehunter as a server continually checking and processing experiments: rulehunter -serve  
+To install Rulehunter as a service (which then needs starting separately) with config.yaml located in /usr/local/rulehunter: rulehunter -install -configdir=/usr/local/rulehunter  </description>
+    </item>
+    
+    <item>
+      <title>Example: A Call Centre: Printer Repairs</title>
+      <link>http://rulehunter.com/docs/example_call_centre_printer_repairs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/example_call_centre_printer_repairs/</guid>
+      <description>Outline A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past. The call centre needs to balance its need to make a profit with the needs of their client.
+The client&amp;rsquo;s requirements  The ROI (Return On Investment) must be at least 2.0 At least 25% of contacts must result in a repair contract They would like the total value of contracts to be as high as possible  The call centre&amp;rsquo;s requirements  The ROI for the call centre needs to be at least 1.</description>
+    </item>
+    
+    <item>
+      <title>Contributing</title>
+      <link>http://rulehunter.com/docs/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/contributing/</guid>
+      <description>Code Rulehunter is licensed under the GNU Affero General Public License version 3 (AGPLv3). Please see the licence section for more details.
+If you want to improve this program make a pull request to the repo on github. Please put any pull requests in a separate branch to ease integration and add a test to prove that it works.
+If you find a bug, please report it at the project&amp;rsquo;s issues tracker also on github.</description>
+    </item>
+    
+    <item>
+      <title>Licence</title>
+      <link>http://rulehunter.com/docs/licence/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/licence/</guid>
+      <description>Rulehunter - A server to find rules in data based on user specified goals
+Copyright &amp;copy; 2016 vLife Systems Ltd
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</description>
+    </item>
+    
+  </channel>
+</rss>
