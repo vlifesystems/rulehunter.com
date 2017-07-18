@@ -1,6 +1,6 @@
 ---
-title: "Example: A Call Centre: Printer Repairs"
-description: "An example of a call centre"
+title: "A Call Centre: Printer Repairs"
+description: "A call centre selling printer repair contracts for its client"
 weight: 60
 draft: false
 toc: true
