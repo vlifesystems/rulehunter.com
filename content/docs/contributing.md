@@ -18,4 +18,4 @@ If you find a bug, please report it at the project's [issues tracker](https://gi
 ### Documentation
 Documentation is really important to us and is kept centrally on this website. The content is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
-If you want to help with this make a pull request to the [website repo](https://github.com/vlifesystems/rulehunter/tree/gh-pages) on github.  Please put any pull requests in a separate branch to ease integration.
+If you want to help with this make a pull request to the [website repo](https://github.com/vlifesystems/rulehunter.com/) on github.  Please put any pull requests in a separate branch to ease integration.
