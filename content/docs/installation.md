@@ -1,20 +1,18 @@
 ---
 title: "Installation"
-description: "Installation is easy"
+description: "Installation is easy on a variety of platforms"
 weight: 20
 draft: false
 toc: false
-bref: "Installation is easy on a wide variety of platforms"
+bref: "Installation is easy on a variety of platforms"
 ---
 
 
-Rulehunter is written in [Go](https://golang.org) and therefore to compile Rulehunter you must first Download and install Go.  Rulehunter is then fetched, compiled and installed with:
-{{< highlight shell >}}
-go get github.com/vlifesystems/rulehunter
-go install
-{{< /highlight >}}
+Rulehunter has prebuilt binaries for Linux, Windows and MacOS.  Please download the [latest release](https://github.com/vlifesystems/rulehunter/releases/latest) from the bottom of the releases page.
 
-There are several files needed to render the html properly these are located in the `support/` directory.
+Once downloaded unzip the file and place the `rulehunter` executable somewhere that it can easily be run.
+
+There are several files needed to render the html properly, these are located in the `support/` directory.
 
 ### Twitter Bootstrap
 Copy directories from `support/bootstrap` to the `wwwDir` directory specified in `config.yaml`.
@@ -24,6 +22,9 @@ Copy directory `support/jquery/js` to the `wwwDir` directory specified in `confi
 
 ### Html5 Shiv
 Copy directory `support/html5shiv/js` to the `wwwDir` directory specified in `config.yaml`.
+
+### Respond.js
+Copy directory `support/respond/js` to the `wwwDir` directory specified in `config.yaml`.
 
 ### Rulehunter
 Copy directories from `support/rulehunter` to the `wwwDir` directory specified in `config.yaml`.
