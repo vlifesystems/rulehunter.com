@@ -9,7 +9,7 @@
   <title> Installation </title>
 
   
-  <meta name="description" content="Installation is easy"> 
+  <meta name="description" content="Installation is easy on a variety of platforms"> 
   
   
   
@@ -22,7 +22,7 @@
 
 
   <meta property="og:title" content="Installation" />
-<meta property="og:description" content="Installation is easy" />
+<meta property="og:description" content="Installation is easy on a variety of platforms" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rulehunter.com/docs/installation/" />
 
@@ -103,7 +103,7 @@
     <div id="hero">
       <h1> Installation </h1>
       <p class="hero-lead">
-           Installation is easy on a wide variety of platforms.
+           Installation is easy on a variety of platforms.
       </p>
 
     </div> 
@@ -112,13 +112,11 @@
 
     
 
-<p>Rulehunter is written in <a href="https://golang.org">Go</a> and therefore to compile Rulehunter you must first Download and install Go.  Rulehunter is then fetched, compiled and installed with:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>go get github.com/vlifesystems/rulehunter
-go install
-</pre></div>
-</p>
+<p>Rulehunter has prebuilt binaries for Linux, Windows and MacOS.  Please download the <a href="https://github.com/vlifesystems/rulehunter/releases/latest">latest release</a> from the bottom of the releases page.</p>
 
-<p>There are several files needed to render the html properly these are located in the <code>support/</code> directory.</p>
+<p>Once downloaded unzip the file and place the <code>rulehunter</code> executable somewhere that it can easily be run.</p>
+
+<p>There are several files needed to render the html properly, these are located in the <code>support/</code> directory.</p>
 
 <h3 id="twitter-bootstrap">Twitter Bootstrap</h3>
 
@@ -131,6 +129,10 @@ go install
 <h3 id="html5-shiv">Html5 Shiv</h3>
 
 <p>Copy directory <code>support/html5shiv/js</code> to the <code>wwwDir</code> directory specified in <code>config.yaml</code>.</p>
+
+<h3 id="respond-js">Respond.js</h3>
+
+<p>Copy directory <code>support/respond/js</code> to the <code>wwwDir</code> directory specified in <code>config.yaml</code>.</p>
 
 <h3 id="rulehunter">Rulehunter</h3>
 

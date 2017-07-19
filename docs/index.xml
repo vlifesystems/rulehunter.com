@@ -26,7 +26,9 @@ Overview of Rulehunter Rulehunter works through a series of experiments located 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/installation/</guid>
-      <description>Rulehunter is written in Go and therefore to compile Rulehunter you must first Download and install Go. Rulehunter is then fetched, compiled and installed with: go get github.com/vlifesystems/rulehunter go install  There are several files needed to render the html properly these are located in the support/ directory.
+      <description>Rulehunter has prebuilt binaries for Linux, Windows and MacOS. Please download the latest release from the bottom of the releases page.
+Once downloaded unzip the file and place the rulehunter executable somewhere that it can easily be run.
+There are several files needed to render the html properly, these are located in the support/ directory.
 Twitter Bootstrap Copy directories from support/bootstrap to the wwwDir directory specified in config.yaml.
 jQuery Copy directory support/jquery/js to the wwwDir directory specified in config.</description>
     </item>
@@ -70,8 +72,7 @@ To install Rulehunter as a service (which then needs starting separately) with c
       
       <guid>http://rulehunter.com/docs/contributing/</guid>
       <description>Code Rulehunter is licensed under the GNU Affero General Public License version 3 (AGPLv3). Please see the licence section for more details.
-If you want to improve this program make a pull request to the repo on github. Please put any pull requests in a separate branch to ease integration and add a test to prove that it works.
-If you find a bug, please report it at the project&amp;rsquo;s issues tracker also on github.</description>
+Rulehunter is written in Go and the code can be fetched with: go get github.com/vlifesystems/rulehunter  If you want to improve this program make a pull request to the repo on github. Please put any pull requests in a separate branch to ease integration and add a test to prove that it works.</description>
     </item>
     
     <item>
