@@ -16,6 +16,9 @@ An _experiment_ is what describes the dataset that you want to process and what 
 # The title of the report
 title: "What would indicate good flow?"
 
+# The category that this report is in
+category: "acme"
+
 # The tags associated with the report
 tags:
   - test
@@ -31,7 +34,7 @@ csv:
   # Whether the CSV file contains a header line
   hasHeader: true
   # What separator the CSV file is using
-  separator:  ","
+  separator: ","
 
 # The names of the fields to be used by Rulehunter
 fields:
@@ -55,10 +58,11 @@ ruleComplexity:
 aggregators:
     # The name of the aggregator
   - name: "goodFlowMCC"
-    # The function to use (calc, count, mcc, mean, precision, recall, sum)
-    function: "mcc"
+    # The kind of aggregator to use
+    # (calc, count, mcc, mean, precision, recall, sum)
+    kind: "mcc"
     # The argument to pass to the aggregator function
-    arg: "flow > 60"
+    arg:  "flow > 60"
 
 # What goals to try to achieve
 goals:
@@ -66,13 +70,18 @@ goals:
 
 # The order to sort the rules in
 sortOrder:
-  - aggregatorName: "goodFlowMCC"
-    direction: "descending"
-  - aggregatorName: "numMatches"
-    direction: "descending"
+  - aggregator: "goodFlowMCC"
+    direction:  "descending"
+  - aggregator: "numMatches"
+    direction:  "descending"
 
 # When to run the experiment (default: !hasRun)
 when: "!hasRunToday || sinceLastRunHours > 2"
+
+# User defined rules to try
+rules:
+  - "height > 10"
+  - "height > 10 && height < 20"
 {{< /highlight >}}
 
 ### SQL

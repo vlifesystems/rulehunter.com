@@ -29,9 +29,6 @@ sourceUrl: "https://example.com/somecode/rulehunter"
 # (default: /)
 baseUrl: "http://intranet/rulehunter/"
 
-# The user to use when running as a service.
-user: rhuser
-
 # The maximum number of rules in a report.
 # (default: 100)
 maxNumReportRules: 50

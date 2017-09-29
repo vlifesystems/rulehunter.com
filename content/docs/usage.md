@@ -7,22 +7,32 @@ toc: false
 bref: "Rulehunter has a variety of ways that it can been used depending on a user's needs"
 ---
 
-Rulehunter is run using the `rulehunter` executable created by `go install`.  You can use this command in a number of ways:
-
-<br />
-To processes the experiments in the `experimentsDir` directory specified in `config.yaml` located in the current directory:
+To processes the experiments in the `experimentsDir` directory specified in `config.yaml`, which is located in the current directory:
 {{< highlight shell >}}
 rulehunter
 {{< /highlight >}}
 
-<br />
-To run Rulehunter as a server continually checking and processing experiments:
+To specify a config file:
 {{< highlight shell >}}
-rulehunter -serve
+rulehunter --config=/usr/local/rulehunter/config.yaml
 {{< /highlight >}}
 
-<br />
-To install Rulehunter as a service (which then needs starting separately) with `config.yaml` located in `/usr/local/rulehunter`:
+To run Rulehunter as a server continually checking and processing experiments:
 {{< highlight shell >}}
-rulehunter -install -configdir=/usr/local/rulehunter
+rulehunter serve
+{{< /highlight >}}
+
+To install Rulehunter as an operating service (which then needs starting separately) using `/usr/local/rulehunter/config.yaml`:
+{{< highlight shell >}}
+rulehunter service install --config=/usr/local/rulehunter/config.yaml
+{{< /highlight >}}
+
+To uninstall Rulehunter as an operating service:
+{{< highlight shell >}}
+rulehunter service uninstall
+{{< /highlight >}}
+
+To get help:
+{{< highlight shell >}}
+rulehunter help
 {{< /highlight >}}

@@ -32,6 +32,7 @@ Once the campaign has been called for a while it would be useful to find who sho
 
 {{< highlight yaml >}}
 title: "Who should call which segment?"
+category: "acme"
 tags:
   - repair
   - sales
@@ -61,29 +62,29 @@ ruleFields:
 aggregators:
   # totalCCCost is the total call centre cost for a rule
   - name: "totalCCCost"
-    function: "sum"
-    arg: "ccCost"
+    kind: "sum"
+    arg:  "ccCost"
   # totalCCIncome is the total call centre income for a rule
   - name: "totalCCIncome"
-    function: "sum"
-    arg: "ccIncome"
+    kind: "sum"
+    arg:  "ccIncome"
   # totalCCROI is the total call centre ROI (Return On Investment) for a rule
   - name: "totalCCROI"
-    function: "calc"
-    arg: "totalCCIncome / totalCCCost"
+    kind: "calc"
+    arg:  "totalCCIncome / totalCCCost"
   - name: "totalCCProfit"
-    function: "calc"
-    arg: "totalCCIncome - totalCCCost"
+    kind: "calc"
+    arg:  "totalCCIncome - totalCCCost"
   # totalValue is the total value of the contracts sold for a rule
   - name: "totalValue"
-    function: "sum"
-    arg: "value"
+    kind: "sum"
+    arg:  "value"
   - name: "meanConversion"
-    function: "mean"
-    arg: "conversion"
+    kind: "mean"
+    arg:  "conversion"
   # clientMeanROI is the average client ROI for a rule
   - name: "clientMeanROI"
-    function: "mean"
+    kind: "mean"
     arg: "roi"
 # Below you see the goals specified by the call centre and the client
 goals:
@@ -96,12 +97,12 @@ goals:
 sortOrder:
   # goalsScore is used to sort first as this is the most important
   # factor to be used when assessing the rules
-  - aggregatorName: "goalsScore"
-    direction: "descending"
-  - aggregatorName: "totalValue"
-    direction: "descending"
-  - aggregatorName: "totalCCProfit"
-    direction: "descending"
+  - aggregator: "goalsScore"
+    direction:  "descending"
+  - aggregator: "totalValue"
+    direction:  "descending"
+  - aggregator: "totalCCProfit"
+    direction:  "descending"
 # The experiment will be run every 40 minutes
 when: "!hasRun || sinceLastRunMinutes > 40"
 {{< /highlight >}}
@@ -113,14 +114,13 @@ After running this experiment a report is generated which starts as follows:
 
 The top of the report shows the best rule:
 {{< highlight go >}}
-(in(name,"bob andrews","fred wilkins") || segment != "b") || segment == "c"
+in(name,"bob andrews","fred wilkins") || segment != "b"
 {{< /highlight >}}
 
 This rule is quite complicated at first sight.  To unpack it we could say that when picking who calls what segment that the following holds true:
 
   * Bob Andrews and Fred Wilkins can call any segment
-  * Everyone else must not call segment 'b'
-  * Everyone can call segment 'c'
+  * Everyone else can call any segment except 'b'
 
 Below the rule on the right you can see that it passes all the goals specified.  Below on the left you can see the results that this rule gives for the various aggregators specified.  The improvement column is the difference between the result for this rule and the `true()` rule.  The `true()` rule represents all the records being used for the aggregators.  This rule will always be at the end of the report as can be seen below:
 
@@ -129,11 +129,11 @@ Below the rule on the right you can see that it passes all the goals specified. 
 ### Assessment of Report
 The report shows that the best rule as defined by the experiment is:
 {{< highlight go >}}
-(in(name,"bob andrews","fred wilkins") || segment != "b") || segment == "c"
+in(name,"bob andrews","fred wilkins") || segment != "b"
 {{< /highlight >}}
 
 For the client it achieves an ROI of 4.085, over twice their goal and a conversion of 55%, again over twice their goal.  For the call centre it achieves an ROI of 1.32 which is over target.  Using this rule both parties have their needs met and the client gets a healthy total value of contracts at: £86,748, only £3,300 less than the `true()` rule.
 
 If only the `true()` rule was used i.e. the data wasn't filtered, then the call centre would have still met the clients goals, but would have missed out on its stretch goal of having an ROI of 1.30.
 
-With the use of the best rule, the client gets a fantastic result and the call centre makes a healthy profit as well.
+With the use of the best rule, the client gets a fantastic result and the call centre makes a healthy profit as well.  A healthy profit is particularly important for this company because they know that sometimes calling is unpredictable and they will often make a loss.  They need to minimize the losses where they can and make the most of profits when they are able.
