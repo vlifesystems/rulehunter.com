@@ -110,23 +110,33 @@
     <div id="kube-component" class="content">
     
 
-    <p>Rulehunter is run using the <code>rulehunter</code> executable created by <code>go install</code>.  You can use this command in a number of ways:</p>
-
-<p><br />
-To processes the experiments in the <code>experimentsDir</code> directory specified in <code>config.yaml</code> located in the current directory:
+    <p>To processes the experiments in the <code>experimentsDir</code> directory specified in <code>config.yaml</code>, which is located in the current directory:
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter
 </pre></div>
 </p>
 
-<p><br />
-To run Rulehunter as a server continually checking and processing experiments:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter -serve
+<p>To specify a config file:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter --config<span style="color: #000000">=</span>/usr/local/rulehunter/config.yaml
 </pre></div>
 </p>
 
-<p><br />
-To install Rulehunter as a service (which then needs starting separately) with <code>config.yaml</code> located in <code>/usr/local/rulehunter</code>:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter -install -configdir<span style="color: #000000">=</span>/usr/local/rulehunter
+<p>To run Rulehunter as a server continually checking and processing experiments:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter serve
+</pre></div>
+</p>
+
+<p>To install Rulehunter as an operating service (which then needs starting separately) using <code>/usr/local/rulehunter/config.yaml</code>:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service install --config<span style="color: #000000">=</span>/usr/local/rulehunter/config.yaml
+</pre></div>
+</p>
+
+<p>To uninstall Rulehunter as an operating service:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service uninstall
+</pre></div>
+</p>
+
+<p>To get help:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter <span style="color: #A90D91">help</span>
 </pre></div>
 </p>
 

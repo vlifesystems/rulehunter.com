@@ -139,6 +139,9 @@ headingSelector: 'h3'
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># The title of the report</span>
 <span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;What</span><span style="color: #000000"> </span><span style="color: #C41A16">would</span><span style="color: #000000"> </span><span style="color: #C41A16">indicate</span><span style="color: #000000"> </span><span style="color: #C41A16">good</span><span style="color: #000000"> </span><span style="color: #C41A16">flow?&quot;</span>
 
+<span style="color: #177500"># The category that this report is in</span>
+<span style="color: #1C01CE">category</span>: <span style="color: #C41A16">&quot;acme&quot;</span>
+
 <span style="color: #177500"># The tags associated with the report</span>
 <span style="color: #1C01CE">tags</span>:
   - <span style="color: #1C01CE">test</span>
@@ -154,7 +157,7 @@ headingSelector: 'h3'
   <span style="color: #177500"># Whether the CSV file contains a header line</span>
   <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
   <span style="color: #177500"># What separator the CSV file is using</span>
-  <span style="color: #1C01CE">separator</span>:  <span style="color: #C41A16">&quot;,&quot;</span>
+  <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;,&quot;</span>
 
 <span style="color: #177500"># The names of the fields to be used by Rulehunter</span>
 <span style="color: #1C01CE">fields</span>:
@@ -178,10 +181,11 @@ headingSelector: 'h3'
 <span style="color: #1C01CE">aggregators</span>:
     <span style="color: #177500"># The name of the aggregator</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;goodFlowMCC&quot;</span>
-    <span style="color: #177500"># The function to use (calc, count, mcc, mean, precision, recall, sum)</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;mcc&quot;</span>
+    <span style="color: #177500"># The kind of aggregator to use</span>
+    <span style="color: #177500"># (calc, count, mcc, mean, precision, recall, sum)</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mcc&quot;</span>
     <span style="color: #177500"># The argument to pass to the aggregator function</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;flow</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">60&quot;</span>
+    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;flow</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">60&quot;</span>
 
 <span style="color: #177500"># What goals to try to achieve</span>
 <span style="color: #1C01CE">goals</span>:
@@ -189,13 +193,18 @@ headingSelector: 'h3'
 
 <span style="color: #177500"># The order to sort the rules in</span>
 <span style="color: #1C01CE">sortOrder</span>:
-  - <span style="color: #1C01CE">aggregatorName</span>: <span style="color: #C41A16">&quot;goodFlowMCC&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-  - <span style="color: #1C01CE">aggregatorName</span>: <span style="color: #C41A16">&quot;numMatches&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;goodFlowMCC&quot;</span>
+    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;numMatches&quot;</span>
+    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
 
 <span style="color: #177500"># When to run the experiment (default: !hasRun)</span>
 <span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRunToday</span><span style="color: #000000"> </span><span style="color: #C41A16">||</span><span style="color: #000000"> </span><span style="color: #C41A16">sinceLastRunHours</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">2&quot;</span>
+
+<span style="color: #177500"># User defined rules to try</span>
+<span style="color: #1C01CE">rules</span>:
+  - <span style="color: #C41A16">&quot;height</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">10&quot;</span>
+  - <span style="color: #C41A16">&quot;height</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">10</span><span style="color: #000000"> </span><span style="color: #C41A16">&amp;&amp;</span><span style="color: #000000"> </span><span style="color: #C41A16">height</span><span style="color: #000000"> </span><span style="color: #C41A16">&lt;</span><span style="color: #000000"> </span><span style="color: #C41A16">20&quot;</span>
 </pre></div>
 
 

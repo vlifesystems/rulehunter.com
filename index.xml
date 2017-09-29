@@ -50,7 +50,7 @@ jQuery Copy directory support/jquery/js to the wwwDir directory specified in con
       
       <guid>http://rulehunter.com/docs/experiments/</guid>
       <description>An Experiment file An experiment is what describes the dataset that you want to process and what you want the generated rules to aim for. Each experiment is described by a .yaml or a .json file located in the experimentsDir of config.yaml. This will look as follows:
-# The title of the report title: &amp;quot;Whatwouldindicategoodflow?&amp;quot; # The tags associated with the report tags: - test - &amp;quot;fred/ned&amp;quot; # The type of the dataset (csv or sql) dataset: &amp;quot;csv&amp;quot; # Describe the CSV file csv: # The name of the CSV file filename: &amp;quot;fixtures/flow.</description>
+# The title of the report title: &amp;quot;Whatwouldindicategoodflow?&amp;quot; # The category that this report is in category: &amp;quot;acme&amp;quot; # The tags associated with the report tags: - test - &amp;quot;fred/ned&amp;quot; # The type of the dataset (csv or sql) dataset: &amp;quot;csv&amp;quot; # Describe the CSV file csv: # The name of the CSV file filename: &amp;quot;fixtures/flow.</description>
     </item>
     
     <item>
@@ -59,11 +59,7 @@ jQuery Copy directory support/jquery/js to the wwwDir directory specified in con
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/usage/</guid>
-      <description>Rulehunter is run using the rulehunter executable created by go install. You can use this command in a number of ways:
-
-To processes the experiments in the experimentsDir directory specified in config.yaml located in the current directory: rulehunter  
-To run Rulehunter as a server continually checking and processing experiments: rulehunter -serve  
-To install Rulehunter as a service (which then needs starting separately) with config.yaml located in /usr/local/rulehunter: rulehunter -install -configdir=/usr/local/rulehunter  </description>
+      <description>To processes the experiments in the experimentsDir directory specified in config.yaml, which is located in the current directory: rulehunter  To specify a config file: rulehunter --config=/usr/local/rulehunter/config.yaml  To run Rulehunter as a server continually checking and processing experiments: rulehunter serve  To install Rulehunter as an operating service (which then needs starting separately) using /usr/local/rulehunter/config.yaml: rulehunter service install --config=/usr/local/rulehunter/config.yaml  To uninstall Rulehunter as an operating service: rulehunter service uninstall  To get help: rulehunter help  </description>
     </item>
     
     <item>

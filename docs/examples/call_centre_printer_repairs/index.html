@@ -160,6 +160,7 @@ aim for its ROI to be at least 1.30</li>
 <p>Once the campaign has been called for a while it would be useful to find who should call which data segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_who_should_call_which_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;Who</span><span style="color: #000000"> </span><span style="color: #C41A16">should</span><span style="color: #000000"> </span><span style="color: #C41A16">call</span><span style="color: #000000"> </span><span style="color: #C41A16">which</span><span style="color: #000000"> </span><span style="color: #C41A16">segment?&quot;</span>
+<span style="color: #1C01CE">category</span>: <span style="color: #C41A16">&quot;acme&quot;</span>
 <span style="color: #1C01CE">tags</span>:
   - <span style="color: #1C01CE">repair</span>
   - <span style="color: #1C01CE">sales</span>
@@ -189,29 +190,29 @@ aim for its ROI to be at least 1.30</li>
 <span style="color: #1C01CE">aggregators</span>:
   <span style="color: #177500"># totalCCCost is the total call centre cost for a rule</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCCost&quot;</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;ccCost&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
+    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;ccCost&quot;</span>
   <span style="color: #177500"># totalCCIncome is the total call centre income for a rule</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCIncome&quot;</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;ccIncome&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
+    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;ccIncome&quot;</span>
   <span style="color: #177500"># totalCCROI is the total call centre ROI (Return On Investment) for a rule</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCROI&quot;</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalCCIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCCCost&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;totalCCIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCCCost&quot;</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCProfit&quot;</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalCCIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">-</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCCCost&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;totalCCIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">-</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCCCost&quot;</span>
   <span style="color: #177500"># totalValue is the total value of the contracts sold for a rule</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalValue&quot;</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;value&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
+    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;value&quot;</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;meanConversion&quot;</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;mean&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;conversion&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mean&quot;</span>
+    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;conversion&quot;</span>
   <span style="color: #177500"># clientMeanROI is the average client ROI for a rule</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;clientMeanROI&quot;</span>
-    <span style="color: #1C01CE">function</span>: <span style="color: #C41A16">&quot;mean&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mean&quot;</span>
     <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roi&quot;</span>
 <span style="color: #177500"># Below you see the goals specified by the call centre and the client</span>
 <span style="color: #1C01CE">goals</span>:
@@ -224,12 +225,12 @@ aim for its ROI to be at least 1.30</li>
 <span style="color: #1C01CE">sortOrder</span>:
   <span style="color: #177500"># goalsScore is used to sort first as this is the most important</span>
   <span style="color: #177500"># factor to be used when assessing the rules</span>
-  - <span style="color: #1C01CE">aggregatorName</span>: <span style="color: #C41A16">&quot;goalsScore&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-  - <span style="color: #1C01CE">aggregatorName</span>: <span style="color: #C41A16">&quot;totalValue&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-  - <span style="color: #1C01CE">aggregatorName</span>: <span style="color: #C41A16">&quot;totalCCProfit&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;goalsScore&quot;</span>
+    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalValue&quot;</span>
+    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalCCProfit&quot;</span>
+    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
 <span style="color: #177500"># The experiment will be run every 40 minutes</span>
 <span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRun</span><span style="color: #000000"> </span><span style="color: #C41A16">||</span><span style="color: #000000"> </span><span style="color: #C41A16">sinceLastRunMinutes</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">40&quot;</span>
 </pre></div>
@@ -240,7 +241,7 @@ aim for its ROI to be at least 1.30</li>
 <p><img src="/img/acmeprinters_who_should_call_which_segment_top.png" class="outline" alt="screenshot of report"></p>
 
 <p>The top of the report shows the best rule:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>(<span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;bob andrews&quot;</span>,<span style="color: #C41A16">&quot;fred wilkins&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">!=</span> <span style="color: #C41A16">&quot;b&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">==</span> <span style="color: #C41A16">&quot;c&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;bob andrews&quot;</span>,<span style="color: #C41A16">&quot;fred wilkins&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">!=</span> <span style="color: #C41A16">&quot;b&quot;</span>
 </pre></div>
 </p>
 
@@ -248,8 +249,7 @@ aim for its ROI to be at least 1.30</li>
 
 <ul>
 <li>Bob Andrews and Fred Wilkins can call any segment</li>
-<li>Everyone else must not call segment &lsquo;b&rsquo;</li>
-<li>Everyone can call segment &lsquo;c&rsquo;</li>
+<li>Everyone else can call any segment except &lsquo;b&rsquo;</li>
 </ul>
 
 <p>Below the rule on the right you can see that it passes all the goals specified.  Below on the left you can see the results that this rule gives for the various aggregators specified.  The improvement column is the difference between the result for this rule and the <code>true()</code> rule.  The <code>true()</code> rule represents all the records being used for the aggregators.  This rule will always be at the end of the report as can be seen below:</p>
@@ -259,7 +259,7 @@ aim for its ROI to be at least 1.30</li>
 <h3 id="assessment-of-report">Assessment of Report</h3>
 
 <p>The report shows that the best rule as defined by the experiment is:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>(<span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;bob andrews&quot;</span>,<span style="color: #C41A16">&quot;fred wilkins&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">!=</span> <span style="color: #C41A16">&quot;b&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">==</span> <span style="color: #C41A16">&quot;c&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;bob andrews&quot;</span>,<span style="color: #C41A16">&quot;fred wilkins&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">!=</span> <span style="color: #C41A16">&quot;b&quot;</span>
 </pre></div>
 </p>
 
@@ -267,7 +267,7 @@ aim for its ROI to be at least 1.30</li>
 
 <p>If only the <code>true()</code> rule was used i.e. the data wasn&rsquo;t filtered, then the call centre would have still met the clients goals, but would have missed out on its stretch goal of having an ROI of 1.30.</p>
 
-<p>With the use of the best rule, the client gets a fantastic result and the call centre makes a healthy profit as well.</p>
+<p>With the use of the best rule, the client gets a fantastic result and the call centre makes a healthy profit as well.  A healthy profit is particularly important for this company because they know that sometimes calling is unpredictable and they will often make a loss.  They need to minimize the losses where they can and make the most of profits when they are able.</p>
 
 
     
