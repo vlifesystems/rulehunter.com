@@ -40,7 +40,7 @@ jQuery Copy directory support/jquery/js to the wwwDir directory specified in con
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/configuration/</guid>
-      <description>Rulehunter is configured using a config.yaml file as follows: # The location of the experiment files. experimentsDir: &amp;quot;/usr/local/rulehunter/experiments&amp;quot; # The location of the html files produced. wwwDir: &amp;quot;/var/www/rulehunter&amp;quot; # The location of the build files created while running. buildDir: &amp;quot;/usr/local/rulehunter/build&amp;quot; # The source URL for the code to comply with the requirements of the AGPL. # (default: https://github.com/vlifesystems/rulehunter) sourceUrl: &amp;quot;https://example.com/somecode/rulehunter&amp;quot; # The base URL for the html files produced. This is so that you could for # example base the Rulehunter generated site at &amp;#39;/rulehunter/&amp;#39; on an intranet.</description>
+      <description>Rulehunter is configured using a config.yaml file as follows: # The location of the experiment files. experimentsDir: &amp;quot;/usr/local/rulehunter/experiments&amp;quot; # The location of the html files produced. wwwDir: &amp;quot;/var/www/rulehunter&amp;quot; # The location of the build files created while running. buildDir: &amp;quot;/usr/local/rulehunter/build&amp;quot; # The base URL for the html files produced. This is so that you could for # example base the Rulehunter generated site at &amp;#39;/rulehunter/&amp;#39; on an intranet. # This uses the &amp;#39;&amp;lt;base&amp;gt;&amp;#39; html tag and therefore should have a trailing slash or # refer to an html file.</description>
     </item>
     
     <item>
@@ -90,10 +90,8 @@ Documentation Documentation is really important to us and is kept centrally on t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/licence/</guid>
-      <description>Rulehunter - A server to find rules in data based on user specified goals
-Copyright &amp;copy; 2016 vLife Systems Ltd
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</description>
+      <description>Copyright &amp;copy; 2016-2017 vLife Systems Ltd
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
     </item>
     
     <item>
