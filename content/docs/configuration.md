@@ -18,10 +18,6 @@ wwwDir: "/var/www/rulehunter"
 # The location of the build files created while running.
 buildDir: "/usr/local/rulehunter/build"
 
-# The source URL for the code to comply with the requirements of the AGPL.
-# (default: https://github.com/vlifesystems/rulehunter)
-sourceUrl: "https://example.com/somecode/rulehunter"
-
 # The base URL for the html files produced.  This is so that you could for
 # example base the Rulehunter generated site at '/rulehunter/' on an intranet.
 # This uses the '<base>' html tag and therefore should have a trailing slash or
