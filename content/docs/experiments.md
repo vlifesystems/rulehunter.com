@@ -43,15 +43,14 @@ fields:
   - height
   - flow
 
-# The fields that can be used in the rules
-ruleFields:
-  - group
-  - district
-  - height
-
-# How complex the rules should be
-ruleComplexity:
-  # Whether the arithmetic rules should be generated
+# Describe rule generation
+ruleGeneration:
+  # The fields that can be used in the rules
+  fields:
+    - group
+    - district
+    - height
+  # Whether arithmetic rules should be generated
   arithmetic: true
 
 # Describe aggregators

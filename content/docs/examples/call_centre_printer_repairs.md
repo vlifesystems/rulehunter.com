@@ -55,10 +55,12 @@ fields:
   - ccCost
   - ccIncome
 
-# The following fields can be used in the rules
-ruleFields:
-  - name
-  - segment
+ruleGeneration:
+  # The following fields can be used in the rules
+  fields:
+    - name
+    - segment
+
 aggregators:
   # totalCCCost is the total call centre cost for a rule
   - name: "totalCCCost"
