@@ -8,7 +8,7 @@ bref: "We would love your help to improve Rulehunter"
 ---
 
 ### Code
-Rulehunter is licensed under the GNU Affero General Public License version 3 (AGPLv3).  Please see the [licence](/docs/licence/) section for more details.
+Rulehunter is licensed under an MIT Licence.  Please see the [licence](/docs/licence/) section for more details.
 
 Rulehunter is written in [Go](https://golang.org) and the [project repo](https://github.com/vlifesystems/rulehunter) is on GitHub.  Please see the [Contributing Guide](https://github.com/vlifesystems/rulehunter/blob/master/CONTRIBUTING.md) for more details.
 
