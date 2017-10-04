@@ -78,10 +78,10 @@ The client&amp;rsquo;s requirements  The ROI (Return On Investment) must be at l
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/contributing/</guid>
-      <description>Code Rulehunter is licensed under the GNU Affero General Public License version 3 (AGPLv3). Please see the licence section for more details.
+      <description>Code Rulehunter is licensed under an MIT Licence. Please see the licence section for more details.
 Rulehunter is written in Go and the project repo is on GitHub. Please see the Contributing Guide for more details.
 If you find a bug, please report it at the project&amp;rsquo;s issues tracker also on GitHub.
-Documentation Documentation is really important to us and is kept centrally on this website.</description>
+Documentation Documentation is really important to us and is kept centrally on this website. The content is licensed under a Creative Commons Attribution 4.</description>
     </item>
     
     <item>
