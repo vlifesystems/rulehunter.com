@@ -5,6 +5,9 @@
   <div id="hero">
     {{ if in .URL "examples" }}
     <h1>Examples</h1>
+      <p class="hero-lead">
+         {{ .Params.bref | safeHTML }}.
+      </p>
     {{ else }}
     <h1>Documentation</h1>
     {{ end }}
