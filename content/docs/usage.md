@@ -32,6 +32,11 @@ To uninstall Rulehunter as an operating service:
 rulehunter service uninstall
 {{< /highlight >}}
 
+To get the version of Rulehunter:
+{{< highlight shell >}}
+rulehunter version
+{{< /highlight >}}
+
 To get help:
 {{< highlight shell >}}
 rulehunter help
