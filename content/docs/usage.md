@@ -17,6 +17,11 @@ To specify a config file:
 rulehunter --config=/usr/local/rulehunter/config.yaml
 {{< /highlight >}}
 
+To specify a single experiment file:
+{{< highlight shell >}}
+rulehunter --file=experiments/diabetes.yaml
+{{< /highlight >}}
+
 To run Rulehunter as a server continually checking and processing experiments:
 {{< highlight shell >}}
 rulehunter serve
