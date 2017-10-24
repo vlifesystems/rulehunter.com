@@ -109,8 +109,32 @@
     </div> 
     <div id="kube-component" class="content">
     
+<nav id="contents">
+    <ol class="js-toc">
+    </ol>
+</nav>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded",
+function(){
+tocbot.init({
 
-    <p>To processes the experiments in the <code>experimentsDir</code> directory specified in <code>config.yaml</code>, which is located in the current directory:
+tocSelector: '.js-toc',
+
+contentSelector: '.content',
+
+headingSelector: 'h3'
+})
+}
+);
+</script>
+
+
+
+    
+
+<h3 id="single-run">Single Run</h3>
+
+<p>To processes the experiments in the <code>experimentsDir</code> directory specified in <code>config.yaml</code>, which is located in the current directory:
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter
 </pre></div>
 </p>
@@ -125,18 +149,8 @@
 </pre></div>
 </p>
 
-<p>To run Rulehunter as a server continually checking and processing experiments:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter serve
-</pre></div>
-</p>
-
-<p>To install Rulehunter as an operating service (which then needs starting separately) using <code>/usr/local/rulehunter/config.yaml</code>:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service install --config<span style="color: #000000">=</span>/usr/local/rulehunter/config.yaml
-</pre></div>
-</p>
-
-<p>To uninstall Rulehunter as an operating service:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service uninstall
+<p>To ignore the <code>when</code> field in experiments and hence run experiments now:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter --ignore-when
 </pre></div>
 </p>
 
@@ -147,6 +161,25 @@
 
 <p>To get help:
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter <span style="color: #A90D91">help</span>
+</pre></div>
+</p>
+
+<h3 id="server">Server</h3>
+
+<p>To run Rulehunter as a server continually checking and processing experiments:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter serve
+</pre></div>
+</p>
+
+<h3 id="service">Service</h3>
+
+<p>To install Rulehunter as an operating service (which then needs starting separately) using <code>/usr/local/rulehunter/config.yaml</code>:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service install --config<span style="color: #000000">=</span>/usr/local/rulehunter/config.yaml
+</pre></div>
+</p>
+
+<p>To uninstall Rulehunter as an operating service:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service uninstall
 </pre></div>
 </p>
 
