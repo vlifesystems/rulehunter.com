@@ -20,5 +20,15 @@
 The client&amp;rsquo;s requirements  The ROI (Return On Investment) must be at least 2.0 At least 25% of contacts must result in a repair contract They would like the total value of contracts to be as high as possible  The call centre&amp;rsquo;s requirements  The ROI for the call centre needs to be at least 1.</description>
     </item>
     
+    <item>
+      <title>Breast Cancer Diagnosis</title>
+      <link>http://rulehunter.com/docs/examples/breast_cancer_diagnosis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/examples/breast_cancer_diagnosis/</guid>
+      <description>Outline The following is a hypothetical scenario used purely to demonstrate Rulehunter. The results shouldn&amp;rsquo;t be used in any real-world setting.
+A group of doctors want to find out what indicates that a patient is likely to have breast cancer. They want to reduce the chance that a patient with breast cancer is miss diagnosed and increase the speed with which letters are sent out for patients to have further investigation.</description>
+    </item>
+    
   </channel>
 </rss>
