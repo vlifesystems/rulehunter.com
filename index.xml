@@ -54,12 +54,36 @@ jQuery Copy directory support/jquery/js to the wwwDir directory specified in con
     </item>
     
     <item>
+      <title>Examples Included</title>
+      <link>http://rulehunter.com/docs/examples/examples_included/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/examples/examples_included/</guid>
+      <description>Included Experiments The examples/ directory of the repository contains a number of experiments, in examples/experiments/, to demonstrate how Rulehunter can be used:
+acmeprinters_repair016_who_should_call_which_segment.yaml A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past. The call centre needs to balance its need to make a profit with the needs of their client. This is used in a worked example.</description>
+    </item>
+    
+    <item>
       <title>Usage</title>
       <link>http://rulehunter.com/docs/usage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/usage/</guid>
       <description>Single Run To processes the experiments in the experimentsDir directory specified in config.yaml, which is located in the current directory: rulehunter  To specify a config file: rulehunter --config=/usr/local/rulehunter/config.yaml  To specify a single experiment file: rulehunter --file=experiments/diabetes.yaml  To ignore the when field in experiments and hence run experiments now: rulehunter --ignore-when  To get the version of Rulehunter: rulehunter version  To get help: rulehunter help  Server To run Rulehunter as a server continually checking and processing experiments: rulehunter serve  Service To install Rulehunter as an operating service (which then needs starting separately) using /usr/local/rulehunter/config.</description>
+    </item>
+    
+    <item>
+      <title>Processing the Examples</title>
+      <link>http://rulehunter.com/docs/examples/processing_the_examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/examples/processing_the_examples/</guid>
+      <description>Using the Examples The example experiments demonstrate well how Rulehunter works. Once you have run them you can tinker with them and compare the results.
+Preparing the www Directory Before running rulehunter on the experiments you need to initialize the www directory.
+For Linux/MacOS:
+chmod +x examples/bin/init_www_unix.sh examples/bin/init_www_unix.sh  For Windows:
+examples\bin\init_www_windows.bat  Processing the Experiments To process the experiments run rulehunter from the examples/ directory:
+rulehunter  The website will be generated in the examples/www directory and can be viewed with a simple static webserver such as the following run from the examples/www directory:</description>
     </item>
     
     <item>

@@ -19,7 +19,19 @@
   </url>
   
   <url>
+    <loc>http://rulehunter.com/docs/examples/examples_included/</loc>
+  </url>
+  
+  <url>
     <loc>http://rulehunter.com/docs/usage/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/examples/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rulehunter.com/docs/examples/processing_the_examples/</loc>
   </url>
   
   <url>
@@ -28,10 +40,6 @@
   
   <url>
     <loc>http://rulehunter.com/docs/examples/breast_cancer_diagnosis/</loc>
-  </url>
-  
-  <url>
-    <loc>http://rulehunter.com/docs/examples/</loc>
   </url>
   
   <url>
