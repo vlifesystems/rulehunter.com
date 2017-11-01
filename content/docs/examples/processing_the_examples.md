@@ -35,6 +35,12 @@ To process the experiments run `rulehunter` from the `examples/` directory:
     rulehunter
 ```
 
+To process a single experiment run `rulehunter` with the `--file` flag from the `examples/` directory.  For example to process the `experiments/iris-setosa.yaml` file run:
+
+```Shell
+    rulehunter --file=experiments/iris-setosa.yaml
+```
+
 The website will be generated in the `examples/www` directory and can
 be viewed with a simple static webserver such as the following run from
 the `examples/www` directory:
