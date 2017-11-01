@@ -83,7 +83,7 @@ Preparing the www Directory Before running rulehunter on the experiments you nee
 For Linux/MacOS:
 chmod +x examples/bin/init_www_unix.sh examples/bin/init_www_unix.sh  For Windows:
 examples\bin\init_www_windows.bat  Processing the Experiments To process the experiments run rulehunter from the examples/ directory:
-rulehunter  The website will be generated in the examples/www directory and can be viewed with a simple static webserver such as the following run from the examples/www directory:</description>
+rulehunter  To process a single experiment run rulehunter with the --file flag from the examples/ directory.</description>
     </item>
     
     <item>
