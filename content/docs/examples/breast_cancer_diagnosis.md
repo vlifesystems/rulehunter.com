@@ -1,7 +1,7 @@
 ---
 title: "Breast Cancer Diagnosis"
 description: "Doctors want to improve diagnosis and speed-up follow-up letters for patients with suspected breast cancer"
-weight: 60
+weight: 70
 draft: false
 toc: true
 bref: "An example of doctors wanting to improve diagnosis and speed-up the time it takes to send out follow-up letters for patients with suspected breast cancer"

@@ -14,3 +14,4 @@
 img.outline { border: 1px solid #CDCDCD }
 span.author a { text-decoration: none }
 
+dl.files dd {margin-bottom: 1em;}

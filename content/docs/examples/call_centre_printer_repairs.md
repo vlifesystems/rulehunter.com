@@ -1,7 +1,7 @@
 ---
 title: "A Call Centre: Printer Repairs"
 description: "A call centre selling printer repair contracts for its client"
-weight: 60
+weight: 70
 draft: false
 toc: true
 bref: "An example of a call centre trying to balance its needs with those of their client"
