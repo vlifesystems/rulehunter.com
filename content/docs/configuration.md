@@ -15,7 +15,9 @@ experimentsDir: "/usr/local/rulehunter/experiments"
 # The location of the html files produced.
 wwwDir: "/var/www/rulehunter"
 
-# The location of the build files created while running.
+# The location of the build files created while running. A temporary copy
+# of each Dataset will be stored in a 'tmp' sub-directory while being
+# processed.
 buildDir: "/usr/local/rulehunter/build"
 
 # The base URL for the html files produced.  This is so that you could for
