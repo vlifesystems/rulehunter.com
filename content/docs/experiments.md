@@ -99,6 +99,7 @@ For more information about `dataSourceName` see the following for each `driverNa
 
 * `mssql` - MS SQL Server - [README](https://github.com/denisenkom/go-mssqldb/blob/master/README.md).
 * `mysql` - MySQL - [README](https://github.com/go-sql-driver/mysql#dsn-data-source-name).
+* `postgres` - PostgreSQL - [GoDoc](https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters).
 * `sqlite3` - sqlite3 - This just uses the filename of the database.
 
 <em>For security reasons any user specified for an SQL source should only have read access to the tables/database as the queries can't be checked for safety.</em>
