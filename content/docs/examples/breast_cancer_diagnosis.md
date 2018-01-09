@@ -9,7 +9,7 @@ bref: "An example of doctors wanting to improve diagnosis and speed-up the time 
 
 ### Outline
 
-<em>The following is a hypothetical scenario used purely to demonstrate Rulehunter.  The results shouldn't be used in any real-world setting.</em>
+<big><strong><em>The following is a hypothetical scenario used purely to demonstrate Rulehunter.  The results shouldn't be used in any real-world setting.</em></strong></big>
 
 A group of doctors want to find out what indicates that a patient is likely to have breast cancer.  They want to reduce the chance that a patient with breast cancer is miss diagnosed and increase the speed with which letters are sent out for patients to have further investigation.
 
