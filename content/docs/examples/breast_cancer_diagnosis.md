@@ -38,13 +38,13 @@ tags:
   - breast cancer
   - cancer
   - wisconsin
-dataset: "csv"
 
-# The data they had been collated about breast cancer diagnosis in a CSV file
-csv:
-  filename: "csv/breast_cancer_wisconsin.csv"
-  hasHeader: true
-  separator: ","
+# The data that had been collated about breast cancer diagnosis in a CSV file
+trainDataset:
+  csv:
+    filename: "csv/breast_cancer_wisconsin.csv"
+    hasHeader: true
+    separator: ","
 
 # Field names representing the fields in the CSV file
 fields:
@@ -179,11 +179,11 @@ tags:
   - breast cancer
   - cancer
   - wisconsin
-dataset: "csv"
-csv:
-  filename: "csv/breast_cancer_wisconsin.csv"
-  hasHeader: true
-  separator: ","
+trainDataset:
+  csv:
+    filename: "csv/breast_cancer_wisconsin.csv"
+    hasHeader: true
+    separator: ","
 fields:
   - id
   - diagnosis

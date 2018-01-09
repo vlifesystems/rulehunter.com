@@ -37,15 +37,15 @@ tags:
   - repair
   - sales
   - acmePrinters
-dataset: "sql"
-sql:
-  driverName: "mssql"
-  # The following is the connection string for the MS SQL Server database.
-  # It is for a server at ip address: 127.0.0.1, port: 1433
-  # The database is called: printrepair16
-  # The user is: sa, with a password of: letmein
-  dataSourceName: "Server=127.0.0.1;Port=1433;Database=printrepair16;UID=sa,PWD=letmein"
-  query: "select name,segment,conversion,roi,value,ccCost,ccIncome from callerstats"
+trainDataset:
+  sql:
+    driverName: "mssql"
+    # The following is the connection string for the MS SQL Server database.
+    # It is for a server at ip address: 127.0.0.1, port: 1433
+    # The database is called: printrepair16
+    # The user is: sa, with a password of: letmein
+    dataSourceName: "Server=127.0.0.1;Port=1433;Database=printrepair16;UID=sa,PWD=letmein"
+    query: "select name,segment,conversion,roi,value,ccCost,ccIncome from callerstats"
 fields:
   - name
   - segment

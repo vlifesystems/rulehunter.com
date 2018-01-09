@@ -22,19 +22,30 @@ category: "acme"
 # The tags associated with the report
 tags:
   - test
-  - "fred / ned"
+  - "household sewage"
 
-# The type of the dataset (csv or sql)
-dataset: "csv"
+# The dataset to used to train the rule discovery process
+trainDataset:
+  # Describe a CSV dataset
+  csv:
+    # The name of the CSV file
+    filename: "fixtures/flow.csv"
+    # Whether the CSV file contains a header line
+    hasHeader: true
+    # What separator the CSV file is using
+    separator:  ","
 
-# Describe the CSV file
-csv:
-  # The name of the CSV file
-  filename: "fixtures/flow.csv"
-  # Whether the CSV file contains a header line
-  hasHeader: true
-  # What separator the CSV file is using
-  separator: ","
+# An optional dataset used to test the rules generated from the train dataset
+testDataset:
+  # Describe an SQL connection
+  sql:
+    # The name of the driver to use (mssql, mysql, postgres, sqlite3)
+    driverName: "mssql"
+    # The details of the data source
+    dataSourceName: "Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein"
+    # An SQL query to run on the data source to create the dataset
+    query: "select * from flow"
+
 
 # The names of the fields to be used by Rulehunter
 fields:
@@ -84,19 +95,7 @@ rules:
 {{< /highlight >}}
 
 ### SQL
-To connect to a database using SQL you can replace the `csv` field above with something like this:
-{{< highlight yaml >}}
-# Describe the SQL connection
-sql:
-  # The name of the driver to use (mssql, mysql, sqlite3)
-  driverName: "mssql"
-  # The details of the data source
-  dataSourceName: "Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein"
-  # An SQL query to run on the data source to create the dataset
-  query: "select * from flow"
-{{< /highlight >}}
-
-For more information about dataSourceName see the following for each driver:
+For more information about `dataSourceName` see the following for each `driverName`:
 
 * `mssql` - MS SQL Server - [README](https://github.com/denisenkom/go-mssqldb/blob/master/README.md).
 * `mysql` - MySQL - [README](https://github.com/go-sql-driver/mysql#dsn-data-source-name).
