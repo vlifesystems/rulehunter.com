@@ -26,8 +26,8 @@ buildDir: "/usr/local/rulehunter/build"
 baseUrl: "http://intranet/rulehunter/"
 
 # The maximum number of rules in a report.
-# (default: 100)
-maxNumReportRules: 50
+# (default: 20)
+maxNumReportRules: 10
 
 # The maximum number of processes used to process the experiments.
 # (default: -1, indicating the number of cpu's in the machine)
