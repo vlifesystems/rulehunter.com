@@ -165,15 +165,15 @@ aim for its ROI to be at least 1.30</li>
   - <span style="color: #1C01CE">repair</span>
   - <span style="color: #1C01CE">sales</span>
   - <span style="color: #1C01CE">acmePrinters</span>
-<span style="color: #1C01CE">dataset</span>: <span style="color: #C41A16">&quot;sql&quot;</span>
-<span style="color: #1C01CE">sql</span>:
-  <span style="color: #1C01CE">driverName</span>: <span style="color: #C41A16">&quot;mssql&quot;</span>
-  <span style="color: #177500"># The following is the connection string for the MS SQL Server database.</span>
-  <span style="color: #177500"># It is for a server at ip address: 127.0.0.1, port: 1433</span>
-  <span style="color: #177500"># The database is called: printrepair16</span>
-  <span style="color: #177500"># The user is: sa, with a password of: letmein</span>
-  <span style="color: #1C01CE">dataSourceName</span>: <span style="color: #C41A16">&quot;Server=127.0.0.1;Port=1433;Database=printrepair16;UID=sa,PWD=letmein&quot;</span>
-  <span style="color: #1C01CE">query</span>: <span style="color: #C41A16">&quot;select</span><span style="color: #000000"> </span><span style="color: #C41A16">name,segment,conversion,roi,value,ccCost,ccIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">from</span><span style="color: #000000"> </span><span style="color: #C41A16">callerstats&quot;</span>
+<span style="color: #1C01CE">trainDataset</span>:
+  <span style="color: #1C01CE">sql</span>:
+    <span style="color: #1C01CE">driverName</span>: <span style="color: #C41A16">&quot;mssql&quot;</span>
+    <span style="color: #177500"># The following is the connection string for the MS SQL Server database.</span>
+    <span style="color: #177500"># It is for a server at ip address: 127.0.0.1, port: 1433</span>
+    <span style="color: #177500"># The database is called: printrepair16</span>
+    <span style="color: #177500"># The user is: sa, with a password of: letmein</span>
+    <span style="color: #1C01CE">dataSourceName</span>: <span style="color: #C41A16">&quot;Server=127.0.0.1;Port=1433;Database=printrepair16;UID=sa,PWD=letmein&quot;</span>
+    <span style="color: #1C01CE">query</span>: <span style="color: #C41A16">&quot;select</span><span style="color: #000000"> </span><span style="color: #C41A16">name,segment,conversion,roi,value,ccCost,ccIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">from</span><span style="color: #000000"> </span><span style="color: #C41A16">callerstats&quot;</span>
 <span style="color: #1C01CE">fields</span>:
   - <span style="color: #1C01CE">name</span>
   - <span style="color: #1C01CE">segment</span>

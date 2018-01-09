@@ -145,19 +145,30 @@ headingSelector: 'h3'
 <span style="color: #177500"># The tags associated with the report</span>
 <span style="color: #1C01CE">tags</span>:
   - <span style="color: #1C01CE">test</span>
-  - <span style="color: #C41A16">&quot;fred</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">ned&quot;</span>
+  - <span style="color: #C41A16">&quot;household</span><span style="color: #000000"> </span><span style="color: #C41A16">sewage&quot;</span>
 
-<span style="color: #177500"># The type of the dataset (csv or sql)</span>
-<span style="color: #1C01CE">dataset</span>: <span style="color: #C41A16">&quot;csv&quot;</span>
+<span style="color: #177500"># The dataset to used to train the rule discovery process</span>
+<span style="color: #1C01CE">trainDataset</span>:
+  <span style="color: #177500"># Describe a CSV dataset</span>
+  <span style="color: #1C01CE">csv</span>:
+    <span style="color: #177500"># The name of the CSV file</span>
+    <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;fixtures/flow.csv&quot;</span>
+    <span style="color: #177500"># Whether the CSV file contains a header line</span>
+    <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
+    <span style="color: #177500"># What separator the CSV file is using</span>
+    <span style="color: #1C01CE">separator</span>:  <span style="color: #C41A16">&quot;,&quot;</span>
 
-<span style="color: #177500"># Describe the CSV file</span>
-<span style="color: #1C01CE">csv</span>:
-  <span style="color: #177500"># The name of the CSV file</span>
-  <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;fixtures/flow.csv&quot;</span>
-  <span style="color: #177500"># Whether the CSV file contains a header line</span>
-  <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
-  <span style="color: #177500"># What separator the CSV file is using</span>
-  <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;,&quot;</span>
+<span style="color: #177500"># An optional dataset used to test the rules generated from the train dataset</span>
+<span style="color: #1C01CE">testDataset</span>:
+  <span style="color: #177500"># Describe an SQL connection</span>
+  <span style="color: #1C01CE">sql</span>:
+    <span style="color: #177500"># The name of the driver to use (mssql, mysql, postgres, sqlite3)</span>
+    <span style="color: #1C01CE">driverName</span>: <span style="color: #C41A16">&quot;mssql&quot;</span>
+    <span style="color: #177500"># The details of the data source</span>
+    <span style="color: #1C01CE">dataSourceName</span>: <span style="color: #C41A16">&quot;Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein&quot;</span>
+    <span style="color: #177500"># An SQL query to run on the data source to create the dataset</span>
+    <span style="color: #1C01CE">query</span>: <span style="color: #C41A16">&quot;select</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">from</span><span style="color: #000000"> </span><span style="color: #C41A16">flow&quot;</span>
+
 
 <span style="color: #177500"># The names of the fields to be used by Rulehunter</span>
 <span style="color: #1C01CE">fields</span>:
@@ -209,23 +220,12 @@ headingSelector: 'h3'
 
 <h3 id="sql">SQL</h3>
 
-<p>To connect to a database using SQL you can replace the <code>csv</code> field above with something like this:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Describe the SQL connection</span>
-<span style="color: #1C01CE">sql</span>:
-  <span style="color: #177500"># The name of the driver to use (mssql, mysql, sqlite3)</span>
-  <span style="color: #1C01CE">driverName</span>: <span style="color: #C41A16">&quot;mssql&quot;</span>
-  <span style="color: #177500"># The details of the data source</span>
-  <span style="color: #1C01CE">dataSourceName</span>: <span style="color: #C41A16">&quot;Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein&quot;</span>
-  <span style="color: #177500"># An SQL query to run on the data source to create the dataset</span>
-  <span style="color: #1C01CE">query</span>: <span style="color: #C41A16">&quot;select</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">from</span><span style="color: #000000"> </span><span style="color: #C41A16">flow&quot;</span>
-</pre></div>
-</p>
-
-<p>For more information about dataSourceName see the following for each driver:</p>
+<p>For more information about <code>dataSourceName</code> see the following for each <code>driverName</code>:</p>
 
 <ul>
 <li><code>mssql</code> - MS SQL Server - <a href="https://github.com/denisenkom/go-mssqldb/blob/master/README.md">README</a>.</li>
 <li><code>mysql</code> - MySQL - <a href="https://github.com/go-sql-driver/mysql#dsn-data-source-name">README</a>.</li>
+<li><code>postgres</code> - PostgreSQL - <a href="https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters">GoDoc</a>.</li>
 <li><code>sqlite3</code> - sqlite3 - This just uses the filename of the database.</li>
 </ul>
 

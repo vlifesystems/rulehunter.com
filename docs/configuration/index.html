@@ -117,7 +117,9 @@
 <span style="color: #177500"># The location of the html files produced.</span>
 <span style="color: #1C01CE">wwwDir</span>: <span style="color: #C41A16">&quot;/var/www/rulehunter&quot;</span>
 
-<span style="color: #177500"># The location of the build files created while running.</span>
+<span style="color: #177500"># The location of the build files created while running. A temporary copy</span>
+<span style="color: #177500"># of each Dataset will be stored in a &#39;tmp&#39; sub-directory while being</span>
+<span style="color: #177500"># processed.</span>
 <span style="color: #1C01CE">buildDir</span>: <span style="color: #C41A16">&quot;/usr/local/rulehunter/build&quot;</span>
 
 <span style="color: #177500"># The base URL for the html files produced.  This is so that you could for</span>
@@ -128,8 +130,8 @@
 <span style="color: #1C01CE">baseUrl</span>: <span style="color: #C41A16">&quot;http://intranet/rulehunter/&quot;</span>
 
 <span style="color: #177500"># The maximum number of rules in a report.</span>
-<span style="color: #177500"># (default: 100)</span>
-<span style="color: #1C01CE">maxNumReportRules</span>: <span style="color: #1C01CE">50</span>
+<span style="color: #177500"># (default: 20)</span>
+<span style="color: #1C01CE">maxNumReportRules</span>: <span style="color: #1C01CE">10</span>
 
 <span style="color: #177500"># The maximum number of processes used to process the experiments.</span>
 <span style="color: #177500"># (default: -1, indicating the number of cpu&#39;s in the machine)</span>
@@ -139,12 +141,6 @@
 <span style="color: #177500"># This is useful when creating and testing experiment files.</span>
 <span style="color: #177500"># (default: -1, indicating all the records)</span>
 <span style="color: #1C01CE">maxNumRecords 150</span>
-
-<span style="color: #177500"># The maximum number of records to cache from a data source.</span>
-<span style="color: #177500"># This will speed up access to a data source, particularly if being</span>
-<span style="color: #177500"># accessed over a network.</span>
-<span style="color: #177500"># (default: 0, indicating no caching)</span>
-<span style="color: #1C01CE">maxNumCacheRecords 500000</span>
 </pre></div>
 </p>
 
