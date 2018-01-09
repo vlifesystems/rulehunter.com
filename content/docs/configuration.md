@@ -38,9 +38,4 @@ maxNumProcesses: 4
 # (default: -1, indicating all the records)
 maxNumRecords 150
 
-# The maximum number of records to cache from a data source.
-# This will speed up access to a data source, particularly if being
-# accessed over a network.
-# (default: 0, indicating no caching)
-maxNumCacheRecords 500000
 {{< /highlight >}}
