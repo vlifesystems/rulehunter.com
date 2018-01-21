@@ -7,7 +7,7 @@ toc: false
 bref: "Rulehunter is licensed under an MIT Licence "
 ---
 
-Copyright (C) 2016-2017 [vLife Systems Ltd](http://vlifesystems.com)
+Copyright (C) 2016-2018 [vLife Systems Ltd](http://vlifesystems.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
