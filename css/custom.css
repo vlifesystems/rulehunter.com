@@ -9,9 +9,42 @@
   background-repeat: no-repeat;
 }
 
-#footer nav ul li span a { color: rgba(0, 0, 0, 0.3); }
+div.goals {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+div.rule {
+  font-family: 'Droid Sans Mono', monospace;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div.aggregators th, div.goals th {
+  border: 1px solid #DDD;
+  background-color: #CDF;
+  padding: 8px;
+}
+
+div.aggregators td, div.goals td {
+  border: 1px solid #DDD;
+  padding: 8px;
+}
+
+div.goals table td.goalPassed-true {
+  background-color: #CFC;
+}
+
+div.goals table td.goalPassed-false {
+  background-color: #FCC;
+}
+
+
 
 img.outline { border: 1px solid #CDCDCD }
 span.author a { text-decoration: none }
 
 dl.files dd {margin-bottom: 1em;}
+
+#footer nav ul li span a { color: rgba(0, 0, 0, 0.3); }

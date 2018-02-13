@@ -139,7 +139,7 @@ headingSelector: 'h3'
 <h4 id="the-client-s-requirements">The client&rsquo;s requirements</h4>
 
 <ul>
-<li>The ROI (Return On Investment) must be at least 2.0</li>
+<li>The ROI (Return On Investment) must be at least 15.0</li>
 <li>At least 25% of contacts must result in a repair contract</li>
 <li>They would like the total value of contracts to be as high as possible</li>
 </ul>
@@ -150,10 +150,23 @@ headingSelector: 'h3'
 <li>The ROI for the call centre needs to be at least 1.10</li>
 <li>The clients requirements must be met</li>
 <li>Once the clients requirements are met the call centre would like
-to reach for an ROI of 1.20</li>
-<li>If the clients ROI surpasses 3.0, then the call centre would like to
-aim for its ROI to be at least 1.30</li>
+to reach for an ROI of 1.30</li>
 </ul>
+
+<h4 id="the-call-centre-costs">The call centre costs</h4>
+
+<p>The call centre has used the following factors to calculate their calling cost:</p>
+
+<ul>
+<li>£0.04/min phone call cost</li>
+<li>£10/hr caller cost</li>
+<li>£10/hr overheads</li>
+</ul>
+
+<p>This gives a cost to the call centre of £0.0062/second of calling:</p>
+
+<pre><code>(0.04/60) + (10/60/60) + (10/60/60) = 0.0062
+</code></pre>
 
 <h3 id="who-should-call-which-segment">Who should call which segment?</h3>
 
@@ -164,112 +177,785 @@ aim for its ROI to be at least 1.30</li>
 <span style="color: #1C01CE">tags</span>:
   - <span style="color: #1C01CE">repair</span>
   - <span style="color: #1C01CE">sales</span>
-  - <span style="color: #1C01CE">acmePrinters</span>
+  - <span style="color: #1C01CE">printers</span>
 <span style="color: #1C01CE">trainDataset</span>:
-  <span style="color: #1C01CE">sql</span>:
-    <span style="color: #1C01CE">driverName</span>: <span style="color: #C41A16">&quot;mssql&quot;</span>
-    <span style="color: #177500"># The following is the connection string for the MS SQL Server database.</span>
-    <span style="color: #177500"># It is for a server at ip address: 127.0.0.1, port: 1433</span>
-    <span style="color: #177500"># The database is called: printrepair16</span>
-    <span style="color: #177500"># The user is: sa, with a password of: letmein</span>
-    <span style="color: #1C01CE">dataSourceName</span>: <span style="color: #C41A16">&quot;Server=127.0.0.1;Port=1433;Database=printrepair16;UID=sa,PWD=letmein&quot;</span>
-    <span style="color: #1C01CE">query</span>: <span style="color: #C41A16">&quot;select</span><span style="color: #000000"> </span><span style="color: #C41A16">name,segment,conversion,roi,value,ccCost,ccIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">from</span><span style="color: #000000"> </span><span style="color: #C41A16">callerstats&quot;</span>
+  <span style="color: #1C01CE">csv</span>:
+    <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;csv/printer_repairs_callerstats.csv&quot;</span>
+    <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
+    <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;,&quot;</span>
 <span style="color: #1C01CE">fields</span>:
   - <span style="color: #1C01CE">name</span>
   - <span style="color: #1C01CE">segment</span>
   - <span style="color: #1C01CE">conversion</span>
-  - <span style="color: #1C01CE">roi</span>
+  - <span style="color: #1C01CE">callTime</span>
+  - <span style="color: #1C01CE">numContacts</span>
   - <span style="color: #1C01CE">value</span>
-  - <span style="color: #1C01CE">ccCost</span>
-  - <span style="color: #1C01CE">ccIncome</span>
-
 <span style="color: #1C01CE">ruleGeneration</span>:
-  <span style="color: #177500"># The following fields can be used in the rules</span>
   <span style="color: #1C01CE">fields</span>:
     - <span style="color: #1C01CE">name</span>
     - <span style="color: #1C01CE">segment</span>
-
 <span style="color: #1C01CE">aggregators</span>:
-  <span style="color: #177500"># totalCCCost is the total call centre cost for a rule</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCCost&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalContacts&quot;</span>
     <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
-    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;ccCost&quot;</span>
-  <span style="color: #177500"># totalCCIncome is the total call centre income for a rule</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCIncome&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;numContacts&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientValue&quot;</span>
     <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
-    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;ccIncome&quot;</span>
-  <span style="color: #177500"># totalCCROI is the total call centre ROI (Return On Investment) for a rule</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCROI&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;value&quot;</span>
+    <span style="color: #177500"># 5% commission on all repair contracts</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientCommission&quot;</span>
     <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
-    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;totalCCIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCCCost&quot;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCCProfit&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientValue</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">0.05&quot;</span>
+    <span style="color: #177500"># £2 charge per contact</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientContactCharge&quot;</span>
     <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
-    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;totalCCIncome</span><span style="color: #000000"> </span><span style="color: #C41A16">-</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCCCost&quot;</span>
-  <span style="color: #177500"># totalValue is the total value of the contracts sold for a rule</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalValue&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalContacts</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">2&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientCharge&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientCommission</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">totalClientContactCharge&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientROI&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(totalClientValue</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalClientCharge)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreCost&quot;</span>
     <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
-    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;value&quot;</span>
+    <span style="color: #177500"># £0.04/min call cost, plus £10/hr caller cost, plus £10/hr overheads</span>
+    <span style="color: #177500"># Equal: (0.04/60) + (10/60/60) + (10/60/60) = 0.0062</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;callTime</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">0.0062&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreProfit&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">-</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCallCentreCost&quot;</span>
   - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;meanConversion&quot;</span>
     <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mean&quot;</span>
-    <span style="color: #1C01CE">arg</span>:  <span style="color: #C41A16">&quot;conversion&quot;</span>
-  <span style="color: #177500"># clientMeanROI is the average client ROI for a rule</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;clientMeanROI&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mean&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roi&quot;</span>
-<span style="color: #177500"># Below you see the goals specified by the call centre and the client</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;conversion&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreROI&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalCallCentreCost</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalCallCentreCost)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
 <span style="color: #1C01CE">goals</span>:
-  - <span style="color: #C41A16">&quot;totalCCROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.10&quot;</span>
-  - <span style="color: #C41A16">&quot;clientMeanROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">2&quot;</span>
+  - <span style="color: #C41A16">&quot;totalCallCentreROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.10&quot;</span>
+  - <span style="color: #C41A16">&quot;totalClientROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">15&quot;</span>
   - <span style="color: #C41A16">&quot;meanConversion</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">0.25&quot;</span>
-  - <span style="color: #C41A16">&quot;totalCCROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.20&quot;</span>
-  - <span style="color: #C41A16">&quot;clientMeanROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">3&quot;</span>
-  - <span style="color: #C41A16">&quot;totalCCROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.30&quot;</span>
+  - <span style="color: #C41A16">&quot;totalCallCentreROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.30&quot;</span>
 <span style="color: #1C01CE">sortOrder</span>:
-  <span style="color: #177500"># goalsScore is used to sort first as this is the most important</span>
-  <span style="color: #177500"># factor to be used when assessing the rules</span>
   - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;goalsScore&quot;</span>
-    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
-  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalValue&quot;</span>
-    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
-  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalCCProfit&quot;</span>
-    <span style="color: #1C01CE">direction</span>:  <span style="color: #C41A16">&quot;descending&quot;</span>
-<span style="color: #177500"># The experiment will be run every 40 minutes</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalClientValue&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalCallCentreROI&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;meanConversion&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+<span style="color: #177500"># The experiment should be run every 40 minutes</span>
 <span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRun</span><span style="color: #000000"> </span><span style="color: #C41A16">||</span><span style="color: #000000"> </span><span style="color: #C41A16">sinceLastRunMinutes</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">40&quot;</span>
 </pre></div>
 
 
-<p>After running this experiment a report is generated which starts as follows:</p>
+<h4 id="assessment-of-report">Assessment of Report</h4>
 
-<p><img src="/img/acmeprinters_who_should_call_which_segment_top.png" class="outline" alt="screenshot of report"></p>
+<p>After running the experiment a report is generated which finds the following rule:</p>
+
+<div class="rule">
+(in(name,&#34;Fred Wilkins&#34;,&#34;Martha Stuart&#34;,&#34;Rebecca Davies&#34;) &amp;&amp; in(segment,&#34;a&#34;,&#34;c&#34;,&#34;f&#34;,&#34;g&#34;)) || (in(name,&#34;Fred Wilkins&#34;,&#34;Mary Harris&#34;) || segment == &#34;g&#34;)
+</div>
+<div class="aggregators">
+  <table>
+    <tr>
+      <th>Aggregator</th>
+      <th>Original Value</th>
+      <th>Rule Value</th>
+      <th>Change</th>
+    </tr>
+
+    <tr>
+      <td>goalsScore</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+
+    <tr>
+      <td>meanConversion</td>
+      <td>0.1584</td>
+      <td>0.3028</td>
+      <td>0.1444</td>
+    </tr>
+
+    <tr>
+      <td>numMatches</td>
+      <td>49</td>
+      <td>25</td>
+      <td>-24</td>
+    </tr>
+
+    <tr>
+      <td>percentMatches</td>
+      <td>100</td>
+      <td>51.02</td>
+      <td>-48.98</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreCost</td>
+      <td>90267.20120000002</td>
+      <td>38595.396799999995</td>
+      <td>-51671.80440000002</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreProfit</td>
+      <td>-31954.10120000002</td>
+      <td>14669.653200000008</td>
+      <td>46623.75440000004</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI</td>
+      <td>0.65</td>
+      <td>1.38</td>
+      <td>0.73</td>
+    </tr>
+
+    <tr>
+      <td>totalClientCharge</td>
+      <td>58313.100000000006</td>
+      <td>53265.05</td>
+      <td>-5048.050000000002</td>
+    </tr>
+
+    <tr>
+      <td>totalClientCommission</td>
+      <td>43133.100000000006</td>
+      <td>43105.05</td>
+      <td>-28.050000000003</td>
+    </tr>
+
+    <tr>
+      <td>totalClientContactCharge</td>
+      <td>15180</td>
+      <td>10160</td>
+      <td>-5020</td>
+    </tr>
+
+    <tr>
+      <td>totalClientROI</td>
+      <td>14.79</td>
+      <td>16.19</td>
+      <td>1.4</td>
+    </tr>
+
+    <tr>
+      <td>totalClientValue</td>
+      <td>862662</td>
+      <td>862101</td>
+      <td>-561</td>
+    </tr>
+
+    <tr>
+      <td>totalContacts</td>
+      <td>7590</td>
+      <td>5080</td>
+      <td>-2510</td>
+    </tr>
+
+  </table>
+</div>
+
+<div class="goals">
+  <table>
+    <tr>
+      <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI &gt;= 1.10</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>totalClientROI &gt;= 15</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>meanConversion &gt; 0.25</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI &gt;= 1.30</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+  </table>
+</div>
 
 <p>The top of the report shows the best rule:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;bob andrews&quot;</span>,<span style="color: #C41A16">&quot;fred wilkins&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">!=</span> <span style="color: #C41A16">&quot;b&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>(<span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;Fred Wilkins&quot;</span>,<span style="color: #C41A16">&quot;Martha Stuart&quot;</span>,<span style="color: #C41A16">&quot;Rebecca Davies&quot;</span>) <span style="color: #000000">&amp;&amp;</span> <span style="color: #000000">in</span>(<span style="color: #000000">segment</span>,<span style="color: #C41A16">&quot;a&quot;</span>,<span style="color: #C41A16">&quot;c&quot;</span>,<span style="color: #C41A16">&quot;f&quot;</span>,<span style="color: #C41A16">&quot;g&quot;</span>)) <span style="color: #000000">||</span>
+(<span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;Fred Wilkins&quot;</span>,<span style="color: #C41A16">&quot;Mary Harris&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">==</span> <span style="color: #C41A16">&quot;g&quot;</span>)
 </pre></div>
 </p>
 
 <p>This rule is quite complicated at first sight.  To unpack it we could say that when picking who calls what segment that the following holds true:</p>
 
 <ul>
-<li>Bob Andrews and Fred Wilkins can call any segment</li>
-<li>Everyone else can call any segment except &lsquo;b&rsquo;</li>
+<li><em>Fred Wilkins</em>, <em>Martha Stuart</em> and <em>Rebecca Davies</em> can call segments: <em>a</em>, <em>c</em>, <em>f</em> and <em>g</em></li>
+<li><em>Fred Wilkins</em> and <em>Mary Harris</em> can call any segment</li>
+<li>Anyone can call segment: <em>g</em></li>
 </ul>
 
-<p>Below the rule on the right you can see that it passes all the goals specified.  Below on the left you can see the results that this rule gives for the various aggregators specified.  The improvement column is the difference between the result for this rule and the <code>true()</code> rule.  The <code>true()</code> rule represents all the records being used for the aggregators.  This rule will always be at the end of the report as can be seen below:</p>
+<p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.19, this is 1.4 more than without the rule and 1.19 above target.  Again with the rule the client has a conversion of 0.3, this is 0.14 percentage points more than without the rule and 0.05 above the target.  Finally the call centre, with the rule, has an ROI of 1.38, this is 0.73 more than without the rule and 0.08 above the stetch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
 
-<p><img src="/img/acmeprinters_who_should_call_which_segment_bottom.png" class="outline" style="margin-bottom: 2em;" alt="screenshot of report"></p>
+<h3 id="when-to-call-each-segment">When to call each segment?</h3>
 
-<h3 id="assessment-of-report">Assessment of Report</h3>
+<p>Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_when_to_call_each_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 
-<p>The report shows that the best rule as defined by the experiment is:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">in</span>(<span style="color: #000000">name</span>,<span style="color: #C41A16">&quot;bob andrews&quot;</span>,<span style="color: #C41A16">&quot;fred wilkins&quot;</span>) <span style="color: #000000">||</span> <span style="color: #000000">segment</span> <span style="color: #000000">!=</span> <span style="color: #C41A16">&quot;b&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;When</span><span style="color: #000000"> </span><span style="color: #C41A16">to</span><span style="color: #000000"> </span><span style="color: #C41A16">call</span><span style="color: #000000"> </span><span style="color: #C41A16">each</span><span style="color: #000000"> </span><span style="color: #C41A16">segment?&quot;</span>
+<span style="color: #1C01CE">category</span>: <span style="color: #C41A16">&quot;acme&quot;</span>
+<span style="color: #1C01CE">tags</span>:
+  - <span style="color: #1C01CE">repair</span>
+  - <span style="color: #1C01CE">sales</span>
+  - <span style="color: #1C01CE">printers</span>
+<span style="color: #1C01CE">trainDataset</span>:
+  <span style="color: #1C01CE">csv</span>:
+    <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;csv/printer_repairs_callstats.csv&quot;</span>
+    <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
+    <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;,&quot;</span>
+<span style="color: #1C01CE">fields</span>:
+  - <span style="color: #1C01CE">quarter</span>
+  - <span style="color: #1C01CE">segment</span>
+  - <span style="color: #1C01CE">callTime</span>
+  - <span style="color: #1C01CE">isComplete</span>
+  - <span style="color: #1C01CE">isContact</span>
+  - <span style="color: #1C01CE">value</span>
+<span style="color: #1C01CE">ruleGeneration</span>:
+  <span style="color: #1C01CE">fields</span>:
+    - <span style="color: #1C01CE">quarter</span>
+    - <span style="color: #1C01CE">segment</span>
+<span style="color: #1C01CE">aggregators</span>:
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalContacts&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;isContact&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientValue&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;value&quot;</span>
+    <span style="color: #177500"># 5% commission on all repair contracts</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientCommission&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientValue</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">0.05&quot;</span>
+    <span style="color: #177500"># £2 charge per contact</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientContactCharge&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalContacts</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">2&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientCharge&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientCommission</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">totalClientContactCharge&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientROI&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(totalClientValue</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalClientCharge)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;numSignups&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;value</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">0&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreCost&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
+    <span style="color: #177500"># £0.04/min call cost, plus £10/hr caller cost, plus £10/hr overheads</span>
+    <span style="color: #177500"># Equal: (0.04/60) + (10/60/60) + (10/60/60) = 0.0062</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;callTime</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">0.0062&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreProfit&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">-</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCallCentreCost&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;conversion&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(numSignups</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalContacts</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalContacts)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreROI&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalCallCentreCost</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalCallCentreCost)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
+<span style="color: #1C01CE">goals</span>:
+  - <span style="color: #C41A16">&quot;totalCallCentreROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.10&quot;</span>
+  - <span style="color: #C41A16">&quot;totalClientROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">15&quot;</span>
+  - <span style="color: #C41A16">&quot;conversion</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">0.25&quot;</span>
+  - <span style="color: #C41A16">&quot;totalCallCentreROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.30&quot;</span>
+<span style="color: #1C01CE">sortOrder</span>:
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;goalsScore&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalClientValue&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalCallCentreROI&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;conversion&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+<span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRun</span><span style="color: #000000"> </span><span style="color: #C41A16">||</span><span style="color: #000000"> </span><span style="color: #C41A16">sinceLastRunMinutes</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">40&quot;</span>
+</pre></div>
+
+
+<h4 id="assessment-of-report-1">Assessment of Report</h4>
+
+<p>After running the experiment a report is generated which finds the following rule:</p>
+
+<div class="rule">
+(in(segment,"a","d","f","g") && quarter <= 2) || (in(segment,"b","c","e") && quarter >= 3)
+</div>
+
+<div class="aggregators">
+  <table>
+    <tr>
+      <th>Aggregator</th>
+      <th>Original Value</th>
+      <th>Rule Value</th>
+      <th>Change</th>
+    </tr>
+
+    <tr>
+      <td>conversion</td>
+      <td>0.16</td>
+      <td>0.34</td>
+      <td>0.18</td>
+    </tr>
+
+    <tr>
+      <td>goalsScore</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+
+    <tr>
+      <td>numMatches</td>
+      <td>5000</td>
+      <td>1250</td>
+      <td>-3750</td>
+    </tr>
+
+    <tr>
+      <td>numSignups</td>
+      <td>180</td>
+      <td>167</td>
+      <td>-13</td>
+    </tr>
+
+    <tr>
+      <td>percentMatches</td>
+      <td>100</td>
+      <td>25</td>
+      <td>-75</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreCost</td>
+      <td>18020.126400000016</td>
+      <td>3452.327400000001</td>
+      <td>-14567.799000000014</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreProfit</td>
+      <td>-11260.176400000015</td>
+      <td>1960.1225999999988</td>
+      <td>13220.299000000014</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI</td>
+      <td>0.38</td>
+      <td>1.57</td>
+      <td>1.19</td>
+    </tr>
+
+    <tr>
+      <td>totalClientCharge</td>
+      <td>6759.95</td>
+      <td>5412.45</td>
+      <td>-1347.5</td>
+    </tr>
+
+    <tr>
+      <td>totalClientCommission</td>
+      <td>4483.95</td>
+      <td>4436.45</td>
+      <td>-47.5</td>
+    </tr>
+
+    <tr>
+      <td>totalClientContactCharge</td>
+      <td>2276</td>
+      <td>976</td>
+      <td>-1300</td>
+    </tr>
+
+    <tr>
+      <td>totalClientROI</td>
+      <td>13.27</td>
+      <td>16.39</td>
+      <td>3.12</td>
+    </tr>
+
+    <tr>
+      <td>totalClientValue</td>
+      <td>89679</td>
+      <td>88729</td>
+      <td>-950</td>
+    </tr>
+
+    <tr>
+      <td>totalContacts</td>
+      <td>1138</td>
+      <td>488</td>
+      <td>-650</td>
+    </tr>
+
+  </table>
+</div>
+
+<div class="goals">
+  <table>
+    <tr>
+      <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI &gt;= 1.10</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>totalClientROI &gt;= 15</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>conversion &gt; 0.25</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI &gt;= 1.30</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<p>The top of the report shows the best rule:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>(<span style="color: #000000">in</span>(<span style="color: #000000">segment</span>,<span style="color: #C41A16">&quot;a&quot;</span>,<span style="color: #C41A16">&quot;d&quot;</span>,<span style="color: #C41A16">&quot;f&quot;</span>,<span style="color: #C41A16">&quot;g&quot;</span>) <span style="color: #000000">&amp;&amp;</span> <span style="color: #000000">quarter</span> <span style="color: #000000">&lt;=</span> <span style="color: #1C01CE">2</span>) <span style="color: #000000">||</span>
+(<span style="color: #000000">in</span>(<span style="color: #000000">segment</span>,<span style="color: #C41A16">&quot;b&quot;</span>,<span style="color: #C41A16">&quot;c&quot;</span>,<span style="color: #C41A16">&quot;e&quot;</span>) <span style="color: #000000">&amp;&amp;</span> <span style="color: #000000">quarter</span> <span style="color: #000000">&gt;=</span> <span style="color: #1C01CE">3</span>)
 </pre></div>
 </p>
 
-<p>For the client it achieves an ROI of 4.085, over twice their goal and a conversion of 55%, again over twice their goal.  For the call centre it achieves an ROI of 1.32 which is over target.  Using this rule both parties have their needs met and the client gets a healthy total value of contracts at: £86,748, only £3,300 less than the <code>true()</code> rule.</p>
+<p>To put this rule in more human readable terms, we could say that when picking which segment to call in each quarter that the following holds true:</p>
 
-<p>If only the <code>true()</code> rule was used i.e. the data wasn&rsquo;t filtered, then the call centre would have still met the clients goals, but would have missed out on its stretch goal of having an ROI of 1.30.</p>
+<ul>
+<li>Segments: <em>a</em>, <em>d</em>, <em>f</em> and <em>g</em> can be called in quarter <em>2</em> or before</li>
+<li>Segments: <em>b</em>, <em>c</em> and <em>e</em> can be called in quarter <em>3</em> or after</li>
+</ul>
 
-<p>With the use of the best rule, the client gets a fantastic result and the call centre makes a healthy profit as well.  A healthy profit is particularly important for this company because they know that sometimes calling is unpredictable and they will often make a loss.  They need to minimize the losses where they can and make the most of profits when they are able.</p>
+<p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.39, this is 3.12 more than without the rule and 1.39 above target.  Again with the rule the client has a conversion of 0.34, this is 0.18 percentage points more than without the rule and 0.09 above the target.  Finally the call centre, with the rule, has an ROI of 1.57, this is 1.19 more than without the rule and 0.27 above the stetch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
+
+<h3 id="how-many-callbacks-to-make-per-segment">How many callbacks to make per segment?</h3>
+
+<p>Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_how_many_callbacks_per_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;How</span><span style="color: #000000"> </span><span style="color: #C41A16">many</span><span style="color: #000000"> </span><span style="color: #C41A16">callbacks</span><span style="color: #000000"> </span><span style="color: #C41A16">to</span><span style="color: #000000"> </span><span style="color: #C41A16">make</span><span style="color: #000000"> </span><span style="color: #C41A16">per</span><span style="color: #000000"> </span><span style="color: #C41A16">segment?&quot;</span>
+<span style="color: #1C01CE">category</span>: <span style="color: #C41A16">&quot;acme&quot;</span>
+<span style="color: #1C01CE">tags</span>:
+  - <span style="color: #1C01CE">repair</span>
+  - <span style="color: #1C01CE">sales</span>
+  - <span style="color: #1C01CE">printers</span>
+<span style="color: #1C01CE">trainDataset</span>:
+  <span style="color: #1C01CE">csv</span>:
+    <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;csv/printer_repairs_callbacks.csv&quot;</span>
+    <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
+    <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;,&quot;</span>
+<span style="color: #1C01CE">fields</span>:
+  - <span style="color: #1C01CE">callbacks</span>
+  - <span style="color: #1C01CE">segment</span>
+  - <span style="color: #1C01CE">callTime</span>
+  - <span style="color: #1C01CE">isComplete</span>
+  - <span style="color: #1C01CE">isContact</span>
+  - <span style="color: #1C01CE">value</span>
+<span style="color: #1C01CE">ruleGeneration</span>:
+  <span style="color: #1C01CE">fields</span>:
+    - <span style="color: #1C01CE">callbacks</span>
+    - <span style="color: #1C01CE">segment</span>
+<span style="color: #1C01CE">aggregators</span>:
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalContacts&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;isContact&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientValue&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;value&quot;</span>
+    <span style="color: #177500"># 5% commission on all repair contracts</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientCommission&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientValue</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">0.05&quot;</span>
+    <span style="color: #177500"># £2 charge per contact</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientContactCharge&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalContacts</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">2&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientCharge&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientCommission</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">totalClientContactCharge&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalClientROI&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(totalClientValue</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalClientCharge)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;numSignups&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;value</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">0&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreCost&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;sum&quot;</span>
+    <span style="color: #177500"># £0.04/min call cost, plus £10/hr caller cost, plus £10/hr overheads</span>
+    <span style="color: #177500"># Equal: (0.04/60) + (10/60/60) + (10/60/60) = £0.0062/second</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;callTime</span><span style="color: #000000"> </span><span style="color: #C41A16">*</span><span style="color: #000000"> </span><span style="color: #C41A16">0.0062&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreProfit&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">-</span><span style="color: #000000"> </span><span style="color: #C41A16">totalCallCentreCost&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;conversion&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(numSignups</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalContacts</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalContacts)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
+  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;totalCallCentreROI&quot;</span>
+    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;calc&quot;</span>
+    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;roundto(totalClientCharge</span><span style="color: #000000"> </span><span style="color: #C41A16">/</span><span style="color: #000000"> </span><span style="color: #C41A16">(totalCallCentreCost</span><span style="color: #000000"> </span><span style="color: #C41A16">+</span><span style="color: #000000"> </span><span style="color: #C41A16">pow(0,totalCallCentreCost)),</span><span style="color: #000000"> </span><span style="color: #C41A16">2)&quot;</span>
+<span style="color: #1C01CE">goals</span>:
+  - <span style="color: #C41A16">&quot;totalCallCentreROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.10&quot;</span>
+  - <span style="color: #C41A16">&quot;totalClientROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">15&quot;</span>
+  - <span style="color: #C41A16">&quot;conversion</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">0.25&quot;</span>
+  - <span style="color: #C41A16">&quot;totalCallCentreROI</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">1.30&quot;</span>
+<span style="color: #1C01CE">sortOrder</span>:
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;goalsScore&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalClientValue&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;totalCallCentreROI&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;conversion&quot;</span>
+    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
+<span style="color: #1C01CE">rules</span>:
+  - <span style="color: #C41A16">&quot;(callbacks</span><span style="color: #000000"> </span><span style="color: #C41A16">&lt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">5</span><span style="color: #000000">  </span><span style="color: #C41A16">&amp;&amp;</span><span style="color: #000000"> </span><span style="color: #C41A16">in(segment,\&quot;a\&quot;,\&quot;d\&quot;,\&quot;f\&quot;,\&quot;g\&quot;))</span><span style="color: #000000"> </span><span style="color: #C41A16">||</span><span style="color: #000000"> </span><span style="color: #C41A16">(callbacks</span><span style="color: #000000"> </span><span style="color: #C41A16">&lt;=</span><span style="color: #000000"> </span><span style="color: #C41A16">9</span><span style="color: #000000"> </span><span style="color: #C41A16">&amp;&amp;</span><span style="color: #000000"> </span><span style="color: #C41A16">in(segment,\&quot;b\&quot;,\&quot;c\&quot;,\&quot;e\&quot;))&quot;</span>
+<span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRun</span><span style="color: #000000"> </span><span style="color: #C41A16">||</span><span style="color: #000000"> </span><span style="color: #C41A16">sinceLastRunMinutes</span><span style="color: #000000"> </span><span style="color: #C41A16">&gt;</span><span style="color: #000000"> </span><span style="color: #C41A16">40&quot;</span>
+</pre></div>
+
+
+<h4 id="assessment-of-report-2">Assessment of Report</h4>
+
+<p>After running the experiment a report is generated which finds the following rule:</p>
+
+<div class="rule">
+(callbacks <= 5 && in(segment,"a","d","f","g")) || (callbacks <= 9 && in(segment,"b","c","e"))
+</div>
+
+<div class="aggregators">
+  <table>
+    <tr>
+      <th>Aggregator</th>
+      <th>Original Value</th>
+      <th>Rule Value</th>
+      <th>Change</th>
+    </tr>
+
+    <tr>
+      <td>conversion</td>
+      <td>0.15</td>
+      <td>0.33</td>
+      <td>0.18</td>
+    </tr>
+
+    <tr>
+      <td>goalsScore</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+
+    <tr>
+      <td>numMatches</td>
+      <td>5000</td>
+      <td>1250</td>
+      <td>-3750</td>
+    </tr>
+
+    <tr>
+      <td>numSignups</td>
+      <td>176</td>
+      <td>164</td>
+      <td>-12</td>
+    </tr>
+
+    <tr>
+      <td>percentMatches</td>
+      <td>100</td>
+      <td>25</td>
+      <td>-75</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreCost</td>
+      <td>17822.00540000002</td>
+      <td>3382.7014000000013</td>
+      <td>-14439.304000000018</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreProfit</td>
+      <td>-11059.355400000019</td>
+      <td>2061.7485999999985</td>
+      <td>13121.104000000018</td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI</td>
+      <td>0.38</td>
+      <td>1.61</td>
+      <td>1.23</td>
+    </tr>
+
+    <tr>
+      <td>totalClientCharge</td>
+      <td>6762.650000000001</td>
+      <td>5444.45</td>
+      <td>-1318.200000000001</td>
+    </tr>
+
+    <tr>
+      <td>totalClientCommission</td>
+      <td>4486.650000000001</td>
+      <td>4446.45</td>
+      <td>-40.200000000001</td>
+    </tr>
+
+    <tr>
+      <td>totalClientContactCharge</td>
+      <td>2276</td>
+      <td>998</td>
+      <td>-1278</td>
+    </tr>
+
+    <tr>
+      <td>totalClientROI</td>
+      <td>13.27</td>
+      <td>16.33</td>
+      <td>3.06</td>
+    </tr>
+
+    <tr>
+      <td>totalClientValue</td>
+      <td>89733</td>
+      <td>88929</td>
+      <td>-804</td>
+    </tr>
+
+    <tr>
+      <td>totalContacts</td>
+      <td>1138</td>
+      <td>499</td>
+      <td>-639</td>
+    </tr>
+
+  </table>
+</div>
+
+<div class="goals">
+  <table>
+    <tr>
+      <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI &gt;= 1.10</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>totalClientROI &gt;= 15</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>conversion &gt; 0.25</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>totalCallCentreROI &gt;= 1.30</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<p>The top of the report shows the best rule:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>(<span style="color: #000000">callbacks</span> <span style="color: #000000">&lt;=</span> <span style="color: #1C01CE">5</span> <span style="color: #000000">&amp;&amp;</span> <span style="color: #000000">in</span>(<span style="color: #000000">segment</span>,<span style="color: #C41A16">&quot;a&quot;</span>,<span style="color: #C41A16">&quot;d&quot;</span>,<span style="color: #C41A16">&quot;f&quot;</span>,<span style="color: #C41A16">&quot;g&quot;</span>)) <span style="color: #000000">||</span>
+(<span style="color: #000000">callbacks</span> <span style="color: #000000">&lt;=</span> <span style="color: #1C01CE">9</span> <span style="color: #000000">&amp;&amp;</span> <span style="color: #000000">in</span>(<span style="color: #000000">segment</span>,<span style="color: #C41A16">&quot;b&quot;</span>,<span style="color: #C41A16">&quot;c&quot;</span>,<span style="color: #C41A16">&quot;e&quot;</span>))
+</pre></div>
+</p>
+
+<p>To put this rule in more human readable terms, we could say that when setting the maximum number of callbacks for each segment that the following holds true:</p>
+
+<ul>
+<li>Segments: <em>a</em>, <em>d</em>, <em>f</em> and <em>g</em> should have the maximum number of callbacks set to <em>5</em></li>
+<li>Segments: <em>b</em>, <em>c</em> and <em>e</em> should have the maximum number of callbacks set to <em>9</em></li>
+</ul>
+
+<p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.33, this is 3.06 more than without the rule and 1.33 above target.  Again with the rule the client has a conversion of 0.33, this is 0.08 percentage points more than without the rule and 0.054 above the target.  Finally the call centre, with the rule, has an ROI of 1.61, this is 1.23 more than without the rule and 0.31 above the stetch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>With the use of the three types of rule, the client gets a fantastic result and the call centre makes a healthy profit as well.  A healthy profit is particularly important for this company because they know that sometimes calling is unpredictable and they will often make a loss.  They need to minimize the losses where they can and make the most of profits when they are able.</p>
 
 
     

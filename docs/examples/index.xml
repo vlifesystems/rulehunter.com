@@ -41,7 +41,7 @@ rulehunter  To process a single experiment run rulehunter with the --file flag f
       
       <guid>http://rulehunter.com/docs/examples/call_centre_printer_repairs/</guid>
       <description>Outline A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past. The call centre needs to balance its need to make a profit with the needs of their client.
-The client&amp;rsquo;s requirements  The ROI (Return On Investment) must be at least 2.0 At least 25% of contacts must result in a repair contract They would like the total value of contracts to be as high as possible  The call centre&amp;rsquo;s requirements  The ROI for the call centre needs to be at least 1.</description>
+The client&amp;rsquo;s requirements  The ROI (Return On Investment) must be at least 15.0 At least 25% of contacts must result in a repair contract They would like the total value of contracts to be as high as possible  The call centre&amp;rsquo;s requirements  The ROI for the call centre needs to be at least 1.</description>
     </item>
     
     <item>
