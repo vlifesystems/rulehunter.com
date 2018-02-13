@@ -118,7 +118,8 @@ ruleGeneration:
   arithmetic: true
 
 aggregators:
-  # Matthews correlation coefficient for correct 'malignant' diagnosis
+  # Matthews correlation coefficient for correct 'malignant' diagnosis.
+  # This is used to indicate how accurate the prediction is.
   - name: "mccIsMalignant"
     kind: "mcc"
     arg: "diagnosis == \"M\""
@@ -153,20 +154,107 @@ when: "!hasRun"
 
 
 #### Assessment of Report
-After running the experiment a report is generated which starts as follows:
+After running the experiment a report is generated which finds the following rule:
 
-<img src="/img/breast_cancer_malignant_top.png" class="outline" alt="screenshot of report">
+<div class="rule">
+  area_worst * symmetry_worst >= 308 || concave_points_worst * texture_worst >= 4.6
+</div>
+<div class="aggregators">
+  <table>
+    <tr>
+      <th>Aggregator</th>
+      <th>Original Value</th>
+      <th>Rule Value</th>
+      <th>Change</th>
+    </tr>
 
-The top of the report shows the best rule:
+    <tr>
+      <td>goalsScore</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+
+    <tr>
+      <td>mccIsMalignant</td>
+      <td>0</td>
+      <td>0.9079</td>
+      <td>0.9079</td>
+    </tr>
+
+    <tr>
+      <td>numAreBenign</td>
+      <td>357</td>
+      <td>0</td>
+      <td>-357</td>
+    </tr>
+
+    <tr>
+      <td>numAreMalignant</td>
+      <td>212</td>
+      <td>187</td>
+      <td>-25</td>
+    </tr>
+
+    <tr>
+      <td>numMatches</td>
+      <td>569</td>
+      <td>187</td>
+      <td>-382</td>
+    </tr>
+
+    <tr>
+      <td>percentMatches</td>
+      <td>100</td>
+      <td>32.86</td>
+      <td>-67.14</td>
+    </tr>
+
+    <tr>
+      <td>precisionIsMalignant</td>
+      <td>0.3726</td>
+      <td>1</td>
+      <td>0.6274</td>
+    </tr>
+
+    <tr>
+      <td>recallIsMalignant</td>
+      <td>1</td>
+      <td>0.8821</td>
+      <td>-0.1179</td>
+    </tr>
+
+  </table>
+</div>
+
+
+<div class="goals">
+  <table>
+    <tr>
+      <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+    </tr>
+
+    <tr>
+      <td>numAreBenign == 0</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+The top of the report shows the best rule (|| means 'or'):
 {{< highlight go >}}
 area_worst * symmetry_worst >= 308 || concave_points_worst * texture_worst >= 4.6
 {{< /highlight >}}
 
-The report shows that the tumours for 33% of the total records can be confidently assessed as malignant.  This represents 88% of the number of malignant tumours in the dataset.
+Below the rule you can see the results that this rule gives for the various aggregators specified and below that you can see that it passes all the goals specified.  The change column is the difference between the result for this rule and the original dataset without using a rule.
 
-Below the rule you can see the results that this rule gives for the various aggregators specified and below that you can can see that it passes all the goals specified.  The improvement column is the difference between the result for this rule and the `true()` rule.  The `true()` rule represents all the records being used for the aggregators.  This rule will always be at the end of the report as can be seen below:
-
-<img src="/img/breast_cancer_malignant_bottom.png" class="outline" style="margin-bottom: 2em;" alt="screenshot of report">
+The report shows that the tumours for 33% (_percentMatches_) of the total records can be confidently assessed as malignant.  This represents 88% (_recallIsMalignant_) of the number of malignant tumours in the dataset.
 
 
 ### Who should be sent an all clear letter?
@@ -277,16 +365,105 @@ when: "!hasRun"
 {{< /highlight >}}
 
 #### Assessment of Report
-After running the experiment a report is generated with this best rule:
+After running the experiment a report is generated which finds the following rule:
 
-<img src="/img/breast_cancer_benign_top_rule.png" class="outline" alt="screenshot of report">
+<div class="rule">
+  perimeter_worst * texture_worst <= 1908 || radius_worst * smoothness_mean <= 1.3
+</div>
+<div class="aggregators">
+  <table>
+    <tr>
+      <th>Aggregator</th>
+      <th>Original Value</th>
+      <th>Rule Value</th>
+      <th>Change</th>
+    </tr>
 
-The top of the report shows the best rule:
+    <tr>
+      <td>goalsScore</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+
+    <tr>
+      <td>mccIsBenign</td>
+      <td>0</td>
+      <td>0.722</td>
+      <td>0.722</td>
+    </tr>
+
+    <tr>
+      <td>numAreBenign</td>
+      <td>357</td>
+      <td>266</td>
+      <td>-91</td>
+    </tr>
+
+    <tr>
+      <td>numAreMalignant</td>
+      <td>212</td>
+      <td>0</td>
+      <td>-212</td>
+    </tr>
+
+    <tr>
+      <td>numMatches</td>
+      <td>569</td>
+      <td>266</td>
+      <td>-303</td>
+    </tr>
+
+    <tr>
+      <td>percentMatches</td>
+      <td>100</td>
+      <td>46.75</td>
+      <td>-53.25</td>
+    </tr>
+
+    <tr>
+      <td>precisionIsBenign</td>
+      <td>0.6274</td>
+      <td>1</td>
+      <td>0.3726</td>
+    </tr>
+
+    <tr>
+      <td>recallIsBenign</td>
+      <td>1</td>
+      <td>0.7451</td>
+      <td>-0.2549</td>
+    </tr>
+
+  </table>
+</div>
+
+
+<div class="goals">
+  <table>
+    <tr>
+      <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+    </tr>
+
+    <tr>
+      <td>numAreMalignant == 0</td>
+      <td class="goalPassed-false">
+        false
+      </td>
+      <td class="goalPassed-true">
+        true
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+The top of the report shows the best rule (|| means 'or'):
 {{< highlight go >}}
 perimeter_worst * texture_worst <= 1908 || radius_worst * smoothness_mean <= 1.3
 {{< /highlight >}}
 
-The report shows that the tumours for 47% of the total records can be confidently assessed as benign.  This represents 75% of the number of benign tumours in the dataset.
+The report shows that the tumours for 47% (_percentMatches_) of the total records can be confidently assessed as benign.  This represents 75% (_recallIsBenign_) of the number of benign tumours in the dataset.
 
 ### Conclusion
 In the original dataset there were 569 records. If the two rules were used to send out automatic follow-up/all clear letters that would represent 453 records (187 malignant + 266 benign), leaving just 116 records (569 total - 453 automated) for the doctors to manually assess.
