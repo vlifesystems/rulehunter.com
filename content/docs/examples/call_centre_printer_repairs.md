@@ -285,7 +285,7 @@ This rule is quite complicated at first sight.  To unpack it we could say that w
   * _Fred Wilkins_ and _Mary Harris_ can call any segment
   * Anyone can call segment: _g_
 
-Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.19, this is 1.4 more than without the rule and 1.19 above target.  Again with the rule the client has a conversion of 0.3, this is 0.14 percentage points more than without the rule and 0.05 above the target.  Finally the call centre, with the rule, has an ROI of 1.38, this is 0.73 more than without the rule and 0.08 above the stetch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
+Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.19, this is 1.4 more than without the rule and 1.19 above target.  Again with the rule the client has a conversion of 0.3, this is 0.14 percentage points more than without the rule and 0.05 above the target.  Finally the call centre, with the rule, has an ROI of 1.38, this is 0.73 more than without the rule and 0.08 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
 
 
 ### When to call each segment?
@@ -549,7 +549,7 @@ To put this rule in more human readable terms, we could say that when picking wh
   * Segments: _a_, _d_, _f_ and _g_ can be called in quarter _2_ or before
   * Segments: _b_, _c_ and _e_ can be called in quarter _3_ or after
 
-Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.39, this is 3.12 more than without the rule and 1.39 above target.  Again with the rule the client has a conversion of 0.34, this is 0.18 percentage points more than without the rule and 0.09 above the target.  Finally the call centre, with the rule, has an ROI of 1.57, this is 1.19 more than without the rule and 0.27 above the stetch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
+Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.39, this is 3.12 more than without the rule and 1.39 above target.  Again with the rule the client has a conversion of 0.34, this is 0.18 percentage points more than without the rule and 0.09 above the target.  Finally the call centre, with the rule, has an ROI of 1.57, this is 1.19 more than without the rule and 0.27 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
 
 
 ### How many callbacks to make per segment?
@@ -814,7 +814,7 @@ To put this rule in more human readable terms, we could say that when setting th
   * Segments: _a_, _d_, _f_ and _g_ should have the maximum number of callbacks set to _5_
   * Segments: _b_, _c_ and _e_ should have the maximum number of callbacks set to _9_
 
-Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.33, this is 3.06 more than without the rule and 1.33 above target.  Again with the rule the client has a conversion of 0.33, this is 0.08 percentage points more than without the rule and 0.054 above the target.  Finally the call centre, with the rule, has an ROI of 1.61, this is 1.23 more than without the rule and 0.31 above the stetch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
+Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.33, this is 3.06 more than without the rule and 1.33 above target.  Again with the rule the client has a conversion of 0.33, this is 0.08 percentage points more than without the rule and 0.054 above the target.  Finally the call centre, with the rule, has an ROI of 1.61, this is 1.23 more than without the rule and 0.31 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
 
 
 ### Conclusion
