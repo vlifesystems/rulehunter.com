@@ -1,5 +1,5 @@
 ---
-title: "Bank Subscribe to Term Deposit"
+title: "Bank Term Deposit Subscription"
 description: "Bank improving success of campaign to encourage customers to subscribe to a term deposit"
 weight: 70
 draft: false
