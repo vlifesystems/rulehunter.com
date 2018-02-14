@@ -29,4 +29,8 @@ The [examples/](https://github.com/vlifesystems/rulehunter/blob/master/examples)
   <dt>iris-versicolor.yaml</dt>
   <dt>iris-virginica.yaml</dt>
   <dd>These experiments are used to determine if an iris plant is one of three types of iris: iris setosa, iris versicolor, iris virginica.
+
+
+  <dt>steel_plate_faults_k_scratch.yaml</dt>
+  <dd>This experiement uses the Matthews Correlation Coefficient in a binary classifier to detect <em>k scratches</em> in steel plate. This is used in a <a href="/docs/examples/steel_plate_fault/">worked example</a>.</dd>
 </dl>
