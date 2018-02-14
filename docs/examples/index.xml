@@ -54,5 +54,17 @@ The client&amp;rsquo;s requirements  The ROI (Return On Investment) must be at l
 A group of doctors want to find out what indicates that a patient is likely to have breast cancer. They want to reduce the chance that a patient with breast cancer is miss diagnosed and increase the speed with which letters are sent out for patients to have further investigation.</description>
     </item>
     
+    <item>
+      <title>Steel Plate Fault</title>
+      <link>http://rulehunter.com/docs/examples/steel_plate_fault/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/examples/steel_plate_fault/</guid>
+      <description>Outline A quality control office wants to use machine learning to improve its detection of k scratch faults.
+Requirements  The detection of the k scratch faults must be as accurate as possible  The Dataset This example uses a dataset provided by Semeion, Research Center of Sciences of Communication, Via Sersale 117, 00128, Rome, Italy. It is hosted at:
+UCI Machine Learning Repository.
+Irvine, CA: University of California, School of Information and Computer Science.</description>
+    </item>
+    
   </channel>
 </rss>
