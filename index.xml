@@ -97,6 +97,16 @@ The client&amp;rsquo;s requirements  The ROI (Return On Investment) must be at l
     </item>
     
     <item>
+      <title>Bank Subscribe to Term Deposit</title>
+      <link>http://rulehunter.com/docs/examples/bank_subscribe_term_deposit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/docs/examples/bank_subscribe_term_deposit/</guid>
+      <description>Outline A Portuguese bank wants to encourage customers to subscribe to a term deposit.
+Requirements  The bank wants to reduce the number of customers it contacts. Therefore it wants to ensure that those it does contact are most likely to subscribe to a term deposit.  The Dataset This example uses a dataset related to a direct marketing campaign run by a Portuguese Bank. The dataset is described by [Moro et al.</description>
+    </item>
+    
+    <item>
       <title>Breast Cancer Diagnosis</title>
       <link>http://rulehunter.com/docs/examples/breast_cancer_diagnosis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
