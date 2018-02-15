@@ -12,8 +12,10 @@ bref: Rulehunter includes a number of example experiments
 The [examples/](https://github.com/vlifesystems/rulehunter/blob/master/examples) directory of the repository contains a number of experiments, in [examples/experiments/](https://github.com/vlifesystems/rulehunter/blob/master/examples/experiments), to demonstrate how Rulehunter can be used:
 
 <dl class="files">
+  <dt>acmeprinters_repair016_how_many_callbacks.yaml</dt>
+  <dt>acmeprinters_repair016_when_to_call_each_segment.yaml</dt>
   <dt>acmeprinters_repair016_who_should_call_which_segment.yaml</dt>
-  <dd>A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past. The call centre needs to balance its need to make a profit with the needs of their client.  This is used in a <a href="/docs/examples/call_centre_printer_repairs/">worked example</a>.</dd>
+  <dd>A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past. The call centre needs to balance its need to make a profit with the needs of their client.  These are used in a <a href="/docs/examples/call_centre_printer_repairs/">worked example</a>.</dd>
 
   <dt>bank_subscribe.yaml</dt>
   <dd>A Portuguese bank's telephone campaign to encourage customers to subscribe to a term deposit.  The bank wants to reduce its calls and improve the rate at which customers subscribe to a term deposit. This is used in a <a href="/docs/examples/bank_subscribe_term_deposit/">worked example</a>.</dd>
