@@ -35,6 +35,10 @@ The [examples/](https://github.com/vlifesystems/rulehunter/blob/master/examples)
   <dt>iris-virginica.yaml</dt>
   <dd>These experiments are used to determine if an iris plant is one of three types of iris: iris setosa, iris versicolor, iris virginica.
 
+  <dt>monks1.yaml</dt>
+  <dt>monks2.yaml</dt>
+  <dt>monks3.yaml</dt>
+  <dd>The Monk's problems, a classic set of problems used to compare different machine learning algorithms.</dd>
 
   <dt>steel_plate_faults_k_scratch.yaml</dt>
   <dd>This experiement uses the Matthews Correlation Coefficient in a binary classifier to detect <em>k scratches</em> in steel plate. This is used in a <a href="/docs/examples/steel_plate_fault/">worked example</a>.</dd>
