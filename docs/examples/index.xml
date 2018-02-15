@@ -17,7 +17,7 @@
       
       <guid>http://rulehunter.com/docs/examples/examples_included/</guid>
       <description>Included Experiments The examples/ directory of the repository contains a number of experiments, in examples/experiments/, to demonstrate how Rulehunter can be used:
-acmeprinters_repair016_who_should_call_which_segment.yaml A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past. The call centre needs to balance its need to make a profit with the needs of their client. This is used in a worked example.</description>
+acmeprinters_repair016_how_many_callbacks.yaml acmeprinters_repair016_when_to_call_each_segment.yaml acmeprinters_repair016_who_should_call_which_segment.yaml A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past. The call centre needs to balance its need to make a profit with the needs of their client. These are used in a worked example.</description>
     </item>
     
     <item>
