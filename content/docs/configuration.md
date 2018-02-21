@@ -34,6 +34,11 @@ maxNumProcesses: 4
 # The maximum number of records used from a data source.
 # This is useful when creating and testing experiment files.
 # (default: -1, indicating all the records)
-maxNumRecords 150
+maxNumRecords: 150
+
+# A port to use for a simple static web server.
+# This is only used when running as a server/service.
+# (default: 0, indicating web server shouldn't run)
+httpPort: 8780
 
 {{< /highlight >}}
