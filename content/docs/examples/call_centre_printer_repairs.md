@@ -45,11 +45,14 @@ tags:
   - repair
   - sales
   - printers
-trainDataset:
-  csv:
-    filename: "csv/printer_repairs_callerstats.csv"
-    hasHeader: true
-    separator: ","
+train:
+  dataset:
+    csv:
+      filename: "csv/printer_repairs_callerstats.csv"
+      hasHeader: true
+      separator: ","
+  # The experiment should be run every 40 minutes
+  when: "!hasRun || sinceLastRunMinutes > 40"
 fields:
   - name
   - segment
@@ -110,8 +113,6 @@ sortOrder:
     direction: "descending"
   - aggregator: "meanConversion"
     direction: "descending"
-# The experiment should be run every 40 minutes
-when: "!hasRun || sinceLastRunMinutes > 40"
 {{< /highlight >}}
 
 
@@ -299,11 +300,13 @@ tags:
   - repair
   - sales
   - printers
-trainDataset:
-  csv:
-    filename: "csv/printer_repairs_callstats.csv"
-    hasHeader: true
-    separator: ","
+train:
+  dataset:
+    csv:
+      filename: "csv/printer_repairs_callstats.csv"
+      hasHeader: true
+      separator: ","
+  when: "!hasRun || sinceLastRunMinutes > 40"
 fields:
   - quarter
   - segment
@@ -367,7 +370,6 @@ sortOrder:
     direction: "descending"
   - aggregator: "conversion"
     direction: "descending"
-when: "!hasRun || sinceLastRunMinutes > 40"
 {{< /highlight >}}
 
 #### Assessment of Report
@@ -563,11 +565,13 @@ tags:
   - repair
   - sales
   - printers
-trainDataset:
-  csv:
-    filename: "csv/printer_repairs_callbacks.csv"
-    hasHeader: true
-    separator: ","
+train:
+  dataset:
+    csv:
+      filename: "csv/printer_repairs_callbacks.csv"
+      hasHeader: true
+      separator: ","
+  when: "!hasRun || sinceLastRunMinutes > 40"
 fields:
   - callbacks
   - segment
@@ -633,7 +637,6 @@ sortOrder:
     direction: "descending"
 rules:
   - "(callbacks <= 5  && in(segment,\"a\",\"d\",\"f\",\"g\")) || (callbacks <= 9 && in(segment,\"b\",\"c\",\"e\"))"
-when: "!hasRun || sinceLastRunMinutes > 40"
 {{< /highlight >}}
 
 #### Assessment of Report

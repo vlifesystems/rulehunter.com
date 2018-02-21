@@ -24,27 +24,34 @@ tags:
   - test
   - "household sewage"
 
-# The dataset to used to train the rule discovery process
-trainDataset:
-  # Describe a CSV dataset
-  csv:
-    # The name of the CSV file
-    filename: "fixtures/flow.csv"
-    # Whether the CSV file contains a header line
-    hasHeader: true
-    # What separator the CSV file is using
-    separator:  ","
+train:
+  # The dataset to used to train the rule discovery process
+  dataset:
+    # Describe a CSV dataset
+    csv:
+      # The name of the CSV file
+      filename: "fixtures/flow.csv"
+      # Whether the CSV file contains a header line
+      hasHeader: true
+      # What separator the CSV file is using
+      separator:  ","
+  # When to run the experiment's train mode (default: !hasRun)
+  when: "!hasRunToday || sinceLastRunHours > 2"
 
-# An optional dataset used to test the rules generated from the train dataset
-testDataset:
-  # Describe an SQL connection
-  sql:
-    # The name of the driver to use (mssql, mysql, postgres, sqlite3)
-    driverName: "mssql"
-    # The details of the data source
-    dataSourceName: "Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein"
-    # An SQL query to run on the data source to create the dataset
-    query: "select * from flow"
+
+test:
+  # An optional dataset used to test the rules generated from the train dataset
+  dataset:
+    # Describe an SQL connection
+    sql:
+      # The name of the driver to use (mssql, mysql, postgres, sqlite3)
+      driverName: "mssql"
+      # The details of the data source
+      dataSourceName: "Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein"
+      # An SQL query to run on the data source to create the dataset
+      query: "select * from flow"
+  # When to run the experiment's test mode (default: !hasRun)
+  when: "!hasRunToday || sinceLastRunMinutes > 20"
 
 
 # The names of the fields to be used by Rulehunter
@@ -84,9 +91,6 @@ sortOrder:
     direction:  "descending"
   - aggregator: "numMatches"
     direction:  "descending"
-
-# When to run the experiment (default: !hasRun)
-when: "!hasRunToday || sinceLastRunHours > 2"
 
 # User defined rules to try
 rules:

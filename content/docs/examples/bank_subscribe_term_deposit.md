@@ -32,11 +32,13 @@ title: "Will customer subscribe to a bank term deposit?"
 category: "bank"
 tags:
   - business
-trainDataset:
-  csv:
-    filename: "csv/bank.csv"
-    hasHeader: true
-    separator: ";"
+train:
+  dataset:
+    csv:
+      filename: "csv/bank.csv"
+      hasHeader: true
+      separator: ";"
+  when: "!hasRun || sinceLastRunMinutes > 40"
 fields:
   - age
   - job
@@ -90,7 +92,6 @@ sortOrder:
   # binary classification
   - aggregator: "mccSubscribe"
     direction: "descending"
-when: "!hasRun || sinceLastRunMinutes > 40"
 {{< /highlight >}}
 
 

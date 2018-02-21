@@ -40,11 +40,13 @@ tags:
   - wisconsin
 
 # The data that had been collated about breast cancer diagnosis in a CSV file
-trainDataset:
-  csv:
-    filename: "csv/breast_cancer_wisconsin.csv"
-    hasHeader: true
-    separator: ","
+train:
+  dataset:
+    csv:
+      filename: "csv/breast_cancer_wisconsin.csv"
+      hasHeader: true
+      separator: ","
+  when: "!hasRun"
 
 # Field names representing the fields in the CSV file
 fields:
@@ -149,7 +151,6 @@ sortOrder:
     direction: "descending"
   - aggregator: "numMatches"
     direction: "descending"
-when: "!hasRun"
 {{< /highlight >}}
 
 
@@ -267,11 +268,13 @@ tags:
   - breast cancer
   - cancer
   - wisconsin
-trainDataset:
-  csv:
-    filename: "csv/breast_cancer_wisconsin.csv"
-    hasHeader: true
-    separator: ","
+train:
+  dataset:
+    csv:
+      filename: "csv/breast_cancer_wisconsin.csv"
+      hasHeader: true
+      separator: ","
+  when: "!hasRun"
 fields:
   - id
   - diagnosis
@@ -361,7 +364,6 @@ sortOrder:
     direction: "descending"
   - aggregator: "numMatches"
     direction: "descending"
-when: "!hasRun"
 {{< /highlight >}}
 
 #### Assessment of Report
