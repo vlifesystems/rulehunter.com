@@ -8,7 +8,7 @@ bref: "Installation is easy on a variety of platforms"
 ---
 
 
-Rulehunter has prebuilt binaries for Linux, Windows and MacOS.  Please download the [latest release](https://github.com/vlifesystems/rulehunter/releases/latest) from the bottom of the releases page.
+Rulehunter has prebuilt binaries for Linux, Windows and MacOS.  Please download the [latest release](https://github.com/vlifesystems/rulehunter/releases/latest) from the project's releases page.
 
 Once downloaded unzip the file and place the `rulehunter` executable somewhere that it can easily be run.
 
