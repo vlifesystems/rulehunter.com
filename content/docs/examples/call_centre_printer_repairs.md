@@ -277,8 +277,8 @@ After running the experiment a report is generated which finds the following rul
 
 The top of the report shows the best rule:
 {{< highlight go >}}
-(in(name,&#34;Fred Wilkins&#34;,&#34;Martha Stuart&#34;,&#34;Rebecca Davies&#34;) &amp;&amp; in(segment,&#34;a&#34;,&#34;c&#34;,&#34;f&#34;,&#34;g&#34;)) ||
-(in(name,&#34;Fred Wilkins&#34;,&#34;Mary Harris&#34;) || segment == &#34;g&#34;)
+(in(name,"Fred Wilkins","Martha Stuart","Rebecca Davies") && in(segment,"a","c","f","g")) ||
+(in(name,"Fred Wilkins","Mary Harris") || segment == "g")
 {{< /highlight >}}
 
 This rule is quite complicated at first sight.  To unpack it we could say that when picking who calls what segment that the following holds true:
