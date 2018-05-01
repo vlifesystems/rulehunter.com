@@ -35,6 +35,12 @@ train:
       hasHeader: true
       # What separator the CSV file is using
       separator:  ","
+    # The names of the fields to be used
+    fields:
+      - group
+      - district
+      - height
+      - flow
   # When to run the experiment's train mode (default: !hasRun)
   when: "!hasRunToday || sinceLastRunHours > 2"
 
@@ -50,16 +56,14 @@ test:
       dataSourceName: "Server=127.0.0.1;Port=1433;Database=master;UID=sa,PWD=letmein"
       # An SQL query to run on the data source to create the dataset
       query: "select * from flow"
+    # The names of the fields to be used
+    fields:
+      - group
+      - district
+      - height
+      - flow
   # When to run the experiment's test mode (default: !hasRun)
   when: "!hasRunToday || sinceLastRunMinutes > 20"
-
-
-# The names of the fields to be used by Rulehunter
-fields:
-  - group
-  - district
-  - height
-  - flow
 
 # Describe rule generation
 ruleGeneration:

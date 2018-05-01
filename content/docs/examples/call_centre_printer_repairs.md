@@ -51,15 +51,15 @@ train:
       filename: "csv/printer_repairs_callerstats.csv"
       hasHeader: true
       separator: ","
+    fields:
+      - name
+      - segment
+      - conversion
+      - callTime
+      - numContacts
+      - value
   # The experiment should be run every 40 minutes
   when: "!hasRun || sinceLastRunMinutes > 40"
-fields:
-  - name
-  - segment
-  - conversion
-  - callTime
-  - numContacts
-  - value
 ruleGeneration:
   fields:
     - name
@@ -306,14 +306,14 @@ train:
       filename: "csv/printer_repairs_callstats.csv"
       hasHeader: true
       separator: ","
+    fields:
+      - quarter
+      - segment
+      - callTime
+      - isComplete
+      - isContact
+      - value
   when: "!hasRun || sinceLastRunMinutes > 40"
-fields:
-  - quarter
-  - segment
-  - callTime
-  - isComplete
-  - isContact
-  - value
 ruleGeneration:
   fields:
     - quarter
@@ -571,14 +571,14 @@ train:
       filename: "csv/printer_repairs_callbacks.csv"
       hasHeader: true
       separator: ","
+    fields:
+      - callbacks
+      - segment
+      - callTime
+      - isComplete
+      - isContact
+      - value
   when: "!hasRun || sinceLastRunMinutes > 40"
-fields:
-  - callbacks
-  - segment
-  - callTime
-  - isComplete
-  - isContact
-  - value
 ruleGeneration:
   fields:
     - callbacks

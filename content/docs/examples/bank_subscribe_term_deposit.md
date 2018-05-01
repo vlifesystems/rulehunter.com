@@ -38,25 +38,25 @@ train:
       filename: "csv/bank.csv"
       hasHeader: true
       separator: ";"
+    fields:
+      - age
+      - job
+      - marital
+      - education
+      - default
+      - balance
+      - housing
+      - loan
+      - contact
+      - day
+      - month
+      - duration
+      - campaign
+      - pdays
+      - previous
+      - poutcome
+      - y
   when: "!hasRun || sinceLastRunMinutes > 40"
-fields:
-  - age
-  - job
-  - marital
-  - education
-  - default
-  - balance
-  - housing
-  - loan
-  - contact
-  - day
-  - month
-  - duration
-  - campaign
-  - pdays
-  - previous
-  - poutcome
-  - y
 ruleGeneration:
   fields:
     - age
