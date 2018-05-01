@@ -161,6 +161,8 @@ Any expressions used in the experiment file conform to fairly standard Go expres
 
 | Function        | Description                                        |
 | --------------- | -------------------------------------------------- |
+| `if(b, t, f)`   | Return `t` if `b` is true, otherwise returns `f` |
+| `iferr(v, av)`  | Return `v` if not an error, otherwise return `av` |
 | `in(n, h ...)`  | Return whether `n` is in the rest of the arguments |
 | `ni(n, h ...)`  | Return whether `n` is not in the rest of the arguments |
 | `max(n ...)`    | Return the biggest number supplied |
