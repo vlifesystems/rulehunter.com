@@ -6,7 +6,7 @@
     <description>Recent content on Rulehunter - Find simple rules in your data to meet your goals</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://rulehunter.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -154,6 +154,16 @@ Irvine, CA: University of California, School of Information and Computer Science
       <guid>http://rulehunter.com/docs/licence/</guid>
       <description>Copyright &amp;copy; 2016-2018 vLife Systems Ltd
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
+    </item>
+    
+    <item>
+      <title>Rulehunter v0.3 Released</title>
+      <link>http://rulehunter.com/news/2018/05/01/rulehunter-v0.3-released/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://rulehunter.com/news/2018/05/01/rulehunter-v0.3-released/</guid>
+      <description>The third official version (second publicized version) of Rulehunter has been released. Please see the CHANGELOG for details. Highlights include:
+ Restructure of the experiment files Include a web server Reduce memory usage  </description>
     </item>
     
     <item>
