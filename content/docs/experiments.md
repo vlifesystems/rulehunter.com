@@ -74,6 +74,9 @@ ruleGeneration:
     - height
   # Whether arithmetic rules should be generated
   arithmetic: true
+  # The maximum number of rules that can be combined together to form
+  # another rule
+  combinationLength: 3
 
 # Describe aggregators
 aggregators:

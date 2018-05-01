@@ -105,6 +105,8 @@ ruleGeneration:
     - SigmoidOfAreas
   # Allow arithmetic in rules to help improve detection
   arithmetic: true
+  # Allow a maximum of 3 rules to be combined to form new rules
+  combinationLength: 3
 aggregators:
   # The Matthews Correlation Coefficient is ideal for this sort of
   # binary classification

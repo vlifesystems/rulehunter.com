@@ -118,6 +118,8 @@ ruleGeneration:
     - fractal_dimension_worst
   # Allow arithmetic rules to be generated
   arithmetic: true
+  # Allow a maximum of 3 rules to be combined to form new rules
+  combinationLength: 3
 
 aggregators:
   # Matthews correlation coefficient for correct 'malignant' diagnosis.
@@ -341,6 +343,7 @@ ruleGeneration:
     - symmetry_worst
     - fractal_dimension_worst
   arithmetic: true
+  combinationLength: 3
 aggregators:
   - name: "mccIsBenign"
     kind: "mcc"

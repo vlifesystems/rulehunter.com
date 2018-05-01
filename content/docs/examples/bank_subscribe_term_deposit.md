@@ -74,6 +74,7 @@ ruleGeneration:
     - pdays
     - previous
     - poutcome
+  combinationLength: 3
 aggregators:
   - name: "mccSubscribe"
     kind: "mcc"

@@ -64,6 +64,7 @@ ruleGeneration:
   fields:
     - name
     - segment
+  combinationLength: 3
 aggregators:
   - name: "totalContacts"
     kind: "sum"
@@ -318,6 +319,7 @@ ruleGeneration:
   fields:
     - quarter
     - segment
+  combinationLength: 3
 aggregators:
   - name: "totalContacts"
     kind: "count"
@@ -583,6 +585,7 @@ ruleGeneration:
   fields:
     - callbacks
     - segment
+  combinationLength: 3
 aggregators:
   - name: "totalContacts"
     kind: "count"
