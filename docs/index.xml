@@ -26,7 +26,7 @@ Overview of Rulehunter Rulehunter works through a series of experiments located 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/installation/</guid>
-      <description>Rulehunter has prebuilt binaries for Linux, Windows and MacOS. Please download the latest release from the bottom of the releases page.
+      <description>Rulehunter has prebuilt binaries for Linux, Windows and MacOS. Please download the latest release from the project&amp;rsquo;s releases page.
 Once downloaded unzip the file and place the rulehunter executable somewhere that it can easily be run.
 There are several files needed to render the html properly, these are located in the support/ directory.
 Twitter Bootstrap Copy directories from support/bootstrap to the wwwDir directory specified in config.yaml.
