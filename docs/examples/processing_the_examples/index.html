@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta name="generator" content="Hugo 0.25-DEV" />
+  <meta name="generator" content="Hugo 0.41-DEV" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -148,10 +148,17 @@
 be viewed with a simple static webserver such as the following run from
 the <code>examples/www</code> directory:</p>
 
-<pre><code class="language-Shell">ruby -run -ehttpd . -p8000
+<pre><code class="language-Shell">ruby -run -ehttpd . -p8780
 </code></pre>
 
 <p>If you don&rsquo;t like ruby there is this <a href="https://gist.github.com/willurd/5720255">list of one-liner static webservers</a>.</p>
+
+<h5 id="running-as-a-server">Running as a server</h5>
+
+<p>If you run Rulehunter as a server/service then it can start a simple static web server for you.  The default <code>config.yaml</code> in the <code>examples/</code> directory is configured to set this up on port: 8780.  Therefore you can point a web browser to <a href="http://localhost:8780">http://localhost:8780</a> to see the website.  If this port is already being used then you can change it from within the config file.</p>
+
+<pre><code class="language-Shell">    rulehunter serve
+</code></pre>
 
 
     

@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta name="generator" content="Hugo 0.25-DEV" />
+  <meta name="generator" content="Hugo 0.41-DEV" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -156,99 +156,100 @@ headingSelector: 'h3'
 
 <p>Once enough data has been carefully collected, Rulehunter is set to work.  The details of the experiment are recorded in an experiment file called <code>steel_plate_faults_k_scratch.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;What</span><span style="color: #000000"> </span><span style="color: #C41A16">indicates</span><span style="color: #000000"> </span><span style="color: #C41A16">a</span><span style="color: #000000"> </span><span style="color: #C41A16">steel</span><span style="color: #000000"> </span><span style="color: #C41A16">plate</span><span style="color: #000000"> </span><span style="color: #C41A16">k</span><span style="color: #000000"> </span><span style="color: #C41A16">scratch</span><span style="color: #000000"> </span><span style="color: #C41A16">fault?&quot;</span>
-<span style="color: #1C01CE">category</span>: <span style="color: #C41A16">&quot;engineering&quot;</span>
-<span style="color: #1C01CE">tags</span>:
-  - <span style="color: #1C01CE">steel</span>
-<span style="color: #1C01CE">trainDataset</span>:
-  <span style="color: #1C01CE">csv</span>:
-    <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;csv/steel_plate_faults.tsv&quot;</span>
-    <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">false</span>
-    <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;\t&quot;</span>
-<span style="color: #1C01CE">fields</span>:
-  - <span style="color: #1C01CE">X_Minimum</span>
-  - <span style="color: #1C01CE">X_Maximum</span>
-  - <span style="color: #1C01CE">Y_Minimum</span>
-  - <span style="color: #1C01CE">Y_Maximum</span>
-  - <span style="color: #1C01CE">Pixels_Areas</span>
-  - <span style="color: #1C01CE">X_Perimeter</span>
-  - <span style="color: #1C01CE">Y_Perimeter</span>
-  - <span style="color: #1C01CE">Sum_of_Luminosity</span>
-  - <span style="color: #1C01CE">Minimum_of_Luminosity</span>
-  - <span style="color: #1C01CE">Maximum_of_Luminosity</span>
-  - <span style="color: #1C01CE">Length_of_Conveyer</span>
-  - <span style="color: #1C01CE">TypeOfSteel_A300</span>
-  - <span style="color: #1C01CE">TypeOfSteel_A400</span>
-  - <span style="color: #1C01CE">Steel_Plate_Thickness</span>
-  - <span style="color: #1C01CE">Edges_Index</span>
-  - <span style="color: #1C01CE">Empty_Index</span>
-  - <span style="color: #1C01CE">Square_Index</span>
-  - <span style="color: #1C01CE">Outside_X_Index</span>
-  - <span style="color: #1C01CE">Edges_X_Index</span>
-  - <span style="color: #1C01CE">Edges_Y_Index</span>
-  - <span style="color: #1C01CE">Outside_Global_Index</span>
-  - <span style="color: #1C01CE">LogOfAreas</span>
-  - <span style="color: #1C01CE">Log_X_Index</span>
-  - <span style="color: #1C01CE">Log_Y_Index</span>
-  - <span style="color: #1C01CE">Orientation_Index</span>
-  - <span style="color: #1C01CE">Luminosity_Index</span>
-  - <span style="color: #1C01CE">SigmoidOfAreas</span>
-  - <span style="color: #1C01CE">Pastry</span>
-  - <span style="color: #1C01CE">Z_Scratch</span>
-  - <span style="color: #1C01CE">K_Scratch</span>
-  - <span style="color: #1C01CE">Stains</span>
-  - <span style="color: #1C01CE">Dirtiness</span>
-  - <span style="color: #1C01CE">Bumps</span>
-  - <span style="color: #1C01CE">Other_Faults</span>
-<span style="color: #1C01CE">ruleGeneration</span>:
-  <span style="color: #1C01CE">fields</span>:
-    - <span style="color: #1C01CE">X_Minimum</span>
-    - <span style="color: #1C01CE">X_Maximum</span>
-    - <span style="color: #1C01CE">Y_Minimum</span>
-    - <span style="color: #1C01CE">Y_Maximum</span>
-    - <span style="color: #1C01CE">Pixels_Areas</span>
-    - <span style="color: #1C01CE">X_Perimeter</span>
-    - <span style="color: #1C01CE">Y_Perimeter</span>
-    - <span style="color: #1C01CE">Sum_of_Luminosity</span>
-    - <span style="color: #1C01CE">Minimum_of_Luminosity</span>
-    - <span style="color: #1C01CE">Maximum_of_Luminosity</span>
-    - <span style="color: #1C01CE">Length_of_Conveyer</span>
-    - <span style="color: #1C01CE">TypeOfSteel_A300</span>
-    - <span style="color: #1C01CE">TypeOfSteel_A400</span>
-    - <span style="color: #1C01CE">Steel_Plate_Thickness</span>
-    - <span style="color: #1C01CE">Edges_Index</span>
-    - <span style="color: #1C01CE">Empty_Index</span>
-    - <span style="color: #1C01CE">Square_Index</span>
-    - <span style="color: #1C01CE">Outside_X_Index</span>
-    - <span style="color: #1C01CE">Edges_X_Index</span>
-    - <span style="color: #1C01CE">Edges_Y_Index</span>
-    - <span style="color: #1C01CE">Outside_Global_Index</span>
-    - <span style="color: #1C01CE">LogOfAreas</span>
-    - <span style="color: #1C01CE">Log_X_Index</span>
-    - <span style="color: #1C01CE">Log_Y_Index</span>
-    - <span style="color: #1C01CE">Orientation_Index</span>
-    - <span style="color: #1C01CE">Luminosity_Index</span>
-    - <span style="color: #1C01CE">SigmoidOfAreas</span>
-  <span style="color: #177500"># Allow arithmetic in rules to help improve detection</span>
-  <span style="color: #1C01CE">arithmetic</span>: <span style="color: #1C01CE">true</span>
-<span style="color: #1C01CE">aggregators</span>:
-  <span style="color: #177500"># The Matthews Correlation Coefficient is ideal for this sort of</span>
-  <span style="color: #177500"># binary classification</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;mccHasKScratch&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mcc&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;K_Scratch</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">1&quot;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;recallHasKScratch&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;recall&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;K_Scratch</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">1&quot;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;precisionHasKScratch&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;precision&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;K_Scratch</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">1&quot;</span>
-<span style="color: #1C01CE">sortOrder</span>:
-  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;mccHasKScratch&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-<span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRun&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">title: <span style="color:#c41a16">&#34;What indicates a steel plate k scratch fault?&#34;</span>
+category: <span style="color:#c41a16">&#34;engineering&#34;</span>
+tags:
+  - steel
+train:
+  dataset:
+    csv:
+      filename: <span style="color:#c41a16">&#34;csv/steel_plate_faults.tsv&#34;</span>
+      hasHeader: <span style="color:#a90d91">false</span>
+      separator: <span style="color:#c41a16">&#34;\t&#34;</span>
+    fields:
+      - X_Minimum
+      - X_Maximum
+      - Y_Minimum
+      - Y_Maximum
+      - Pixels_Areas
+      - X_Perimeter
+      - Y_Perimeter
+      - Sum_of_Luminosity
+      - Minimum_of_Luminosity
+      - Maximum_of_Luminosity
+      - Length_of_Conveyer
+      - TypeOfSteel_A300
+      - TypeOfSteel_A400
+      - Steel_Plate_Thickness
+      - Edges_Index
+      - Empty_Index
+      - Square_Index
+      - Outside_X_Index
+      - Edges_X_Index
+      - Edges_Y_Index
+      - Outside_Global_Index
+      - LogOfAreas
+      - Log_X_Index
+      - Log_Y_Index
+      - Orientation_Index
+      - Luminosity_Index
+      - SigmoidOfAreas
+      - Pastry
+      - Z_Scratch
+      - K_Scratch
+      - Stains
+      - Dirtiness
+      - Bumps
+      - Other_Faults
+  when: <span style="color:#c41a16">&#34;!hasRun&#34;</span>
+ruleGeneration:
+  fields:
+    - X_Minimum
+    - X_Maximum
+    - Y_Minimum
+    - Y_Maximum
+    - Pixels_Areas
+    - X_Perimeter
+    - Y_Perimeter
+    - Sum_of_Luminosity
+    - Minimum_of_Luminosity
+    - Maximum_of_Luminosity
+    - Length_of_Conveyer
+    - TypeOfSteel_A300
+    - TypeOfSteel_A400
+    - Steel_Plate_Thickness
+    - Edges_Index
+    - Empty_Index
+    - Square_Index
+    - Outside_X_Index
+    - Edges_X_Index
+    - Edges_Y_Index
+    - Outside_Global_Index
+    - LogOfAreas
+    - Log_X_Index
+    - Log_Y_Index
+    - Orientation_Index
+    - Luminosity_Index
+    - SigmoidOfAreas
+  <span style="color:#177500"># Allow arithmetic in rules to help improve detection</span>
+  arithmetic: <span style="color:#a90d91">true</span>
+  <span style="color:#177500"># Allow a maximum of 3 rules to be combined to form new rules</span>
+  combinationLength: <span style="color:#1c01ce">3</span>
+aggregators:
+  <span style="color:#177500"># The Matthews Correlation Coefficient is ideal for this sort of</span>
+  <span style="color:#177500"># binary classification</span>
+  - name: <span style="color:#c41a16">&#34;mccHasKScratch&#34;</span>
+    kind: <span style="color:#c41a16">&#34;mcc&#34;</span>
+    arg: <span style="color:#c41a16">&#34;K_Scratch == 1&#34;</span>
+  - name: <span style="color:#c41a16">&#34;recallHasKScratch&#34;</span>
+    kind: <span style="color:#c41a16">&#34;recall&#34;</span>
+    arg: <span style="color:#c41a16">&#34;K_Scratch == 1&#34;</span>
+  - name: <span style="color:#c41a16">&#34;precisionHasKScratch&#34;</span>
+    kind: <span style="color:#c41a16">&#34;precision&#34;</span>
+    arg: <span style="color:#c41a16">&#34;K_Scratch == 1&#34;</span>
+sortOrder:
+  - aggregator: <span style="color:#c41a16">&#34;mccHasKScratch&#34;</span>
+    direction: <span style="color:#c41a16">&#34;descending&#34;</span></code></pre></div>
 
 <h4 id="assessment-of-report">Assessment of Report</h4>
 
@@ -305,9 +306,7 @@ Log_X_Index + Square_Index >= 2.46 && Outside_X_Index * TypeOfSteel_A400 >= 0.04
 </div>
 
 <p>The top of the report shows the best rule:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">Log_X_Index</span> <span style="color: #000000">+</span> <span style="color: #000000">Square_Index</span> <span style="color: #000000">&gt;=</span> <span style="color: #1C01CE">2.46</span> <span style="color: #000000">&amp;&amp;</span> <span style="color: #000000">Outside_X_Index</span> <span style="color: #000000">*</span> <span style="color: #000000">TypeOfSteel_A400</span> <span style="color: #000000">&gt;=</span> <span style="color: #1C01CE">0.044</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">Log_X_Index</span> <span style="color:#000">+</span> <span style="color:#000">Square_Index</span> <span style="color:#000">&gt;=</span> <span style="color:#1c01ce">2.46</span> <span style="color:#000">&amp;&amp;</span> <span style="color:#000">Outside_X_Index</span> <span style="color:#000">*</span> <span style="color:#000">TypeOfSteel_A400</span> <span style="color:#000">&gt;=</span> <span style="color:#1c01ce">0.044</span></code></pre></div></p>
 
 <p>With this rule 83% (<em>recallHasKScratch</em>) of <em>k scratches</em> are detected and if the rule says that a <em>k scratch</em> is present, then it is 98% (<em>precisionHasKScratch</em>) accurate.</p>
 

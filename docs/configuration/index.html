@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta name="generator" content="Hugo 0.25-DEV" />
+  <meta name="generator" content="Hugo 0.41-DEV" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,34 +111,37 @@
     
 
     <p>Rulehunter is configured using a <code>config.yaml</code> file as follows:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># The location of the experiment files.</span>
-<span style="color: #1C01CE">experimentsDir</span>: <span style="color: #C41A16">&quot;/usr/local/rulehunter/experiments&quot;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#177500"># The location of the experiment files.</span>
+experimentsDir: <span style="color:#c41a16">&#34;/usr/local/rulehunter/experiments&#34;</span>
 
-<span style="color: #177500"># The location of the html files produced.</span>
-<span style="color: #1C01CE">wwwDir</span>: <span style="color: #C41A16">&quot;/var/www/rulehunter&quot;</span>
+<span style="color:#177500"># The location of the html files produced.</span>
+wwwDir: <span style="color:#c41a16">&#34;/var/www/rulehunter&#34;</span>
 
-<span style="color: #177500"># The location of the build files created while running. A temporary copy</span>
-<span style="color: #177500"># of each Dataset will be stored in a &#39;tmp&#39; sub-directory while being</span>
-<span style="color: #177500"># processed.</span>
-<span style="color: #1C01CE">buildDir</span>: <span style="color: #C41A16">&quot;/usr/local/rulehunter/build&quot;</span>
+<span style="color:#177500"># The location of the build files created while running. A temporary copy</span>
+<span style="color:#177500"># of each Dataset will be stored in a &#39;tmp&#39; sub-directory while being</span>
+<span style="color:#177500"># processed.</span>
+buildDir: <span style="color:#c41a16">&#34;/usr/local/rulehunter/build&#34;</span>
 
-<span style="color: #177500"># The base URL for the html files produced.  This is so that you could for</span>
-<span style="color: #177500"># example base the Rulehunter generated site at &#39;/rulehunter/&#39; on an intranet.</span>
-<span style="color: #177500"># This uses the &#39;&lt;base&gt;&#39; html tag and therefore should have a trailing slash or</span>
-<span style="color: #177500"># refer to an html file.</span>
-<span style="color: #177500"># (default: /)</span>
-<span style="color: #1C01CE">baseUrl</span>: <span style="color: #C41A16">&quot;http://intranet/rulehunter/&quot;</span>
+<span style="color:#177500"># The base URL for the html files produced.  This is so that you could for</span>
+<span style="color:#177500"># example base the Rulehunter generated site at &#39;/rulehunter/&#39; on an intranet.</span>
+<span style="color:#177500"># This uses the &#39;&lt;base&gt;&#39; html tag and therefore should have a trailing slash or</span>
+<span style="color:#177500"># refer to an html file.</span>
+<span style="color:#177500"># (default: /)</span>
+baseUrl: <span style="color:#c41a16">&#34;http://intranet/rulehunter/&#34;</span>
 
-<span style="color: #177500"># The maximum number of processes used to process the experiments.</span>
-<span style="color: #177500"># (default: -1, indicating the number of cpu&#39;s in the machine)</span>
-<span style="color: #1C01CE">maxNumProcesses</span>: <span style="color: #1C01CE">4</span>
+<span style="color:#177500"># The maximum number of processes used to process the experiments.</span>
+<span style="color:#177500"># (default: -1, indicating the number of cpu&#39;s in the machine)</span>
+maxNumProcesses: <span style="color:#1c01ce">4</span>
 
-<span style="color: #177500"># The maximum number of records used from a data source.</span>
-<span style="color: #177500"># This is useful when creating and testing experiment files.</span>
-<span style="color: #177500"># (default: -1, indicating all the records)</span>
-<span style="color: #1C01CE">maxNumRecords 150</span>
-</pre></div>
-</p>
+<span style="color:#177500"># The maximum number of records used from a data source.</span>
+<span style="color:#177500"># This is useful when creating and testing experiment files.</span>
+<span style="color:#177500"># (default: -1, indicating all the records)</span>
+maxNumRecords: <span style="color:#1c01ce">150</span>
+
+<span style="color:#177500"># A port to use for a simple static web server.</span>
+<span style="color:#177500"># This is only used when running as a server/service.</span>
+<span style="color:#177500"># (default: 0, indicating web server shouldn&#39;t run)</span>
+httpPort: <span style="color:#1c01ce">8780</span></code></pre></div></p>
 
 
     

@@ -39,7 +39,7 @@ jQuery Copy directory support/jquery/js to the wwwDir directory specified in con
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/configuration/</guid>
-      <description>Rulehunter is configured using a config.yaml file as follows: # The location of the experiment files. experimentsDir: &amp;quot;/usr/local/rulehunter/experiments&amp;quot; # The location of the html files produced. wwwDir: &amp;quot;/var/www/rulehunter&amp;quot; # The location of the build files created while running. A temporary copy # of each Dataset will be stored in a &amp;#39;tmp&amp;#39; sub-directory while being # processed. buildDir: &amp;quot;/usr/local/rulehunter/build&amp;quot; # The base URL for the html files produced. This is so that you could for # example base the Rulehunter generated site at &amp;#39;/rulehunter/&amp;#39; on an intranet.</description>
+      <description>Rulehunter is configured using a config.yaml file as follows: # The location of the experiment files. experimentsDir: &amp;#34;/usr/local/rulehunter/experiments&amp;#34; # The location of the html files produced. wwwDir: &amp;#34;/var/www/rulehunter&amp;#34; # The location of the build files created while running. A temporary copy # of each Dataset will be stored in a &amp;#39;tmp&amp;#39; sub-directory while being # processed. buildDir: &amp;#34;/usr/local/rulehunter/build&amp;#34; # The base URL for the html files produced. This is so that you could for # example base the Rulehunter generated site at &amp;#39;/rulehunter/&amp;#39; on an intranet.</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@ jQuery Copy directory support/jquery/js to the wwwDir directory specified in con
       
       <guid>http://rulehunter.com/docs/experiments/</guid>
       <description>An Experiment file An experiment is what describes the dataset that you want to process and what you want the generated rules to aim for. Each experiment is described by a .yaml or a .json file located in the experimentsDir of config.yaml. This will look as follows:
-# The title of the report title: &amp;quot;Whatwouldindicategoodflow?&amp;quot; # The category that this report is in category: &amp;quot;acme&amp;quot; # The tags associated with the report tags: - test - &amp;quot;householdsewage&amp;quot; # The dataset to used to train the rule discovery process trainDataset: # Describe a CSV dataset csv: # The name of the CSV file filename: &amp;quot;fixtures/flow.</description>
+# The title of the report title: &amp;#34;What would indicate good flow?&amp;#34; # The category that this report is in category: &amp;#34;acme&amp;#34; # The tags associated with the report tags: - test - &amp;#34;household sewage&amp;#34; train: # The dataset to used to train the rule discovery process dataset: # Describe a CSV dataset csv: # The name of the CSV file filename: &amp;#34;fixtures/flow.</description>
     </item>
     
     <item>
@@ -58,7 +58,13 @@ jQuery Copy directory support/jquery/js to the wwwDir directory specified in con
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://rulehunter.com/docs/usage/</guid>
-      <description>Single Run To processes the experiments in the experimentsDir directory specified in config.yaml, which is located in the current directory: rulehunter  To specify a config file: rulehunter --config=/usr/local/rulehunter/config.yaml  To specify a single experiment file: rulehunter --file=experiments/diabetes.yaml  To ignore the when field in experiments and hence run experiments now: rulehunter --ignore-when  To get the version of Rulehunter: rulehunter version  To get help: rulehunter help  Server To run Rulehunter as a server continually checking and processing experiments: rulehunter serve  Service To install Rulehunter as an operating service (which then needs starting separately) using /usr/local/rulehunter/config.</description>
+      <description>Single Run To processes the experiments in the experimentsDir directory specified in config.yaml, which is located in the current directory: rulehunter
+To specify a config file: rulehunter --config=/usr/local/rulehunter/config.yaml
+To specify a single experiment file: rulehunter --file=experiments/diabetes.yaml
+To ignore the when field in experiments and hence run experiments now: rulehunter --ignore-when
+To get the version of Rulehunter: rulehunter version
+To get help: rulehunter help
+Server To run Rulehunter as a server continually checking and processing experiments: rulehunter serve</description>
     </item>
     
     <item>

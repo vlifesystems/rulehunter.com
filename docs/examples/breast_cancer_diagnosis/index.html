@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta name="generator" content="Hugo 0.25-DEV" />
+  <meta name="generator" content="Hugo 0.41-DEV" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -159,126 +159,127 @@ headingSelector: 'h3'
 
 <p>The doctors created an experiment to find tumours that statistically are definitely malignant. The details of the experiment are recorded in an experiment file called <code>breast_cancer_wisconsin_malignant_high.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;Which</span><span style="color: #000000"> </span><span style="color: #C41A16">breast</span><span style="color: #000000"> </span><span style="color: #C41A16">tumours</span><span style="color: #000000"> </span><span style="color: #C41A16">are</span><span style="color: #000000"> </span><span style="color: #C41A16">malignant</span><span style="color: #000000"> </span><span style="color: #C41A16">(very</span><span style="color: #000000"> </span><span style="color: #C41A16">high</span><span style="color: #000000"> </span><span style="color: #C41A16">confidence)?&quot;</span>
-<span style="color: #1C01CE">category</span>: <span style="color: #C41A16">&quot;medical&quot;</span>
-<span style="color: #1C01CE">tags</span>:
-  - <span style="color: #1C01CE">breast cancer</span>
-  - <span style="color: #1C01CE">cancer</span>
-  - <span style="color: #1C01CE">wisconsin</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">title: <span style="color:#c41a16">&#34;Which breast tumours are malignant (very high confidence)?&#34;</span>
+category: <span style="color:#c41a16">&#34;medical&#34;</span>
+tags:
+  - breast cancer
+  - cancer
+  - wisconsin
 
-<span style="color: #177500"># The data that had been collated about breast cancer diagnosis in a CSV file</span>
-<span style="color: #1C01CE">trainDataset</span>:
-  <span style="color: #1C01CE">csv</span>:
-    <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;csv/breast_cancer_wisconsin.csv&quot;</span>
-    <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
-    <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;,&quot;</span>
+<span style="color:#177500"># The data that had been collated about breast cancer diagnosis in a CSV file</span>
+train:
+  dataset:
+    csv:
+      filename: <span style="color:#c41a16">&#34;csv/breast_cancer_wisconsin.csv&#34;</span>
+      hasHeader: <span style="color:#a90d91">true</span>
+      separator: <span style="color:#c41a16">&#34;,&#34;</span>
+    <span style="color:#177500"># Field names representing the fields in the CSV file</span>
+    fields:
+      - id
+      - diagnosis
+      - radius_mean
+      - texture_mean
+      - perimeter_mean
+      - area_mean
+      - smoothness_mean
+      - compactness_mean
+      - concavity_mean
+      - concave_points_mean
+      - symmetry_mean
+      - fractal_dimension_mean
+      - radius_se
+      - texture_se
+      - perimeter_se
+      - area_se
+      - smoothness_se
+      - compactness_se
+      - concavity_se
+      - concave_points_se
+      - symmetry_se
+      - fractal_dimension_se
+      - radius_worst
+      - texture_worst
+      - perimeter_worst
+      - area_worst
+      - smoothness_worst
+      - compactness_worst
+      - concavity_worst
+      - concave_points_worst
+      - symmetry_worst
+      - fractal_dimension_worst
+  when: <span style="color:#c41a16">&#34;!hasRun&#34;</span>
 
-<span style="color: #177500"># Field names representing the fields in the CSV file</span>
-<span style="color: #1C01CE">fields</span>:
-  - <span style="color: #1C01CE">id</span>
-  - <span style="color: #1C01CE">diagnosis</span>
-  - <span style="color: #1C01CE">radius_mean</span>
-  - <span style="color: #1C01CE">texture_mean</span>
-  - <span style="color: #1C01CE">perimeter_mean</span>
-  - <span style="color: #1C01CE">area_mean</span>
-  - <span style="color: #1C01CE">smoothness_mean</span>
-  - <span style="color: #1C01CE">compactness_mean</span>
-  - <span style="color: #1C01CE">concavity_mean</span>
-  - <span style="color: #1C01CE">concave_points_mean</span>
-  - <span style="color: #1C01CE">symmetry_mean</span>
-  - <span style="color: #1C01CE">fractal_dimension_mean</span>
-  - <span style="color: #1C01CE">radius_se</span>
-  - <span style="color: #1C01CE">texture_se</span>
-  - <span style="color: #1C01CE">perimeter_se</span>
-  - <span style="color: #1C01CE">area_se</span>
-  - <span style="color: #1C01CE">smoothness_se</span>
-  - <span style="color: #1C01CE">compactness_se</span>
-  - <span style="color: #1C01CE">concavity_se</span>
-  - <span style="color: #1C01CE">concave_points_se</span>
-  - <span style="color: #1C01CE">symmetry_se</span>
-  - <span style="color: #1C01CE">fractal_dimension_se</span>
-  - <span style="color: #1C01CE">radius_worst</span>
-  - <span style="color: #1C01CE">texture_worst</span>
-  - <span style="color: #1C01CE">perimeter_worst</span>
-  - <span style="color: #1C01CE">area_worst</span>
-  - <span style="color: #1C01CE">smoothness_worst</span>
-  - <span style="color: #1C01CE">compactness_worst</span>
-  - <span style="color: #1C01CE">concavity_worst</span>
-  - <span style="color: #1C01CE">concave_points_worst</span>
-  - <span style="color: #1C01CE">symmetry_worst</span>
-  - <span style="color: #1C01CE">fractal_dimension_worst</span>
 
-<span style="color: #1C01CE">ruleGeneration</span>:
-  <span style="color: #177500"># The following fields can be used in the rules</span>
-  <span style="color: #1C01CE">fields</span>:
-    - <span style="color: #1C01CE">radius_mean</span>
-    - <span style="color: #1C01CE">texture_mean</span>
-    - <span style="color: #1C01CE">perimeter_mean</span>
-    - <span style="color: #1C01CE">area_mean</span>
-    - <span style="color: #1C01CE">smoothness_mean</span>
-    - <span style="color: #1C01CE">compactness_mean</span>
-    - <span style="color: #1C01CE">concavity_mean</span>
-    - <span style="color: #1C01CE">concave_points_mean</span>
-    - <span style="color: #1C01CE">symmetry_mean</span>
-    - <span style="color: #1C01CE">fractal_dimension_mean</span>
-    - <span style="color: #1C01CE">radius_se</span>
-    - <span style="color: #1C01CE">texture_se</span>
-    - <span style="color: #1C01CE">perimeter_se</span>
-    - <span style="color: #1C01CE">area_se</span>
-    - <span style="color: #1C01CE">smoothness_se</span>
-    - <span style="color: #1C01CE">compactness_se</span>
-    - <span style="color: #1C01CE">concavity_se</span>
-    - <span style="color: #1C01CE">concave_points_se</span>
-    - <span style="color: #1C01CE">symmetry_se</span>
-    - <span style="color: #1C01CE">fractal_dimension_se</span>
-    - <span style="color: #1C01CE">radius_worst</span>
-    - <span style="color: #1C01CE">texture_worst</span>
-    - <span style="color: #1C01CE">perimeter_worst</span>
-    - <span style="color: #1C01CE">area_worst</span>
-    - <span style="color: #1C01CE">smoothness_worst</span>
-    - <span style="color: #1C01CE">compactness_worst</span>
-    - <span style="color: #1C01CE">concavity_worst</span>
-    - <span style="color: #1C01CE">concave_points_worst</span>
-    - <span style="color: #1C01CE">symmetry_worst</span>
-    - <span style="color: #1C01CE">fractal_dimension_worst</span>
-  <span style="color: #177500"># Allow arithmetic rules to be generated</span>
-  <span style="color: #1C01CE">arithmetic</span>: <span style="color: #1C01CE">true</span>
+ruleGeneration:
+  <span style="color:#177500"># The following fields can be used in the rules</span>
+  fields:
+    - radius_mean
+    - texture_mean
+    - perimeter_mean
+    - area_mean
+    - smoothness_mean
+    - compactness_mean
+    - concavity_mean
+    - concave_points_mean
+    - symmetry_mean
+    - fractal_dimension_mean
+    - radius_se
+    - texture_se
+    - perimeter_se
+    - area_se
+    - smoothness_se
+    - compactness_se
+    - concavity_se
+    - concave_points_se
+    - symmetry_se
+    - fractal_dimension_se
+    - radius_worst
+    - texture_worst
+    - perimeter_worst
+    - area_worst
+    - smoothness_worst
+    - compactness_worst
+    - concavity_worst
+    - concave_points_worst
+    - symmetry_worst
+    - fractal_dimension_worst
+  <span style="color:#177500"># Allow arithmetic rules to be generated</span>
+  arithmetic: <span style="color:#a90d91">true</span>
+  <span style="color:#177500"># Allow a maximum of 3 rules to be combined to form new rules</span>
+  combinationLength: <span style="color:#1c01ce">3</span>
 
-<span style="color: #1C01CE">aggregators</span>:
-  <span style="color: #177500"># Matthews correlation coefficient for correct &#39;malignant&#39; diagnosis.</span>
-  <span style="color: #177500"># This is used to indicate how accurate the prediction is.</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;mccIsMalignant&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mcc&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;M\&quot;&quot;</span>
-  <span style="color: #177500"># Number of records where diagnosis is &#39;benign&#39;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;numAreBenign&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;B\&quot;&quot;</span>
-  <span style="color: #177500"># Number of records where diagnosis is &#39;malignant&#39;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;numAreMalignant&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;M\&quot;&quot;</span>
-  <span style="color: #177500"># Recall of &#39;malignant&#39; diagnosis</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;recallIsMalignant&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;recall&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;M\&quot;&quot;</span>
-  <span style="color: #177500"># Precision of &#39;malignant&#39; diagnosis</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;precisionIsMalignant&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;precision&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;M\&quot;&quot;</span>
+aggregators:
+  <span style="color:#177500"># Matthews correlation coefficient for correct &#39;malignant&#39; diagnosis.</span>
+  <span style="color:#177500"># This is used to indicate how accurate the prediction is.</span>
+  - name: <span style="color:#c41a16">&#34;mccIsMalignant&#34;</span>
+    kind: <span style="color:#c41a16">&#34;mcc&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;M\&#34;&#34;</span>
+  <span style="color:#177500"># Number of records where diagnosis is &#39;benign&#39;</span>
+  - name: <span style="color:#c41a16">&#34;numAreBenign&#34;</span>
+    kind: <span style="color:#c41a16">&#34;count&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;B\&#34;&#34;</span>
+  <span style="color:#177500"># Number of records where diagnosis is &#39;malignant&#39;</span>
+  - name: <span style="color:#c41a16">&#34;numAreMalignant&#34;</span>
+    kind: <span style="color:#c41a16">&#34;count&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;M\&#34;&#34;</span>
+  <span style="color:#177500"># Recall of &#39;malignant&#39; diagnosis</span>
+  - name: <span style="color:#c41a16">&#34;recallIsMalignant&#34;</span>
+    kind: <span style="color:#c41a16">&#34;recall&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;M\&#34;&#34;</span>
+  <span style="color:#177500"># Precision of &#39;malignant&#39; diagnosis</span>
+  - name: <span style="color:#c41a16">&#34;precisionIsMalignant&#34;</span>
+    kind: <span style="color:#c41a16">&#34;precision&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;M\&#34;&#34;</span>
 
-<span style="color: #177500"># From the requirements above</span>
-<span style="color: #1C01CE">goals</span>:
-  <span style="color: #177500">#  The number of records with a &#39;benign&#39; diagnosis must be 0</span>
-  - <span style="color: #C41A16">&quot;numAreBenign</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">0&quot;</span>
-<span style="color: #1C01CE">sortOrder</span>:
-  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;goalsScore&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;numMatches&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-<span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRun&quot;</span>
-</pre></div>
-
+<span style="color:#177500"># From the requirements above</span>
+goals:
+  <span style="color:#177500">#  The number of records with a &#39;benign&#39; diagnosis must be 0</span>
+  - <span style="color:#c41a16">&#34;numAreBenign == 0&#34;</span>
+sortOrder:
+  - aggregator: <span style="color:#c41a16">&#34;goalsScore&#34;</span>
+    direction: <span style="color:#c41a16">&#34;descending&#34;</span>
+  - aggregator: <span style="color:#c41a16">&#34;numMatches&#34;</span>
+    direction: <span style="color:#c41a16">&#34;descending&#34;</span></code></pre></div>
 
 <h4 id="assessment-of-report">Assessment of Report</h4>
 
@@ -375,9 +376,7 @@ headingSelector: 'h3'
 </div>
 
 <p>The top of the report shows the best rule (|| means &lsquo;or&rsquo;):
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">area_worst</span> <span style="color: #000000">*</span> <span style="color: #000000">symmetry_worst</span> <span style="color: #000000">&gt;=</span> <span style="color: #1C01CE">308</span> <span style="color: #000000">||</span> <span style="color: #000000">concave_points_worst</span> <span style="color: #000000">*</span> <span style="color: #000000">texture_worst</span> <span style="color: #000000">&gt;=</span> <span style="color: #1C01CE">4.6</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">area_worst</span> <span style="color:#000">*</span> <span style="color:#000">symmetry_worst</span> <span style="color:#000">&gt;=</span> <span style="color:#1c01ce">308</span> <span style="color:#000">||</span> <span style="color:#000">concave_points_worst</span> <span style="color:#000">*</span> <span style="color:#000">texture_worst</span> <span style="color:#000">&gt;=</span> <span style="color:#1c01ce">4.6</span></code></pre></div></p>
 
 <p>Below the rule you can see the results that this rule gives for the various aggregators specified and below that you can see that it passes all the goals specified.  The change column is the difference between the result for this rule and the original dataset without using a rule.</p>
 
@@ -387,109 +386,109 @@ headingSelector: 'h3'
 
 <p>The doctors created an experiment to find tumours that statistically are definitely benign. The details of the experiment are recorded in an experiment file called <code>breast_cancer_wisconsin_benign_high.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #1C01CE">title</span>: <span style="color: #C41A16">&quot;Which</span><span style="color: #000000"> </span><span style="color: #C41A16">breast</span><span style="color: #000000"> </span><span style="color: #C41A16">tumours</span><span style="color: #000000"> </span><span style="color: #C41A16">are</span><span style="color: #000000"> </span><span style="color: #C41A16">benign</span><span style="color: #000000"> </span><span style="color: #C41A16">(very</span><span style="color: #000000"> </span><span style="color: #C41A16">high</span><span style="color: #000000"> </span><span style="color: #C41A16">confidence)?&quot;</span>
-<span style="color: #1C01CE">category</span>: <span style="color: #C41A16">&quot;medical&quot;</span>
-<span style="color: #1C01CE">tags</span>:
-  - <span style="color: #1C01CE">breast cancer</span>
-  - <span style="color: #1C01CE">cancer</span>
-  - <span style="color: #1C01CE">wisconsin</span>
-<span style="color: #1C01CE">trainDataset</span>:
-  <span style="color: #1C01CE">csv</span>:
-    <span style="color: #1C01CE">filename</span>: <span style="color: #C41A16">&quot;csv/breast_cancer_wisconsin.csv&quot;</span>
-    <span style="color: #1C01CE">hasHeader</span>: <span style="color: #1C01CE">true</span>
-    <span style="color: #1C01CE">separator</span>: <span style="color: #C41A16">&quot;,&quot;</span>
-<span style="color: #1C01CE">fields</span>:
-  - <span style="color: #1C01CE">id</span>
-  - <span style="color: #1C01CE">diagnosis</span>
-  - <span style="color: #1C01CE">radius_mean</span>
-  - <span style="color: #1C01CE">texture_mean</span>
-  - <span style="color: #1C01CE">perimeter_mean</span>
-  - <span style="color: #1C01CE">area_mean</span>
-  - <span style="color: #1C01CE">smoothness_mean</span>
-  - <span style="color: #1C01CE">compactness_mean</span>
-  - <span style="color: #1C01CE">concavity_mean</span>
-  - <span style="color: #1C01CE">concave_points_mean</span>
-  - <span style="color: #1C01CE">symmetry_mean</span>
-  - <span style="color: #1C01CE">fractal_dimension_mean</span>
-  - <span style="color: #1C01CE">radius_se</span>
-  - <span style="color: #1C01CE">texture_se</span>
-  - <span style="color: #1C01CE">perimeter_se</span>
-  - <span style="color: #1C01CE">area_se</span>
-  - <span style="color: #1C01CE">smoothness_se</span>
-  - <span style="color: #1C01CE">compactness_se</span>
-  - <span style="color: #1C01CE">concavity_se</span>
-  - <span style="color: #1C01CE">concave_points_se</span>
-  - <span style="color: #1C01CE">symmetry_se</span>
-  - <span style="color: #1C01CE">fractal_dimension_se</span>
-  - <span style="color: #1C01CE">radius_worst</span>
-  - <span style="color: #1C01CE">texture_worst</span>
-  - <span style="color: #1C01CE">perimeter_worst</span>
-  - <span style="color: #1C01CE">area_worst</span>
-  - <span style="color: #1C01CE">smoothness_worst</span>
-  - <span style="color: #1C01CE">compactness_worst</span>
-  - <span style="color: #1C01CE">concavity_worst</span>
-  - <span style="color: #1C01CE">concave_points_worst</span>
-  - <span style="color: #1C01CE">symmetry_worst</span>
-  - <span style="color: #1C01CE">fractal_dimension_worst</span>
-<span style="color: #1C01CE">ruleGeneration</span>:
-  <span style="color: #1C01CE">fields</span>:
-    - <span style="color: #1C01CE">radius_mean</span>
-    - <span style="color: #1C01CE">texture_mean</span>
-    - <span style="color: #1C01CE">perimeter_mean</span>
-    - <span style="color: #1C01CE">area_mean</span>
-    - <span style="color: #1C01CE">smoothness_mean</span>
-    - <span style="color: #1C01CE">compactness_mean</span>
-    - <span style="color: #1C01CE">concavity_mean</span>
-    - <span style="color: #1C01CE">concave_points_mean</span>
-    - <span style="color: #1C01CE">symmetry_mean</span>
-    - <span style="color: #1C01CE">fractal_dimension_mean</span>
-    - <span style="color: #1C01CE">radius_se</span>
-    - <span style="color: #1C01CE">texture_se</span>
-    - <span style="color: #1C01CE">perimeter_se</span>
-    - <span style="color: #1C01CE">area_se</span>
-    - <span style="color: #1C01CE">smoothness_se</span>
-    - <span style="color: #1C01CE">compactness_se</span>
-    - <span style="color: #1C01CE">concavity_se</span>
-    - <span style="color: #1C01CE">concave_points_se</span>
-    - <span style="color: #1C01CE">symmetry_se</span>
-    - <span style="color: #1C01CE">fractal_dimension_se</span>
-    - <span style="color: #1C01CE">radius_worst</span>
-    - <span style="color: #1C01CE">texture_worst</span>
-    - <span style="color: #1C01CE">perimeter_worst</span>
-    - <span style="color: #1C01CE">area_worst</span>
-    - <span style="color: #1C01CE">smoothness_worst</span>
-    - <span style="color: #1C01CE">compactness_worst</span>
-    - <span style="color: #1C01CE">concavity_worst</span>
-    - <span style="color: #1C01CE">concave_points_worst</span>
-    - <span style="color: #1C01CE">symmetry_worst</span>
-    - <span style="color: #1C01CE">fractal_dimension_worst</span>
-  <span style="color: #1C01CE">arithmetic</span>: <span style="color: #1C01CE">true</span>
-<span style="color: #1C01CE">aggregators</span>:
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;mccIsBenign&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;mcc&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;B\&quot;&quot;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;numAreBenign&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;B\&quot;&quot;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;numAreMalignant&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;count&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;M\&quot;&quot;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;recallIsBenign&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;recall&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;B\&quot;&quot;</span>
-  - <span style="color: #1C01CE">name</span>: <span style="color: #C41A16">&quot;precisionIsBenign&quot;</span>
-    <span style="color: #1C01CE">kind</span>: <span style="color: #C41A16">&quot;precision&quot;</span>
-    <span style="color: #1C01CE">arg</span>: <span style="color: #C41A16">&quot;diagnosis</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">\&quot;B\&quot;&quot;</span>
-<span style="color: #1C01CE">goals</span>:
-  - <span style="color: #C41A16">&quot;numAreMalignant</span><span style="color: #000000"> </span><span style="color: #C41A16">==</span><span style="color: #000000"> </span><span style="color: #C41A16">0&quot;</span>
-<span style="color: #1C01CE">sortOrder</span>:
-  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;goalsScore&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-  - <span style="color: #1C01CE">aggregator</span>: <span style="color: #C41A16">&quot;numMatches&quot;</span>
-    <span style="color: #1C01CE">direction</span>: <span style="color: #C41A16">&quot;descending&quot;</span>
-<span style="color: #1C01CE">when</span>: <span style="color: #C41A16">&quot;!hasRun&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">title: <span style="color:#c41a16">&#34;Which breast tumours are benign (very high confidence)?&#34;</span>
+category: <span style="color:#c41a16">&#34;medical&#34;</span>
+tags:
+  - breast cancer
+  - cancer
+  - wisconsin
+train:
+  dataset:
+    csv:
+      filename: <span style="color:#c41a16">&#34;csv/breast_cancer_wisconsin.csv&#34;</span>
+      hasHeader: <span style="color:#a90d91">true</span>
+      separator: <span style="color:#c41a16">&#34;,&#34;</span>
+  when: <span style="color:#c41a16">&#34;!hasRun&#34;</span>
+fields:
+  - id
+  - diagnosis
+  - radius_mean
+  - texture_mean
+  - perimeter_mean
+  - area_mean
+  - smoothness_mean
+  - compactness_mean
+  - concavity_mean
+  - concave_points_mean
+  - symmetry_mean
+  - fractal_dimension_mean
+  - radius_se
+  - texture_se
+  - perimeter_se
+  - area_se
+  - smoothness_se
+  - compactness_se
+  - concavity_se
+  - concave_points_se
+  - symmetry_se
+  - fractal_dimension_se
+  - radius_worst
+  - texture_worst
+  - perimeter_worst
+  - area_worst
+  - smoothness_worst
+  - compactness_worst
+  - concavity_worst
+  - concave_points_worst
+  - symmetry_worst
+  - fractal_dimension_worst
+ruleGeneration:
+  fields:
+    - radius_mean
+    - texture_mean
+    - perimeter_mean
+    - area_mean
+    - smoothness_mean
+    - compactness_mean
+    - concavity_mean
+    - concave_points_mean
+    - symmetry_mean
+    - fractal_dimension_mean
+    - radius_se
+    - texture_se
+    - perimeter_se
+    - area_se
+    - smoothness_se
+    - compactness_se
+    - concavity_se
+    - concave_points_se
+    - symmetry_se
+    - fractal_dimension_se
+    - radius_worst
+    - texture_worst
+    - perimeter_worst
+    - area_worst
+    - smoothness_worst
+    - compactness_worst
+    - concavity_worst
+    - concave_points_worst
+    - symmetry_worst
+    - fractal_dimension_worst
+  arithmetic: <span style="color:#a90d91">true</span>
+  combinationLength: <span style="color:#1c01ce">3</span>
+aggregators:
+  - name: <span style="color:#c41a16">&#34;mccIsBenign&#34;</span>
+    kind: <span style="color:#c41a16">&#34;mcc&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;B\&#34;&#34;</span>
+  - name: <span style="color:#c41a16">&#34;numAreBenign&#34;</span>
+    kind: <span style="color:#c41a16">&#34;count&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;B\&#34;&#34;</span>
+  - name: <span style="color:#c41a16">&#34;numAreMalignant&#34;</span>
+    kind: <span style="color:#c41a16">&#34;count&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;M\&#34;&#34;</span>
+  - name: <span style="color:#c41a16">&#34;recallIsBenign&#34;</span>
+    kind: <span style="color:#c41a16">&#34;recall&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;B\&#34;&#34;</span>
+  - name: <span style="color:#c41a16">&#34;precisionIsBenign&#34;</span>
+    kind: <span style="color:#c41a16">&#34;precision&#34;</span>
+    arg: <span style="color:#c41a16">&#34;diagnosis == \&#34;B\&#34;&#34;</span>
+goals:
+  - <span style="color:#c41a16">&#34;numAreMalignant == 0&#34;</span>
+sortOrder:
+  - aggregator: <span style="color:#c41a16">&#34;goalsScore&#34;</span>
+    direction: <span style="color:#c41a16">&#34;descending&#34;</span>
+  - aggregator: <span style="color:#c41a16">&#34;numMatches&#34;</span>
+    direction: <span style="color:#c41a16">&#34;descending&#34;</span></code></pre></div>
 
 <h4 id="assessment-of-report-1">Assessment of Report</h4>
 
@@ -586,9 +585,7 @@ headingSelector: 'h3'
 </div>
 
 <p>The top of the report shows the best rule (|| means &lsquo;or&rsquo;):
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">perimeter_worst</span> <span style="color: #000000">*</span> <span style="color: #000000">texture_worst</span> <span style="color: #000000">&lt;=</span> <span style="color: #1C01CE">1908</span> <span style="color: #000000">||</span> <span style="color: #000000">radius_worst</span> <span style="color: #000000">*</span> <span style="color: #000000">smoothness_mean</span> <span style="color: #000000">&lt;=</span> <span style="color: #1C01CE">1.3</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">perimeter_worst</span> <span style="color:#000">*</span> <span style="color:#000">texture_worst</span> <span style="color:#000">&lt;=</span> <span style="color:#1c01ce">1908</span> <span style="color:#000">||</span> <span style="color:#000">radius_worst</span> <span style="color:#000">*</span> <span style="color:#000">smoothness_mean</span> <span style="color:#000">&lt;=</span> <span style="color:#1c01ce">1.3</span></code></pre></div></p>
 
 <p>The report shows that the tumours for 47% (<em>percentMatches</em>) of the total records can be confidently assessed as benign.  This represents 75% (<em>recallIsBenign</em>) of the number of benign tumours in the dataset.</p>
 

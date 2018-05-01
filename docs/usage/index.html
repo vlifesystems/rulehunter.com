@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta name="generator" content="Hugo 0.25-DEV" />
+  <meta name="generator" content="Hugo 0.41-DEV" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,53 +135,35 @@ headingSelector: 'h3'
 <h3 id="single-run">Single Run</h3>
 
 <p>To processes the experiments in the <code>experimentsDir</code> directory specified in <code>config.yaml</code>, which is located in the current directory:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter</code></pre></div></p>
 
 <p>To specify a config file:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter --config<span style="color: #000000">=</span>/usr/local/rulehunter/config.yaml
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter --config<span style="color:#000">=</span>/usr/local/rulehunter/config.yaml</code></pre></div></p>
 
 <p>To specify a single experiment file:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter --file<span style="color: #000000">=</span>experiments/diabetes.yaml
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter --file<span style="color:#000">=</span>experiments/diabetes.yaml</code></pre></div></p>
 
 <p>To ignore the <code>when</code> field in experiments and hence run experiments now:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter --ignore-when
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter --ignore-when</code></pre></div></p>
 
 <p>To get the version of Rulehunter:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter version
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter version</code></pre></div></p>
 
 <p>To get help:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter <span style="color: #A90D91">help</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter help</code></pre></div></p>
 
 <h3 id="server">Server</h3>
 
 <p>To run Rulehunter as a server continually checking and processing experiments:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter serve
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter serve</code></pre></div></p>
 
 <h3 id="service">Service</h3>
 
 <p>To install Rulehunter as an operating service (which then needs starting separately) using <code>/usr/local/rulehunter/config.yaml</code>:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service install --config<span style="color: #000000">=</span>/usr/local/rulehunter/config.yaml
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter service install --config<span style="color:#000">=</span>/usr/local/rulehunter/config.yaml</code></pre></div></p>
 
 <p>To uninstall Rulehunter as an operating service:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>rulehunter service uninstall
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rulehunter service uninstall</code></pre></div></p>
 
 
     
