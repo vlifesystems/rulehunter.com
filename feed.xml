@@ -1,0 +1,50 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Rulehunter - Find simple rules in your data to meet your goals</title>
+  <subtitle>Random things that catch my eye that don't have a natural home elsewhere.</subtitle>
+  <link href="http://rulehunter.com/feed.xml" rel="self"/>
+  <link href="http://rulehunter.com"/>
+  <updated>2018-07-01</updated>
+  <id>http://rulehunter.com/feed.xml</id>
+  <generator uri="https://github.com/lawrencewoodman/tekyll">teykll</generator>
+    <entry>
+      <title>Rulehunter v0.3 Released</title>
+      <id>http://rulehunter.com/news/2018/05/01/rulehunter-v0.3-released/</id>
+      <link href="http://rulehunter.com/news/2018/05/01/rulehunter-v0.3-released/"/>
+        <author>
+          <name>Lawrence Woodman</name>
+          <uri>https://lawrencewoodman.github.io</uri>
+        </author>
+        <published>
+          2018-05-01
+        </published>
+
+        <updated>
+          2018-05-01
+        </updated>
+
+        <summary>The third official version (second publicized version) of Rulehunter has been released.  Please see the CHANGELOG for details. Highlights include:
+
+Restructure of the experiment files
+Include a web server
+Reduce memory usage
+</summary>
+    </entry>
+    <entry>
+      <title>Rulehunter v0.1 Released</title>
+      <id>http://rulehunter.com/news/2017/07/10/rulehunter-v0.1-released/</id>
+      <link href="http://rulehunter.com/news/2017/07/10/rulehunter-v0.1-released/"/>
+        <author>
+          <name>Lawrence Woodman</name>
+          <uri>https://lawrencewoodman.github.io</uri>
+        </author>
+        <published>
+          2017-07-10
+        </published>
+
+        <updated>
+          2017-07-10
+        </updated>
+
+        <summary>The first official version of Rulehunter has been released.  It is fully functional and has been tested on Linux and Windows.  It is available to install and run immediately.</summary>
+    </entry>
+</feed>

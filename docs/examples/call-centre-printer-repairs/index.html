@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>A Call Centre: Printer Repairs</title>
+  <meta name="description" content="An example of a call centre trying to balance its needs with those of their client">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/prism.css" rel="stylesheet" />
+  <link rel="canonical" href="http://rulehunter.com/docs/examples/call-centre-printer-repairs">
+  <link rel="alternate" type="application/rss+xml" title="Rulehunter - Find simple rules in your data to meet your goals"
+        href="http://rulehunter.com/feed.xml" />
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/prism.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+  <body>
+    <nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Rulehunter</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/docs/">Docs</a></li>
+        <li><a href="/news/">News</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+    <div class="container">
+      <div class="row">
+  <div class="col-md-10 col-md-offset-2">
+    <div class="hero">
+      <h1>A Call Centre: Printer Repairs</h1>
+      <h2>A call centre selling printer repair contracts for its client</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+  <ol class="doc-breadcrumb breadcrumb">
+    <li><a href="/docs/">Docs</a></li>
+    <li class="active">Examples</li>
+  </ol>
+    <nav class="navbar">
+      <ul class="nav">
+          <li>
+            <a href="/docs/examples" title="Rulehunter includes a number of example experiments">
+              Examples Included
+            </a>
+          </li>
+          <li>
+            <a href="/docs/examples/processing-the-examples" title="How to process the example experiments">
+              Processing the Examples
+            </a>
+          </li>
+          <li>
+            <a href="/docs/examples/call-centre-printer-repairs" title="An example of a call centre trying to balance its needs with those of their client">
+              A Call Centre: Printer Repairs
+            </a>
+          </li>
+          <li>
+            <a href="/docs/examples/bank-subscribe-term-deposit" title="An example of a bank's telephone campaign to encourage customers to subscribe to a term deposit">
+              Bank Term Deposit Description
+            </a>
+          </li>
+          <li>
+            <a href="/docs/examples/breast-cancer-diagnosis" title="An example of doctors wanting to improve diagnosis and speed-up the time it takes to send out follow-up letters for patients with suspected breast cancer">
+              Breast Cancer Diagnosis
+            </a>
+          </li>
+          <li>
+            <a href="/docs/examples/steel-plate-fault" title="An example of quality control detecting a fault in steel plate">
+              Steel Plate Fault
+            </a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-md-10">
+    <h3>Outline</h3>
+<p>A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past.  The call centre needs to balance its need to make a profit with the needs of their client.</p>
+<h4>The client's requirements</h4>
+<ul>
+<li>The ROI (Return On Investment) must be at least 15.0</li>
+<li>At least 25% of contacts must result in a repair contract</li>
+<li>They would like the total value of contracts to be as high as possible</li>
+</ul>
+<h4>The call centre's requirements</h4>
+<ul>
+<li>The ROI for the call centre needs to be at least 1.10</li>
+<li>The clients requirements must be met</li>
+<li>Once the clients requirements are met the call centre would like
+to reach for an ROI of 1.30</li>
+</ul>
+<h4>The call centre costs</h4>
+<p>The call centre has used the following factors to calculate their calling cost:</p>
+<ul>
+<li>£0.04/min phone call cost</li>
+<li>£10/hr caller cost</li>
+<li>£10/hr overheads</li>
+</ul>
+<p>This gives a cost to the call centre of £0.0062/second of calling:</p>
+<pre><code>(0.04/60) + (10/60/60) + (10/60/60) = 0.0062
+</code></pre>
+<h3>Who should call which segment?</h3>
+<p>Once the campaign has been called for a while it would be useful to find who should call which data segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_who_should_call_which_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
+<pre><code class="language-yaml">title: &quot;Who should call which segment?&quot;
+category: &quot;acme&quot;
+tags:
+  - repair
+  - sales
+  - printers
+train:
+  dataset:
+    csv:
+      filename: &quot;csv/printer_repairs_callerstats.csv&quot;
+      hasHeader: true
+      separator: &quot;,&quot;
+    fields:
+      - name
+      - segment
+      - conversion
+      - callTime
+      - numContacts
+      - value
+  # The experiment should be run every 40 minutes
+  when: &quot;!hasRun || sinceLastRunMinutes &gt; 40&quot;
+ruleGeneration:
+  fields:
+    - name
+    - segment
+  combinationLength: 3
+aggregators:
+  - name: &quot;totalContacts&quot;
+    kind: &quot;sum&quot;
+    arg: &quot;numContacts&quot;
+  - name: &quot;totalClientValue&quot;
+    kind: &quot;sum&quot;
+    arg: &quot;value&quot;
+    # 5% commission on all repair contracts
+  - name: &quot;totalClientCommission&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientValue * 0.05&quot;
+    # £2 charge per contact
+  - name: &quot;totalClientContactCharge&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalContacts * 2&quot;
+  - name: &quot;totalClientCharge&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientCommission + totalClientContactCharge&quot;
+  - name: &quot;totalClientROI&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(totalClientValue / (totalClientCharge + pow(0,totalClientCharge)), 2)&quot;
+  - name: &quot;totalCallCentreCost&quot;
+    kind: &quot;sum&quot;
+    # £0.04/min call cost, plus £10/hr caller cost, plus £10/hr overheads
+    # Equal: (0.04/60) + (10/60/60) + (10/60/60) = 0.0062
+    arg: &quot;callTime * 0.0062&quot;
+  - name: &quot;totalCallCentreProfit&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientCharge - totalCallCentreCost&quot;
+  - name: &quot;meanConversion&quot;
+    kind: &quot;mean&quot;
+    arg: &quot;conversion&quot;
+  - name: &quot;totalCallCentreROI&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(totalClientCharge / (totalCallCentreCost + pow(0,totalCallCentreCost)), 2)&quot;
+goals:
+  - &quot;totalCallCentreROI &gt;= 1.10&quot;
+  - &quot;totalClientROI &gt;= 15&quot;
+  - &quot;meanConversion &gt; 0.25&quot;
+  - &quot;totalCallCentreROI &gt;= 1.30&quot;
+sortOrder:
+  - aggregator: &quot;goalsScore&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;totalClientValue&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;totalCallCentreROI&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;meanConversion&quot;
+    direction: &quot;descending&quot;
+</code></pre>
+<h4>Assessment of Report</h4>
+<p>After running the experiment a report is generated which finds the following rule:</p>
+<pre><code class="language-go">(in(name,&quot;Fred Wilkins&quot;,&quot;Martha Stuart&quot;,&quot;Rebecca Davies&quot;) &amp;&amp; in(segment,&quot;a&quot;,&quot;c&quot;,&quot;f&quot;,&quot;g&quot;)) ||
+(in(name,&quot;Fred Wilkins&quot;,&quot;Mary Harris&quot;) || segment == &quot;g&quot;)
+</code></pre>
+<table class="table table-bordered aggregators">
+  <tr>
+    <th>Aggregator</th>
+    <th>Original Value</th>
+    <th>Rule Value</th>
+    <th>Change</th>
+  </tr>
+  <tr>
+    <td>goalsScore</td>
+    <td>0</td>
+    <td>4</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>meanConversion</td>
+    <td>0.1584</td>
+    <td>0.3028</td>
+    <td>0.1444</td>
+  </tr>
+  <tr>
+    <td>numMatches</td>
+    <td>49</td>
+    <td>25</td>
+    <td>-24</td>
+  </tr>
+  <tr>
+    <td>percentMatches</td>
+    <td>100</td>
+    <td>51.02</td>
+    <td>-48.98</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreCost</td>
+    <td>90267.20120000002</td>
+    <td>38595.396799999995</td>
+    <td>-51671.80440000002</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreProfit</td>
+    <td>-31954.10120000002</td>
+    <td>14669.653200000008</td>
+    <td>46623.75440000004</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI</td>
+    <td>0.65</td>
+    <td>1.38</td>
+    <td>0.73</td>
+  </tr>
+  <tr>
+    <td>totalClientCharge</td>
+    <td>58313.100000000006</td>
+    <td>53265.05</td>
+    <td>-5048.050000000002</td>
+  </tr>
+  <tr>
+    <td>totalClientCommission</td>
+    <td>43133.100000000006</td>
+    <td>43105.05</td>
+    <td>-28.050000000003</td>
+  </tr>
+  <tr>
+    <td>totalClientContactCharge</td>
+    <td>15180</td>
+    <td>10160</td>
+    <td>-5020</td>
+  </tr>
+  <tr>
+    <td>totalClientROI</td>
+    <td>14.79</td>
+    <td>16.19</td>
+    <td>1.4</td>
+  </tr>
+  <tr>
+    <td>totalClientValue</td>
+    <td>862662</td>
+    <td>862101</td>
+    <td>-561</td>
+  </tr>
+  <tr>
+    <td>totalContacts</td>
+    <td>7590</td>
+    <td>5080</td>
+    <td>-2510</td>
+  </tr>
+</table>
+<table class="table table-bordered goals">
+  <tr>
+    <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI &gt;= 1.10</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>totalClientROI &gt;= 15</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>meanConversion &gt; 0.25</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI &gt;= 1.30</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+</table>
+<p>The top of the report shows the best rule:</p>
+<pre><code class="language-go">(in(name,&quot;Fred Wilkins&quot;,&quot;Martha Stuart&quot;,&quot;Rebecca Davies&quot;) &amp;&amp; in(segment,&quot;a&quot;,&quot;c&quot;,&quot;f&quot;,&quot;g&quot;)) ||
+(in(name,&quot;Fred Wilkins&quot;,&quot;Mary Harris&quot;) || segment == &quot;g&quot;)
+</code></pre>
+<p>This rule is quite complicated at first sight.  To unpack it we could say that when picking who calls what segment that the following holds true:</p>
+<ul>
+<li><em>Fred Wilkins</em>, <em>Martha Stuart</em> and <em>Rebecca Davies</em> can call segments: <em>a</em>, <em>c</em>, <em>f</em> and <em>g</em></li>
+<li><em>Fred Wilkins</em> and <em>Mary Harris</em> can call any segment</li>
+<li>Anyone can call segment: <em>g</em></li>
+</ul>
+<p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.19, this is 1.4 more than without the rule and 1.19 above target.  Again with the rule the client has a conversion of 0.3, this is 0.14 percentage points more than without the rule and 0.05 above the target.  Finally the call centre, with the rule, has an ROI of 1.38, this is 0.73 more than without the rule and 0.08 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
+<h3>When to call each segment?</h3>
+<p>Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_when_to_call_each_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
+<pre><code class="language-yaml">title: &quot;When to call each segment?&quot;
+category: &quot;acme&quot;
+tags:
+  - repair
+  - sales
+  - printers
+train:
+  dataset:
+    csv:
+      filename: &quot;csv/printer_repairs_callstats.csv&quot;
+      hasHeader: true
+      separator: &quot;,&quot;
+    fields:
+      - quarter
+      - segment
+      - callTime
+      - isComplete
+      - isContact
+      - value
+  when: &quot;!hasRun || sinceLastRunMinutes &gt; 40&quot;
+ruleGeneration:
+  fields:
+    - quarter
+    - segment
+  combinationLength: 3
+aggregators:
+  - name: &quot;totalContacts&quot;
+    kind: &quot;count&quot;
+    arg: &quot;isContact&quot;
+  - name: &quot;totalClientValue&quot;
+    kind: &quot;sum&quot;
+    arg: &quot;value&quot;
+    # 5% commission on all repair contracts
+  - name: &quot;totalClientCommission&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientValue * 0.05&quot;
+    # £2 charge per contact
+  - name: &quot;totalClientContactCharge&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalContacts * 2&quot;
+  - name: &quot;totalClientCharge&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientCommission + totalClientContactCharge&quot;
+  - name: &quot;totalClientROI&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(totalClientValue / (totalClientCharge + pow(0,totalClientCharge)), 2)&quot;
+  - name: &quot;numSignups&quot;
+    kind: &quot;count&quot;
+    arg: &quot;value &gt; 0&quot;
+  - name: &quot;totalCallCentreCost&quot;
+    kind: &quot;sum&quot;
+    # £0.04/min call cost, plus £10/hr caller cost, plus £10/hr overheads
+    # Equal: (0.04/60) + (10/60/60) + (10/60/60) = 0.0062
+    arg: &quot;callTime * 0.0062&quot;
+  - name: &quot;totalCallCentreProfit&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientCharge - totalCallCentreCost&quot;
+  - name: &quot;conversion&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(numSignups / (totalContacts + pow(0,totalContacts)), 2)&quot;
+  - name: &quot;totalCallCentreROI&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(totalClientCharge / (totalCallCentreCost + pow(0,totalCallCentreCost)), 2)&quot;
+goals:
+  - &quot;totalCallCentreROI &gt;= 1.10&quot;
+  - &quot;totalClientROI &gt;= 15&quot;
+  - &quot;conversion &gt; 0.25&quot;
+  - &quot;totalCallCentreROI &gt;= 1.30&quot;
+sortOrder:
+  - aggregator: &quot;goalsScore&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;totalClientValue&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;totalCallCentreROI&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;conversion&quot;
+    direction: &quot;descending&quot;
+</code></pre>
+<h4>Assessment of Report</h4>
+<p>After running the experiment a report is generated which finds the following rule:</p>
+<pre><code class="language-go">(in(segment,&quot;a&quot;,&quot;d&quot;,&quot;f&quot;,&quot;g&quot;) &amp;&amp; quarter &lt;= 2) || (in(segment,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;) &amp;&amp; quarter &gt;= 3)
+</code></pre>
+<table class="table table-bordered aggregators">
+  <tr>
+    <th>Aggregator</th>
+    <th>Original Value</th>
+    <th>Rule Value</th>
+    <th>Change</th>
+  </tr>
+  <tr>
+    <td>conversion</td>
+    <td>0.16</td>
+    <td>0.34</td>
+    <td>0.18</td>
+  </tr>
+  <tr>
+    <td>goalsScore</td>
+    <td>0</td>
+    <td>4</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>numMatches</td>
+    <td>5000</td>
+    <td>1250</td>
+    <td>-3750</td>
+  </tr>
+  <tr>
+    <td>numSignups</td>
+    <td>180</td>
+    <td>167</td>
+    <td>-13</td>
+  </tr>
+  <tr>
+    <td>percentMatches</td>
+    <td>100</td>
+    <td>25</td>
+    <td>-75</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreCost</td>
+    <td>18020.126400000016</td>
+    <td>3452.327400000001</td>
+    <td>-14567.799000000014</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreProfit</td>
+    <td>-11260.176400000015</td>
+    <td>1960.1225999999988</td>
+    <td>13220.299000000014</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI</td>
+    <td>0.38</td>
+    <td>1.57</td>
+    <td>1.19</td>
+  </tr>
+  <tr>
+    <td>totalClientCharge</td>
+    <td>6759.95</td>
+    <td>5412.45</td>
+    <td>-1347.5</td>
+  </tr>
+  <tr>
+    <td>totalClientCommission</td>
+    <td>4483.95</td>
+    <td>4436.45</td>
+    <td>-47.5</td>
+  </tr>
+  <tr>
+    <td>totalClientContactCharge</td>
+    <td>2276</td>
+    <td>976</td>
+    <td>-1300</td>
+  </tr>
+  <tr>
+    <td>totalClientROI</td>
+    <td>13.27</td>
+    <td>16.39</td>
+    <td>3.12</td>
+  </tr>
+  <tr>
+    <td>totalClientValue</td>
+    <td>89679</td>
+    <td>88729</td>
+    <td>-950</td>
+  </tr>
+  <tr>
+    <td>totalContacts</td>
+    <td>1138</td>
+    <td>488</td>
+    <td>-650</td>
+  </tr>
+</table>
+<table class="table table-bordered goals">
+  <tr>
+    <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI &gt;= 1.10</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>totalClientROI &gt;= 15</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>conversion &gt; 0.25</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI &gt;= 1.30</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+</table>
+<p>The top of the report shows the best rule:</p>
+<pre><code class="language-go">(in(segment,&quot;a&quot;,&quot;d&quot;,&quot;f&quot;,&quot;g&quot;) &amp;&amp; quarter &lt;= 2) ||
+(in(segment,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;) &amp;&amp; quarter &gt;= 3)
+</code></pre>
+<p>To put this rule in more human readable terms, we could say that when picking which segment to call in each quarter that the following holds true:</p>
+<ul>
+<li>Segments: <em>a</em>, <em>d</em>, <em>f</em> and <em>g</em> can be called in quarter <em>2</em> or before</li>
+<li>Segments: <em>b</em>, <em>c</em> and <em>e</em> can be called in quarter <em>3</em> or after</li>
+</ul>
+<p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.39, this is 3.12 more than without the rule and 1.39 above target.  Again with the rule the client has a conversion of 0.34, this is 0.18 percentage points more than without the rule and 0.09 above the target.  Finally the call centre, with the rule, has an ROI of 1.57, this is 1.19 more than without the rule and 0.27 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
+<h3>How many callbacks to make per segment?</h3>
+<p>Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_how_many_callbacks_per_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
+<pre><code class="language-yaml">title: &quot;How many callbacks to make per segment?&quot;
+category: &quot;acme&quot;
+tags:
+  - repair
+  - sales
+  - printers
+train:
+  dataset:
+    csv:
+      filename: &quot;csv/printer_repairs_callbacks.csv&quot;
+      hasHeader: true
+      separator: &quot;,&quot;
+    fields:
+      - callbacks
+      - segment
+      - callTime
+      - isComplete
+      - isContact
+      - value
+  when: &quot;!hasRun || sinceLastRunMinutes &gt; 40&quot;
+ruleGeneration:
+  fields:
+    - callbacks
+    - segment
+  combinationLength: 3
+aggregators:
+  - name: &quot;totalContacts&quot;
+    kind: &quot;count&quot;
+    arg: &quot;isContact&quot;
+  - name: &quot;totalClientValue&quot;
+    kind: &quot;sum&quot;
+    arg: &quot;value&quot;
+    # 5% commission on all repair contracts
+  - name: &quot;totalClientCommission&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientValue * 0.05&quot;
+    # £2 charge per contact
+  - name: &quot;totalClientContactCharge&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalContacts * 2&quot;
+  - name: &quot;totalClientCharge&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientCommission + totalClientContactCharge&quot;
+  - name: &quot;totalClientROI&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(totalClientValue / (totalClientCharge + pow(0,totalClientCharge)), 2)&quot;
+  - name: &quot;numSignups&quot;
+    kind: &quot;count&quot;
+    arg: &quot;value &gt; 0&quot;
+  - name: &quot;totalCallCentreCost&quot;
+    kind: &quot;sum&quot;
+    # £0.04/min call cost, plus £10/hr caller cost, plus £10/hr overheads
+    # Equal: (0.04/60) + (10/60/60) + (10/60/60) = £0.0062/second
+    arg: &quot;callTime * 0.0062&quot;
+  - name: &quot;totalCallCentreProfit&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;totalClientCharge - totalCallCentreCost&quot;
+  - name: &quot;conversion&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(numSignups / (totalContacts + pow(0,totalContacts)), 2)&quot;
+  - name: &quot;totalCallCentreROI&quot;
+    kind: &quot;calc&quot;
+    arg: &quot;roundto(totalClientCharge / (totalCallCentreCost + pow(0,totalCallCentreCost)), 2)&quot;
+goals:
+  - &quot;totalCallCentreROI &gt;= 1.10&quot;
+  - &quot;totalClientROI &gt;= 15&quot;
+  - &quot;conversion &gt; 0.25&quot;
+  - &quot;totalCallCentreROI &gt;= 1.30&quot;
+sortOrder:
+  - aggregator: &quot;goalsScore&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;totalClientValue&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;totalCallCentreROI&quot;
+    direction: &quot;descending&quot;
+  - aggregator: &quot;conversion&quot;
+    direction: &quot;descending&quot;
+rules:
+  - &quot;(callbacks &lt;= 5  &amp;&amp; in(segment,\&quot;a\&quot;,\&quot;d\&quot;,\&quot;f\&quot;,\&quot;g\&quot;)) || (callbacks &lt;= 9 &amp;&amp; in(segment,\&quot;b\&quot;,\&quot;c\&quot;,\&quot;e\&quot;))&quot;
+</code></pre>
+<h4>Assessment of Report</h4>
+<p>After running the experiment a report is generated which finds the following rule:</p>
+<pre><code class="language-go">(callbacks &lt;= 5 &amp;&amp; in(segment,&quot;a&quot;,&quot;d&quot;,&quot;f&quot;,&quot;g&quot;)) || (callbacks &lt;= 9 &amp;&amp; in(segment,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;))
+</code></pre>
+<table class="table table-bordered aggregators">
+  <tr>
+    <th>Aggregator</th>
+    <th>Original Value</th>
+    <th>Rule Value</th>
+    <th>Change</th>
+  </tr>
+  <tr>
+    <td>conversion</td>
+    <td>0.15</td>
+    <td>0.33</td>
+    <td>0.18</td>
+  </tr>
+  <tr>
+    <td>goalsScore</td>
+    <td>0</td>
+    <td>4</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>numMatches</td>
+    <td>5000</td>
+    <td>1250</td>
+    <td>-3750</td>
+  </tr>
+  <tr>
+    <td>numSignups</td>
+    <td>176</td>
+    <td>164</td>
+    <td>-12</td>
+  </tr>
+  <tr>
+    <td>percentMatches</td>
+    <td>100</td>
+    <td>25</td>
+    <td>-75</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreCost</td>
+    <td>17822.00540000002</td>
+    <td>3382.7014000000013</td>
+    <td>-14439.304000000018</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreProfit</td>
+    <td>-11059.355400000019</td>
+    <td>2061.7485999999985</td>
+    <td>13121.104000000018</td>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI</td>
+    <td>0.38</td>
+    <td>1.61</td>
+    <td>1.23</td>
+  </tr>
+  <tr>
+    <td>totalClientCharge</td>
+    <td>6762.650000000001</td>
+    <td>5444.45</td>
+    <td>-1318.200000000001</td>
+  </tr>
+  <tr>
+    <td>totalClientCommission</td>
+    <td>4486.650000000001</td>
+    <td>4446.45</td>
+    <td>-40.200000000001</td>
+  </tr>
+  <tr>
+    <td>totalClientContactCharge</td>
+    <td>2276</td>
+    <td>998</td>
+    <td>-1278</td>
+  </tr>
+  <tr>
+    <td>totalClientROI</td>
+    <td>13.27</td>
+    <td>16.33</td>
+    <td>3.06</td>
+  </tr>
+  <tr>
+    <td>totalClientValue</td>
+    <td>89733</td>
+    <td>88929</td>
+    <td>-804</td>
+  </tr>
+  <tr>
+    <td>totalContacts</td>
+    <td>1138</td>
+    <td>499</td>
+    <td>-639</td>
+  </tr>
+</table>
+<table class="table table-bordered goals">
+  <tr>
+    <th>Goal</th><th>Original Value</th><th>Rule Value</th>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI &gt;= 1.10</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>totalClientROI &gt;= 15</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>conversion &gt; 0.25</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+  <tr>
+    <td>totalCallCentreROI &gt;= 1.30</td>
+    <td class="goalPassed-false">
+      false
+    </td>
+    <td class="goalPassed-true">
+      true
+    </td>
+  </tr>
+</table>
+<p>The top of the report shows the best rule:</p>
+<pre><code class="language-go">(callbacks &lt;= 5 &amp;&amp; in(segment,&quot;a&quot;,&quot;d&quot;,&quot;f&quot;,&quot;g&quot;)) ||
+(callbacks &lt;= 9 &amp;&amp; in(segment,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;))
+</code></pre>
+<p>To put this rule in more human readable terms, we could say that when setting the maximum number of callbacks for each segment that the following holds true:</p>
+<ul>
+<li>Segments: <em>a</em>, <em>d</em>, <em>f</em> and <em>g</em> should have the maximum number of callbacks set to <em>5</em></li>
+<li>Segments: <em>b</em>, <em>c</em> and <em>e</em> should have the maximum number of callbacks set to <em>9</em></li>
+</ul>
+<p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.33, this is 3.06 more than without the rule and 1.33 above target.  Again with the rule the client has a conversion of 0.33, this is 0.08 percentage points more than without the rule and 0.054 above the target.  Finally the call centre, with the rule, has an ROI of 1.61, this is 1.23 more than without the rule and 0.31 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
+<h3>Conclusion</h3>
+<p>With the use of the three types of rule, the client gets a fantastic result and the call centre makes a healthy profit as well.  A healthy profit is particularly important for this company because they know that sometimes calling is unpredictable and they will often make a loss.  They need to minimize the losses where they can and make the most of profits when they are able.</p>
+  </div>
+</div>
+
+    </div><!-- /.container -->
+
+    <div class="container-fluid">
+  <footer>
+    <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="navbar-brand" href="/">Rulehunter</a></li>
+        <li><a href="http://vlifesystems.com">Company</a></li>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/docs/">Docs</a></li>
+      </ul>
+      <p class="pull-left">
+        The content of this site is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+     </p>
+    </nav>
+  </footer>
+</div>
+
+  </body>
+</html>
