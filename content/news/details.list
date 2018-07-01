@@ -1,0 +1,17 @@
+{ filename  2018-05-01-rulehunter-v0.3-released.md
+  title     "Rulehunter v0.3 Released"
+  author    {
+    name      "Lawrence Woodman"
+    url       "https://lawrencewoodman.github.io"
+  }
+  tags          {"release"}
+}
+
+{ filename  2017-07-10-rulehunter-v0.1-released.md
+  title     "Rulehunter v0.1 Released"
+  author    {
+    name      "Lawrence Woodman"
+    url       "https://lawrencewoodman.github.io"
+  }
+  tags      {"release"}
+}

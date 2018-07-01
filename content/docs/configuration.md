@@ -1,14 +1,6 @@
----
-title: "Configuration"
-description: "How to configure Rulehunter"
-weight: 30
-draft: false
-toc: false
-bref: "Rulehunter is easy to configure using a single configuration file"
----
-
 Rulehunter is configured using a `config.yaml` file as follows:
-{{< highlight yaml >}}
+
+``` yaml
 # The location of the experiment files.
 experimentsDir: "/usr/local/rulehunter/experiments"
 
@@ -40,5 +32,4 @@ maxNumRecords: 150
 # This is only used when running as a server/service.
 # (default: 0, indicating web server shouldn't run)
 httpPort: 8780
-
-{{< /highlight >}}
+```

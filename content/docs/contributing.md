@@ -1,12 +1,3 @@
----
-title: "Contributing"
-description: "We would love your help to improve Rulehunter"
-weight: 70
-draft: false
-toc: false
-bref: "We would love your help to improve Rulehunter"
----
-
 ### Code
 Rulehunter is licensed under an MIT Licence.  Please see the [licence](/docs/licence/) section for more details.
 

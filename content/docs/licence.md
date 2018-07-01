@@ -1,12 +1,3 @@
----
-title: "Licence"
-description: "Rulehunter is open source"
-weight: 80
-draft: false
-toc: false
-bref: "Rulehunter is licensed under an MIT Licence "
----
-
 Copyright (C) 2016-2018 [vLife Systems Ltd](http://vlifesystems.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

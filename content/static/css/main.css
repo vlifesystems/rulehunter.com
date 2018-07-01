@@ -1,0 +1,167 @@
+body {
+  font-size: 16px;
+  line-height: 24px;
+}
+.hero {
+  text-align: center;
+  padding-bottom: 56px;
+}
+
+.hero h1 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+  max-width: 880px;
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 74px;
+}
+
+.hero h1 a {
+  color: black;
+}
+
+.hero h2 {
+  color: gray;
+}
+
+.quick-buttons {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.quick-buttons .btn {
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+}
+
+pre {
+  border-radius: 14px;
+}
+
+ol.doc-breadcrumb {
+  margin-bottom: 1em;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+div.goals {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+div.rule {
+  font-family: 'Droid Sans Mono', monospace;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+table.aggregators, table.goals {
+  margin-top: 2em;
+}
+
+table.aggregators th, table.goals th {
+  border: 1px solid #DDD;
+  background-color: #CDF;
+  padding: 8px;
+}
+
+table.goals td.goalPassed-true {
+  background-color: #CFC;
+}
+
+table.goals td.goalPassed-false {
+  background-color: #FCC;
+}
+
+
+
+ul.posts {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.post-meta {
+  color: #909090;
+}
+
+p#rss-subscribe {
+  margin-top: 2em;
+}
+
+div#licence {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 1em;
+  border-top: #AAA solid 1px;
+  border-bottom: #AAA solid 1px;
+  background-color: #E7E7E7;
+}
+
+
+div#related {
+  margin-top: 2em;
+}
+
+div#related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 130%;
+}
+
+div#related ul li {
+  padding-bottom: 1em;
+  line-height: 1.3;
+}
+
+div#taggedArticles ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+div#taggedArticles ul li {
+  padding-bottom: 1em;
+  line-height: 1.3;
+}
+
+div#frontPage {
+  margin-top: 2em;
+}
+
+div#frontPage div.screenshot a {
+  color: black;
+}
+
+div#frontPage div.screenshot a:hover {
+  color: #444;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div#frontPage div.screenshot a p {
+  margin-top: 1em;
+  line-height: 1.5;
+}
+
+div#frontPage ul {
+  padding-left: 1em;
+}
+
+div#frontPage ul li {
+  list-style: none;
+}
+
+div#frontPage div.profile a {
+  color: black;
+}
+
+
+div#frontPage div.profile a:hover {
+  color: #444;
+  text-decoration: none;
+}

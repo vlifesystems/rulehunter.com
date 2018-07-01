@@ -1,59 +1,50 @@
----
-title: "Usage"
-description: "How to run Rulehunter"
-weight: 50
-draft: false
-toc: true
-bref: "Rulehunter has a variety of ways that it can been used depending on a user's needs"
----
-
 ### Single Run
 
 To processes the experiments in the `experimentsDir` directory specified in `config.yaml`, which is located in the current directory:
-{{< highlight shell >}}
+``` bash
 rulehunter
-{{< /highlight >}}
+```
 
 To specify a config file:
-{{< highlight shell >}}
+``` bash
 rulehunter --config=/usr/local/rulehunter/config.yaml
-{{< /highlight >}}
+```
 
 To specify a single experiment file:
-{{< highlight shell >}}
+``` bash
 rulehunter --file=experiments/diabetes.yaml
-{{< /highlight >}}
+```
 
 To ignore the `when` field in experiments and hence run experiments now:
-{{< highlight shell >}}
+``` bash
 rulehunter --ignore-when
-{{< /highlight >}}
+```
 
 To get the version of Rulehunter:
-{{< highlight shell >}}
+``` bash
 rulehunter version
-{{< /highlight >}}
+```
 
 To get help:
-{{< highlight shell >}}
+``` bash
 rulehunter help
-{{< /highlight >}}
+```
 
 ### Server
 
 To run Rulehunter as a server continually checking and processing experiments:
-{{< highlight shell >}}
+``` bash
 rulehunter serve
-{{< /highlight >}}
+```
 
 ### Service
 
 To install Rulehunter as an operating service (which then needs starting separately) using `/usr/local/rulehunter/config.yaml`:
-{{< highlight shell >}}
+``` bash
 rulehunter service install --config=/usr/local/rulehunter/config.yaml
-{{< /highlight >}}
+```
 
 To uninstall Rulehunter as an operating service:
-{{< highlight shell >}}
+``` bash
 rulehunter service uninstall
-{{< /highlight >}}
+```

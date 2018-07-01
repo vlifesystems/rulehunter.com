@@ -1,18 +1,8 @@
----
-title: "Experiments"
-description: "How to describe an Experiment"
-weight: 40
-draft: false
-toc: true
-bref: "An experiment describes what you want Rulehunter to do"
----
-
-
 ### An Experiment file
 
 An _experiment_ is what describes the dataset that you want to process and what you want the generated rules to aim for.  Each experiment is described by a `.yaml` or a `.json` file located in the `experimentsDir` of `config.yaml`.  This will look as follows:
 
-{{< highlight yaml >}}
+``` yaml
 # The title of the report
 title: "What would indicate good flow?"
 
@@ -103,7 +93,7 @@ sortOrder:
 rules:
   - "height > 10"
   - "height > 10 && height < 20"
-{{< /highlight >}}
+```
 
 ### SQL
 For more information about `dataSourceName` see the following for each `driverName`:
@@ -119,54 +109,144 @@ For more information about `dataSourceName` see the following for each `driverNa
 
 The aggregators are used to collect data on the records that match against a rule.  There are the following functions:
 
-| Function | Description |
-| --- | --- |
-| `calc(expr)` | Calculate the result of expression using as variables any aggregatorNames used in the expression |
-| `count(expr)` | Count the number of records that match a rule and the supplied expression |
-| `mcc(expr)` | Calculate the [Matthews correlation coefficient](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) of a rule to match against the expression passed.  A coefficient of +1 represents a perfect prediction, 0 no better than random prediction and −1 indicates total disagreement between prediction and observation. |
-| `mean(expr)` | Calculate the mean value for an expression calculated on records that match a rule |
-| `precision(expr)` | Calculate the [precision](https://en.wikipedia.org/wiki/Precision_and_recall) of a rule to match against the expression passed |
-| `recall(expr)` | Calculate the [recall](https://en.wikipedia.org/wiki/Precision_and_recall) of a rule to match against the expression passed |
-| `sum(expr)` | calculates the sum for an expression calculated on records that match a rule |
+<br />
+<table class="table table-bordered">
+  <tr><th>Function</th><th>Description</th></tr>
+  <tr>
+    <td><code>calc(expr)</code</td>
+    <td>Calculate the result of expression using as variables any aggregatorNames used in the expressiona</td>
+  </tr>
+  <tr>
+    <td><code>count(expr)</code></td>
+    <td>Count the number of records that match a rule and the supplied expression</td>
+  </tr>
+  <tr>
+    <td><code>mcc(expr)</code></td>
+    <td>Calculate the <a href="https://en.wikipedia.org/wiki/Matthews_correlation_coefficient">Matthews correlation coefficient</a> of a rule to match against the expression passed.  A coefficient of +1 represents a perfect prediction, 0 no better than random prediction and −1 indicates total disagreement between prediction and observation.</td>
+  </tr>
+  <tr>
+    <td><code>mean(expr)</code></td>
+    <td>Calculate the mean value for an expression calculated on records that match a rule</td>
+  </tr>
+  <tr>
+    <td><code>precision(expr)</code></td>
+    <td>Calculate the <a href="https://en.wikipedia.org/wiki/Precision_and_recall">precision</a> of a rule to match against the expression passed</td>
+  </tr>
+  <tr>
+    <td><code>recall(expr)</code></td>
+    <td>Calculate the <a href="https://en.wikipedia.org/wiki/Precision_and_recall">recall</a> of a rule to match against the expression passed</td>
+  </tr>
+  <tr>
+    <td><code>sum(expr)</code></td>
+    <td>calculates the sum for an expression calculated on records that match a rule</td>
+  </tr>
+</table>
+
 
 ### Sort Order
 
 The rules in the report are sorted in the order of the entries for the `sortOrder` field.  The aggregators that can be used are the names specified in the `aggregators` field as well as the following built-in aggregators.
 
-| Aggregator       | Description                                       |
-| ---------------- | ------------------------------------------------- |
-| `numMatches`     | The number of records that a rule matches against |
-| `percentMatches` | The percent of records in the dataset that a rule matches against |
-| `goalsScore`     | How well a rule passes the goals.  The higher the number the better the match |
+<br />
+<table class="table table-bordered">
+  <tr><th>Aggregator</th><th>Description</th></tr>
+  <tr>
+    <td><code>numMatches</code></td>
+    <td>The number of records that a rule matches against</td>
+  </tr>
+  <tr>
+    <td><code>percentMatches</code></td>
+    <td>The percent of records in the dataset that a rule matches against</td>
+  </tr>
+  <tr>
+    <td><code>goalsScore</code></td>
+    <td>How well a rule passes the goals.  The higher the number the better the match</td>
+  </tr>
+</table>
+
 
 ### When Expressions
 
 The `when` field determines when the experiment is to be run and how often.  It is an expression that supports the following variables:
 
-| Variable              | Description                                   |
-| --------------------- | --------------------------------------------- |
-| `hasRun`              | Whether the experiment has been ever been run |
-| `hasRunToday`         | Whether the experiment has been run today |
-| `hasRunThisWeek`      | Whether the experiment has been run this week |
-| `hasRunThisMonth`     | Whether the experiment has been run this month |
-| `hasRunThisYear`      | Whether the experiment has been run this year |
-| `sinceLastRunMinutes` | The number of minutes since the experiment was last run |
-| `sinceLastRunHours`   | The number of hours since the experiment was last run |
-| `isWeekday`           | Whether today is a weekday |
+<br />
+<table class="table table-bordered">
+  <tr><th>Variable</th><th>Description</th></tr>
+  <tr>
+    <td><code>hasRun</code></td>
+    <td>Whether the experiment has been ever been run</td>
+  </tr>
+  <tr>
+    <td><code>hasRunToday</code></td>
+    <td>Whether the experiment has been run today</td>
+  </tr>
+  <tr>
+    <td><code>hasRunThisWeek</code></td>
+    <td>Whether the experiment has been run this week</td>
+  </tr>
+  <tr>
+    <td><code>hasRunThisMonth</code></td>
+    <td>Whether the experiment has been run this month</td>
+  </tr>
+  <tr>
+    <td><code>hasRunThisYear</code></td>
+    <td>Whether the experiment has been run this year</td>
+  </tr>
+  <tr>
+    <td><code>sinceLastRunMinutes</code></td>
+    <td>The number of minutes since the experiment was last run</td>
+  </tr>
+  <tr>
+    <td><code>sinceLastRunHours</code></td>
+    <td>The number of hours since the experiment was last run</td>
+  </tr>
+  <tr>
+    <td><code>isWeekday</code></td>
+    <td>Whether today is a weekday</td>
+  </tr>
+</table>
 
 ### Expressions
 
 Any expressions used in the experiment file conform to fairly standard Go expressions and can use the following functions:
 
 
-| Function        | Description                                        |
-| --------------- | -------------------------------------------------- |
-| `if(b, t, f)`   | Return `t` if `b` is true, otherwise returns `f` |
-| `iferr(v, av)`  | Return `v` if not an error, otherwise return `av` |
-| `in(n, h ...)`  | Return whether `n` is in the rest of the arguments |
-| `ni(n, h ...)`  | Return whether `n` is not in the rest of the arguments |
-| `max(n ...)`    | Return the biggest number supplied |
-| `min(n ...)`    | Return the smallest number supplied |
-| `pow(b, e)`     | Raise `b` to power of `e` |
-| `roundto(n, p)` | Round `n` to `p` decimal places |
-| `sqrt(x)`       | Return the square root of `x` |
+<table class="table table-bordered">
+  <tr><th>Function</th><th>Description</th></tr>
+  <tr>
+    <td><code>if(b, t, f)</code></td>
+    <td>Return <code>t</code> if <code>b</code> is true, otherwise returns <code>f</code></td>
+  </tr>
+  <tr>
+    <td><code>iferr(v, av)</code></td>
+    <td>Return <code>v</code> if not an error, otherwise return <code>av</code></td>
+  </tr>
+  <tr>
+    <td><code>in(n, h ...)</code></td>
+    <td>Return whether <code>n</code> is in the rest of the arguments</td>
+  </tr>
+  <tr>
+    <td><code>ni(n, h ...)</code></td>
+    <td>Return whether <code>n</code> is not in the rest of the arguments</td>
+  </tr>
+  <tr>
+    <td><code>max(n ...)</code></td>
+    <td>Return the biggest number supplied</td>
+  </tr>
+  <tr>
+    <td><code>min(n ...)</code></td>
+    <td>Return the smallest number supplied</td>
+  </tr>
+  <tr>
+    <td><code>pow(b, e)</code></td>
+    <td>Raise <code>b</codeL to power of <code>e</code></td>
+  </tr>
+  <tr>
+    <td><code>roundto(n, p)</code></td>
+    <td>Round <code>n</code> to <code>p</code> decimal places</td>
+  </tr>
+  <tr>
+    <td><code>sqrt(x)</code></td>
+    <td>Return the square root of <code>x</code></td>
+  </tr>
+</table>

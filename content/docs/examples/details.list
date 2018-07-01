@@ -1,0 +1,37 @@
+{ filename    examples-included.md
+  title       "Examples Included"
+  subtitle    "Rulehunter includes a number of example experiments"
+  summary     "Rulehunter includes a number of example experiments"
+  isIndex     true
+}
+
+{ filename    processing-the-examples.md
+  title       "Processing the Examples"
+  subtitle    "It is well worth running the experiments to get an idea of how Rulehunter works"
+  summary     "How to process the example experiments"
+}
+
+
+{ filename    call-centre-printer-repairs.md
+  title       "A Call Centre: Printer Repairs"
+  subtitle    "A call centre selling printer repair contracts for its client"
+  summary     "An example of a call centre trying to balance its needs with those of their client"
+}
+
+{ filename    bank-subscribe-term-deposit.md
+  title       "Bank Term Deposit Description"
+  subtitle    "Bank improving success of campaign to encourage customers to subscribe to a term deposit"
+  summary     "An example of a bank's telephone campaign to encourage customers to subscribe to a term deposit"
+}
+
+{ filename    breast-cancer-diagnosis.md
+  title       "Breast Cancer Diagnosis"
+  subtitle    "Doctors want to improve diagnosis and speed-up follow-up letters for patients with suspected breast cancer"
+  summary     "An example of doctors wanting to improve diagnosis and speed-up the time it takes to send out follow-up letters for patients with suspected breast cancer"
+}
+
+{ filename    steel-plate-fault.md
+  title       "Steel Plate Fault"
+  subtitle    "Quality control detecting faults in steel plate"
+  summary     "An example of quality control detecting a fault in steel plate"
+}

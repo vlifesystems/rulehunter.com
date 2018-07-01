@@ -1,0 +1,48 @@
+{ filename    overview.md
+  title       "Overview"
+  subtitle    "Rulehunter is easy to use and understand"
+  summary     "A quick outline of Rulehunter"
+  isIndex     true
+}
+
+{ filename    installation.md
+  title       "Installation"
+  subtitle    "Installation is easy on a variety of platforms"
+  summary     "How to install Rulehunter"
+}
+
+{ filename    configuration.md
+  title       "Configuration"
+  subtitle    "Rulehunter is easy to configure using a single configuration file"
+  summary     "How to configure Rulehunter"
+}
+
+{ filename    experiments.md
+  title       "Experiments"
+  subtitle    "An experiment describes what you want Rulehunter to do"
+  summary     "How to describe an experiment"
+}
+
+{ filename    usage.md
+  title       "Usage"
+  subtitle    "Rulehunter has a variety of ways that it can be used depending on a user's needs"
+  summary     "How to run Rulehunter"
+}
+
+{ filename    contributing.md
+  title       "Contributing"
+  subtitle    "We would love your help to improve Rulehunter"
+  summary     "How to contribute to Rulehunter"
+}
+
+{ filename    licence.md
+  title       "Licence"
+  subtitle    "Rulehunter is licenced under an MIT licence"
+  summary     "Rulehunter is open source"
+}
+
+{ title       "Examples"
+  subtitle    "A range of examples to show how Rulehunter can be used"
+  summary     "Examples to show how Rulehunter can be used"
+  subdir      examples
+}
