@@ -2,7 +2,18 @@ namespace eval posts {
   namespace export {[a-z]*}
   namespace ensemble create
   source -directory [dir plugins] www.tcl
+  source -directory plugins layout.tcl
 }
+
+
+proc posts::generate {} {
+  foreach postDesc [getvar plugins posts] {
+    dict with postDesc {
+      ProcessPostsDesc $collectionName $layout $srcDir $url
+    }
+  }
+}
+
 
 proc posts::makeDate {post} {
   set date ""
@@ -26,21 +37,6 @@ proc posts::makeDate {post} {
   }
 }
 
-proc posts::makeExcerpt {partialContent} {
-  return [string range [strip_html $partialContent] 0 300]
-}
-
-# url is where the destination should be based off, such as blog
-proc posts::makeDestination {url filename} {
-  set filename [file tail $filename]
-  set ok [regexp {^(\d{4})-(\d{2})-(\d{2})-(.*).md$} \
-                 $filename match year month day titleDir \
-  ]
-  if {$ok} {
-    return [www::makeDestination $url $year $month $day $titleDir index.html]
-  }
-  # TODO: Raise an error
-}
 
 # url is where the url should be based off, such as blog
 proc posts::makeURL {url filename} {
@@ -54,10 +50,17 @@ proc posts::makeURL {url filename} {
   return -code error "makeURL: invalid filename: $filename"
 }
 
+
+# Sort posts in decreasing date order
+proc posts::sort {posts} {
+  return [lsort -command [namespace which CompareDate] -decreasing $posts]
+}
+
+
 # Return any posts related to the supplied post. This is done by looking
 # at the tags.  The return post is a simplified version containing just
 # the title and url.
-proc posts::makeRelated {posts post} {
+proc posts::MakeRelated {posts post} {
   set postTags [dict get $post tags]
   set relatedPostStats [lmap oPost $posts {
     set numTagsMatch 0
@@ -89,11 +92,55 @@ proc posts::makeRelated {posts post} {
 }
 
 
-# Sort posts in decreasing date order
-proc posts::sort {posts} {
-  return [lsort -command [namespace which CompareDate] -decreasing $posts]
-}
-
 proc posts::CompareDate {a b} {
   return [expr {[dict get $a date] - [dict get $b date]}]
+}
+
+
+proc posts::ProcessPostsDesc {collectionName layout srcDir url} {
+  # TODO: sort in date order
+  set files [read -directory $srcDir details.list]
+
+  set files [lmap file $files {
+    dict set file destination [
+      MakeDestination $url [dict get $file filename]
+    ]
+    dict set file tags [lsort [dict get $file tags]]
+    dict set file url  [
+      makeURL $url [dict get $file filename]\
+    ]
+    dict set file date [posts::makeDate $file]
+    dict set file menuOption article
+    set file
+  }]
+
+  foreach file $files {
+    dict set file relatedPosts [MakeRelated $files $file]
+    set content [
+      ornament -params $file -directory $srcDir -file [dict get $file filename]
+    ]
+    set content [markdown $content]
+    dict set file summary [MakeExcerpt $content]
+    collection add $collectionName $file
+    write [dict get $file destination] \
+          [layout::render $layout $content $file]
+  }
+}
+
+
+proc posts::MakeExcerpt {partialContent} {
+  return [string range [strip_html $partialContent] 0 300]
+}
+
+
+# url is where the destination should be based off, such as blog
+proc posts::MakeDestination {url filename} {
+  set filename [file tail $filename]
+  set ok [regexp {^(\d{4})-(\d{2})-(\d{2})-(.*).md$} \
+                 $filename match year month day titleDir \
+  ]
+  if {$ok} {
+    return [www::makeDestination $url $year $month $day $titleDir index.html]
+  }
+  # TODO: Raise an error
 }
