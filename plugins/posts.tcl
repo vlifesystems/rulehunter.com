@@ -123,7 +123,7 @@ proc posts::ProcessPostsDesc {collectionName layout srcDir url} {
     dict set file summary [MakeExcerpt $content]
     collection add $collectionName $file
     write [dict get $file destination] \
-          [layout::render $layout $content $file]
+          [layout::render $layout $file $content]
   }
 }
 

@@ -16,7 +16,7 @@ proc writeTagPage {tag posts} {
       -directory [dir content news] \
       -file tag.html
   ]
-  write $destination [layout::render default.tpl $content $params]
+  write $destination [layout::render default.tpl $params $content]
 }
 
 set allPosts [posts::sort [collection get news]]

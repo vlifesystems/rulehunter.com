@@ -3,9 +3,14 @@ namespace eval layout {
   namespace ensemble create
 }
 
-proc layout::render {layoutFilename content params} {
-  # TODO: Work out whether should merge other values from
-  # TODO: config template entry into params
+# TODO: Work out whether should merge other values from
+# TODO: config template entry into params
+proc layout::render {layoutFilename params args} {
+  switch [llength $args] {
+    0       { set content "" }
+    1       { lassign $args content }
+    default { return -code error "wrong # args" }
+  }
   set config [getvar plugins layout]
   if {![dict exists $config $layoutFilename]} {
     return -code error "unknown layout: $layoutFilename"
@@ -18,5 +23,5 @@ proc layout::render {layoutFilename content params} {
     return $content
   }
   set nextLayoutFilename [dict get $config $layoutFilename parent]
-  return [render $nextLayoutFilename $content $params]
+  return [render $nextLayoutFilename $params $content]
 }

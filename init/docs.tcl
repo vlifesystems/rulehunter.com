@@ -49,7 +49,7 @@ proc processDir {place args} {
     } else {
       set content [makeContent [dir content {*}$args] $file]
       set params [dict merge [dict create files $files place $place] $file]
-      write [dict get $file destination] [layout::render doc.tpl $content $params]
+      write [dict get $file destination] [layout::render doc.tpl $params $content]
     }
   }
 }
