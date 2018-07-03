@@ -7,9 +7,5 @@ posts::generate
 set destination [www::makeDestination news index.html]
 set posts [posts::sort [collection get news]]
 set params [dict create menuOption blog url /news/index.html posts $posts]
-set content [ornament \
-    -params $params \
-    -directory [dir content news] \
-    -file index.html
-]
-write $destination [layout::render default.tpl $content $params]
+set content ""
+write $destination [layout::render news-list.tpl $content $params]
