@@ -2,14 +2,14 @@ namespace eval posts {
   namespace export {[a-z]*}
   namespace ensemble create
   source -directory [dir plugins] www.tcl
-  source -directory plugins layout.tcl
+  source -directory [dir plugins] layout.tcl
 }
 
 
 proc posts::generate {} {
   foreach postDesc [getvar plugins posts] {
     dict with postDesc {
-      ProcessPostsDesc $collectionName $layout $srcDir $url
+      ProcessPostsDesc $collectionPrefixName $postLayout $srcDir $url
     }
   }
 }
@@ -57,6 +57,50 @@ proc posts::sort {posts} {
 }
 
 
+proc posts::tagToDirName {tag} {
+ return [string tolower [regsub -all {[^[:alnum:]_-]} $tag {}]]
+}
+
+
+proc posts::GenerateTagPages {files url {tags {}}} {
+  foreach tag $tags {
+    set tagFiles [list]
+    foreach file $files {
+      if {![dict exists $file tags]} {
+        continue
+      }
+      if {[lsearch [dict get $file tags] $tag] >= 0} {
+        lappend tagFiles $file
+      }
+    }
+    set tagDirName [tagToDirName $tag]
+    set destination [
+      www::makeDestination {*}[www::urlToPath $url] tag $tagDirName index.html
+    ]
+    set params [dict create \
+      tag $tag posts $tagFiles \
+      url [www::url $url tag $tagDirName index.html] \
+      title "Articles tagged with: $tag" \
+    ]
+    write $destination [layout::render news-tag-list.tpl $params]
+  }
+}
+
+
+proc posts::CollectTags {collectionPrefixName files} {
+  set allTags [list]
+  foreach file $files {
+    foreach tag [dict get $file tags] {
+      if {[lsearch $allTags $tag] == -1} {
+        lappend allTags $tag
+        ::collection add "$collectionPrefixName-tags" $tag
+      }
+    }
+  }
+  return $allTags
+}
+
+
 # Return any posts related to the supplied post. This is done by looking
 # at the tags.  The return post is a simplified version containing just
 # the title and url.
@@ -97,7 +141,7 @@ proc posts::CompareDate {a b} {
 }
 
 
-proc posts::ProcessPostsDesc {collectionName layout srcDir url} {
+proc posts::ProcessPostsDesc {collectionPrefixName layout srcDir url} {
   # TODO: sort in date order
   set files [read -directory $srcDir details.list]
 
@@ -114,17 +158,20 @@ proc posts::ProcessPostsDesc {collectionName layout srcDir url} {
     set file
   }]
 
-  foreach file $files {
+  set files [lmap file $files {
     dict set file relatedPosts [MakeRelated $files $file]
     set content [
       ornament -params $file -directory $srcDir -file [dict get $file filename]
     ]
     set content [markdown $content]
     dict set file summary [MakeExcerpt $content]
-    collection add $collectionName $file
+    collection add "$collectionPrefixName-posts" $file
     write [dict get $file destination] \
           [layout::render $layout $file $content]
-  }
+    set file
+  }]
+  set tags [CollectTags "$collectionPrefixName-tags" $files]
+  GenerateTagPages $files $url $tags
 }
 
 

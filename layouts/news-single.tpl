@@ -1,5 +1,4 @@
 !* commandSubst true variableSubst true
-! source -directory [dir plugins] tags.tcl
 ! source -directory [dir plugins] posts.tcl
 ! source -directory [dir plugins] www.tcl
 ! set title [getparam title]
@@ -22,7 +21,7 @@
             by <a href="[getparam author url]">[getparam author name]</a><br />
             Tags:
 !           foreach tag [getparam tags] {
-              <a href="[www::url "/news/tag/[tags::toDirName $tag]/"]">$tag</a>
+              <a href="[www::url "/news/tag/[posts::tagToDirName $tag]/"]">$tag</a>
               &nbsp; &nbsp;
 !           }
           </div>

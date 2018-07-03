@@ -41,7 +41,11 @@ proc www::url {args} {
 }
 
 proc www::makeDestination {args} {
-  return [file join [dir destination] [var baseurl] {*}$args]
+  return [file join [dir destination] [urlToPath [var baseurl]] {*}$args]
+}
+
+proc www::urlToPath {url} {
+  return [file join [split $url "/"]]
 }
 
 proc www::var {args} {

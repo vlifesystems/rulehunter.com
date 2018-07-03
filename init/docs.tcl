@@ -35,7 +35,7 @@ proc processDir {place args} {
       dict set file url [www::url {*}$args]
       dict set file destination [www::makeDestination {*}$args index.html]
     } else {
-      dict set file url [makeURL [join $args "/"] [dict get $file filename]]
+      dict set file url [makeURL [www::url {*}$args] [dict get $file filename]]
       dict set file destination [
         makeDestination [file join {*}$args] [dict get $file filename]
       ]

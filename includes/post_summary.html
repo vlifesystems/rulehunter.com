@@ -1,6 +1,6 @@
 !* commandSubst true variableSubst true
-! source -directory [dir plugins] tags.tcl
 ! source -directory [dir plugins] www.tcl
+! source -directory [dir plugins] posts.tcl
 ! set date [getparam date]
 ! set title [getparam title]
 <header>
@@ -15,7 +15,7 @@
       </time>
     &nbsp; Tags:
 !   foreach tag [getparam tags] {
-      <a href="[www::url "/news/tag/[tags::toDirName $tag]/"]">$tag</a> &nbsp; &nbsp;
+      <a href="[www::url "/news/tag/[posts::tagToDirName $tag]/"]">$tag</a> &nbsp; &nbsp;
 !   }
   </span>
 </header>
