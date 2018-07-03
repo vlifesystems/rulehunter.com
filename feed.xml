@@ -1,9 +1,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Rulehunter - Find simple rules in your data to meet your goals</title>
-  <subtitle>Random things that catch my eye that don't have a natural home elsewhere.</subtitle>
   <link href="http://rulehunter.com/feed.xml" rel="self"/>
   <link href="http://rulehunter.com"/>
-  <updated>2018-07-01</updated>
+  <updated>2018-07-03</updated>
   <id>http://rulehunter.com/feed.xml</id>
   <generator uri="https://github.com/lawrencewoodman/tekyll">teykll</generator>
     <entry>
