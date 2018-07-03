@@ -11,12 +11,7 @@ proc writeTagPage {tag posts} {
     url /news/tag/$tagDirName/index.html \
     title "Articles tagged with: $tag" \
   ]
-  set content [ornament \
-      -params $params \
-      -directory [dir content news] \
-      -file tag.html
-  ]
-  write $destination [layout::render default.tpl $params $content]
+  write $destination [layout::render news-tag-list.tpl $params]
 }
 
 set allPosts [posts::sort [collection get news]]
