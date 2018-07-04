@@ -47,25 +47,25 @@ train:
       - previous
       - poutcome
       - y
+  ruleGeneration:
+    fields:
+      - age
+      - job
+      - marital
+      - education
+      - default
+      - balance
+      - housing
+      - loan
+      - contact
+      - day
+      - month
+      - campaign
+      - pdays
+      - previous
+      - poutcome
+    combinationLength: 3
   when: "!hasRun || sinceLastRunMinutes > 40"
-ruleGeneration:
-  fields:
-    - age
-    - job
-    - marital
-    - education
-    - default
-    - balance
-    - housing
-    - loan
-    - contact
-    - day
-    - month
-    - campaign
-    - pdays
-    - previous
-    - poutcome
-  combinationLength: 3
 aggregators:
   - name: "mccSubscribe"
     kind: "mcc"

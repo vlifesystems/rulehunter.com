@@ -64,40 +64,40 @@ train:
       - Dirtiness
       - Bumps
       - Other_Faults
+  ruleGeneration:
+    fields:
+      - X_Minimum
+      - X_Maximum
+      - Y_Minimum
+      - Y_Maximum
+      - Pixels_Areas
+      - X_Perimeter
+      - Y_Perimeter
+      - Sum_of_Luminosity
+      - Minimum_of_Luminosity
+      - Maximum_of_Luminosity
+      - Length_of_Conveyer
+      - TypeOfSteel_A300
+      - TypeOfSteel_A400
+      - Steel_Plate_Thickness
+      - Edges_Index
+      - Empty_Index
+      - Square_Index
+      - Outside_X_Index
+      - Edges_X_Index
+      - Edges_Y_Index
+      - Outside_Global_Index
+      - LogOfAreas
+      - Log_X_Index
+      - Log_Y_Index
+      - Orientation_Index
+      - Luminosity_Index
+      - SigmoidOfAreas
+    # Allow arithmetic in rules to help improve detection
+    arithmetic: true
+    # Allow a maximum of 3 rules to be combined to form new rules
+    combinationLength: 3
   when: "!hasRun"
-ruleGeneration:
-  fields:
-    - X_Minimum
-    - X_Maximum
-    - Y_Minimum
-    - Y_Maximum
-    - Pixels_Areas
-    - X_Perimeter
-    - Y_Perimeter
-    - Sum_of_Luminosity
-    - Minimum_of_Luminosity
-    - Maximum_of_Luminosity
-    - Length_of_Conveyer
-    - TypeOfSteel_A300
-    - TypeOfSteel_A400
-    - Steel_Plate_Thickness
-    - Edges_Index
-    - Empty_Index
-    - Square_Index
-    - Outside_X_Index
-    - Edges_X_Index
-    - Edges_Y_Index
-    - Outside_Global_Index
-    - LogOfAreas
-    - Log_X_Index
-    - Log_Y_Index
-    - Orientation_Index
-    - Luminosity_Index
-    - SigmoidOfAreas
-  # Allow arithmetic in rules to help improve detection
-  arithmetic: true
-  # Allow a maximum of 3 rules to be combined to form new rules
-  combinationLength: 3
 aggregators:
   # The Matthews Correlation Coefficient is ideal for this sort of
   # binary classification

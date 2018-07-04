@@ -31,6 +31,18 @@ train:
       - district
       - height
       - flow
+    # Describe rule generation
+    ruleGeneration:
+      # The fields that can be used in the rules
+      fields:
+        - group
+        - district
+        - height
+      # Whether arithmetic rules should be generated
+      arithmetic: true
+      # The maximum number of rules that can be combined together to form
+      # another rule
+      combinationLength: 3
   # When to run the experiment's train mode (default: !hasRun)
   when: "!hasRunToday || sinceLastRunHours > 2"
 
@@ -54,19 +66,6 @@ test:
       - flow
   # When to run the experiment's test mode (default: !hasRun)
   when: "!hasRunToday || sinceLastRunMinutes > 20"
-
-# Describe rule generation
-ruleGeneration:
-  # The fields that can be used in the rules
-  fields:
-    - group
-    - district
-    - height
-  # Whether arithmetic rules should be generated
-  arithmetic: true
-  # The maximum number of rules that can be combined together to form
-  # another rule
-  combinationLength: 3
 
 # Describe aggregators
 aggregators:
