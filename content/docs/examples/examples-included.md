@@ -1,4 +1,4 @@
-### Included Experiments
+## Included Experiments
 
 The [examples/](https://github.com/vlifesystems/rulehunter/blob/master/examples) directory of the repository contains a number of experiments, in [examples/experiments/](https://github.com/vlifesystems/rulehunter/blob/master/examples/experiments), to demonstrate how Rulehunter can be used:
 

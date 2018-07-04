@@ -1,15 +1,15 @@
-### Outline
+## Outline
 
 <big><strong><em>The following is a hypothetical scenario used purely to demonstrate Rulehunter.  The results shouldn't be used in any real-world setting.</em></strong></big>
 
 A group of doctors want to find out what indicates that a patient is likely to have breast cancer.  They want to reduce the chance that a patient with breast cancer is miss diagnosed and increase the speed with which letters are sent out for patients to have further investigation.
 
-#### The doctors' requirements
+### The doctors' requirements
 
   * Patients who statistically definitely have a malignant breast tumour should automatically be sent a follow-up appointment letter.
   * Patients who statistically definitely have a benign breast tumour should automatically be sent an all clear letter.
 
-#### The Dataset
+### The Dataset
 This example uses a dataset created by University of Wisconsin and hosted at:<br />
 <div style="margin-left: 2em; font-family: monospace;">
   [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml).<br />
@@ -19,7 +19,7 @@ This example uses a dataset created by University of Wisconsin and hosted at:<br
 </div>
 
 
-### Who should be sent a follow-up appointment letter?
+## Who should be sent a follow-up appointment letter?
 The doctors created an experiment to find tumours that statistically are definitely malignant. The details of the experiment are recorded in an experiment file called `breast_cancer_wisconsin_malignant_high.yaml` which is located in the `experimentsDir` of `config.yaml`:
 
 ``` yaml
@@ -146,7 +146,7 @@ sortOrder:
 ```
 
 
-#### Assessment of Report
+### Assessment of Report
 After running the experiment a report is generated which finds the following rule:
 
 ``` go
@@ -244,7 +244,7 @@ Below the rule you can see the results that this rule gives for the various aggr
 The report shows that the tumours for 33% (_percentMatches_) of the total records can be confidently assessed as malignant.  This represents 88% (_recallIsMalignant_) of the number of malignant tumours in the dataset.
 
 
-### Who should be sent an all clear letter?
+## Who should be sent an all clear letter?
 The doctors created an experiment to find tumours that statistically are definitely benign. The details of the experiment are recorded in an experiment file called `breast_cancer_wisconsin_benign_high.yaml` which is located in the `experimentsDir` of `config.yaml`:
 
 ``` yaml
@@ -353,7 +353,7 @@ sortOrder:
     direction: "descending"
 ```
 
-#### Assessment of Report
+### Assessment of Report
 After running the experiment a report is generated which finds the following rule:
 
 ``` go
@@ -449,7 +449,7 @@ perimeter_worst * texture_worst <= 1908 || radius_worst * smoothness_mean <= 1.3
 
 The report shows that the tumours for 47% (_percentMatches_) of the total records can be confidently assessed as benign.  This represents 75% (_recallIsBenign_) of the number of benign tumours in the dataset.
 
-### Conclusion
+## Conclusion
 In the original dataset there were 569 records. If the two rules were used to send out automatic follow-up/all clear letters that would represent 453 records (187 malignant + 266 benign), leaving just 116 records (569 total - 453 automated) for the doctors to manually assess.
 
 This is huge improvement for patients.  The majority of patients would get a follow-up letter straight away to let them know that either their tumour is benign or that they need to book a follow-up appointment and could potentially begin treatment earlier.

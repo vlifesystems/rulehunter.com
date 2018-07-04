@@ -1,21 +1,21 @@
-### Outline
+## Outline
 
 A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past.  The call centre needs to balance its need to make a profit with the needs of their client.
 
-#### The client's requirements
+### The client's requirements
 
   * The ROI (Return On Investment) must be at least 15.0
   * At least 25% of contacts must result in a repair contract
   * They would like the total value of contracts to be as high as possible
 
-#### The call centre's requirements
+### The call centre's requirements
 
   * The ROI for the call centre needs to be at least 1.10
   * The clients requirements must be met
   * Once the clients requirements are met the call centre would like
     to reach for an ROI of 1.30
 
-#### The call centre costs
+### The call centre costs
 The call centre has used the following factors to calculate their calling cost:
 
  * £0.04/min phone call cost
@@ -26,7 +26,7 @@ This gives a cost to the call centre of £0.0062/second of calling:
 
     (0.04/60) + (10/60/60) + (10/60/60) = 0.0062
 
-### Who should call which segment?
+## Who should call which segment?
 Once the campaign has been called for a while it would be useful to find who should call which data segment to get the best results.  The details of the experiment are recorded in an experiment file called `acmeprinters_repair016_who_should_call_which_segment.yaml` which is located in the `experimentsDir` of `config.yaml`:
 
 ``` yaml
@@ -108,7 +108,7 @@ sortOrder:
 ```
 
 
-#### Assessment of Report
+### Assessment of Report
 After running the experiment a report is generated which finds the following rule:
 
 ``` go
@@ -279,7 +279,7 @@ This rule is quite complicated at first sight.  To unpack it we could say that w
 Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.19, this is 1.4 more than without the rule and 1.19 above target.  Again with the rule the client has a conversion of 0.3, this is 0.14 percentage points more than without the rule and 0.05 above the target.  Finally the call centre, with the rule, has an ROI of 1.38, this is 0.73 more than without the rule and 0.08 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
 
 
-### When to call each segment?
+## When to call each segment?
 
 Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called `acmeprinters_repair016_when_to_call_each_segment.yaml` which is located in the `experimentsDir` of `config.yaml`:
 
@@ -363,7 +363,7 @@ sortOrder:
     direction: "descending"
 ```
 
-#### Assessment of Report
+### Assessment of Report
 After running the experiment a report is generated which finds the following rule:
 
 ``` go
@@ -540,7 +540,7 @@ To put this rule in more human readable terms, we could say that when picking wh
 Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.39, this is 3.12 more than without the rule and 1.39 above target.  Again with the rule the client has a conversion of 0.34, this is 0.18 percentage points more than without the rule and 0.09 above the target.  Finally the call centre, with the rule, has an ROI of 1.57, this is 1.19 more than without the rule and 0.27 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
 
 
-### How many callbacks to make per segment?
+## How many callbacks to make per segment?
 
 Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called `acmeprinters_repair016_how_many_callbacks_per_segment.yaml` which is located in the `experimentsDir` of `config.yaml`:
 
@@ -626,7 +626,7 @@ rules:
   - "(callbacks <= 5  && in(segment,\"a\",\"d\",\"f\",\"g\")) || (callbacks <= 9 && in(segment,\"b\",\"c\",\"e\"))"
 ```
 
-#### Assessment of Report
+### Assessment of Report
 After running the experiment a report is generated which finds the following rule:
 
 ``` go
@@ -803,6 +803,6 @@ To put this rule in more human readable terms, we could say that when setting th
 Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.33, this is 3.06 more than without the rule and 1.33 above target.  Again with the rule the client has a conversion of 0.33, this is 0.08 percentage points more than without the rule and 0.054 above the target.  Finally the call centre, with the rule, has an ROI of 1.61, this is 1.23 more than without the rule and 0.31 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.
 
 
-### Conclusion
+## Conclusion
 
 With the use of the three types of rule, the client gets a fantastic result and the call centre makes a healthy profit as well.  A healthy profit is particularly important for this company because they know that sometimes calling is unpredictable and they will often make a loss.  They need to minimize the losses where they can and make the most of profits when they are able.

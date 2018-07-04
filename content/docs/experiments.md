@@ -1,4 +1,4 @@
-### An Experiment file
+## An Experiment file
 
 An _experiment_ is what describes the dataset that you want to process and what you want the generated rules to aim for.  Each experiment is described by a `.yaml` or a `.json` file located in the `experimentsDir` of `config.yaml`.  This will look as follows:
 
@@ -94,7 +94,7 @@ rules:
   - "height > 10 && height < 20"
 ```
 
-### SQL
+## SQL
 For more information about `dataSourceName` see the following for each `driverName`:
 
 * `mssql` - MS SQL Server - [README](https://github.com/denisenkom/go-mssqldb/blob/master/README.md).
@@ -104,7 +104,7 @@ For more information about `dataSourceName` see the following for each `driverNa
 
 <em>For security reasons any user specified for an SQL source should only have read access to the tables/database as the queries can't be checked for safety.</em>
 
-### Aggregators
+## Aggregators
 
 The aggregators are used to collect data on the records that match against a rule.  There are the following functions:
 
@@ -142,7 +142,7 @@ The aggregators are used to collect data on the records that match against a rul
 </table>
 
 
-### Sort Order
+## Sort Order
 
 The rules in the report are sorted in the order of the entries for the `sortOrder` field.  The aggregators that can be used are the names specified in the `aggregators` field as well as the following built-in aggregators.
 
@@ -164,7 +164,7 @@ The rules in the report are sorted in the order of the entries for the `sortOrde
 </table>
 
 
-### When Expressions
+## When Expressions
 
 The `when` field determines when the experiment is to be run and how often.  It is an expression that supports the following variables:
 
@@ -205,7 +205,7 @@ The `when` field determines when the experiment is to be run and how often.  It 
   </tr>
 </table>
 
-### Expressions
+## Expressions
 
 Any expressions used in the experiment file conform to fairly standard Go expressions and can use the following functions:
 

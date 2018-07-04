@@ -1,12 +1,12 @@
-### Outline
+## Outline
 
 A Portuguese bank wants to encourage customers to subscribe to a term deposit.
 
-#### Requirements
+### Requirements
 
   * The bank wants to reduce the number of customers it contacts.  Therefore it wants to ensure that those it does contact are most likely to subscribe to a term deposit.
 
-#### The Dataset
+### The Dataset
 This example uses a dataset related to a direct marketing campaign run by a Portuguese Bank.  The dataset is described by [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014. It is hosted at:<br />
 <div style="margin-left: 2em; font-family: monospace;">
   [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml).<br />
@@ -15,7 +15,7 @@ This example uses a dataset related to a direct marketing campaign run by a Port
   [Bank Marketing Data Set ](https://archive.ics.uci.edu/ml/datasets/bank+marketing)
 </div>
 
-### Will customer subscribe to a bank term deposit?
+## Will customer subscribe to a bank term deposit?
 The campaign is run for a while to collect enough data.  The details of the experiment are recorded in an experiment file called `bank_subscribe.yaml` which is located in the `experimentsDir` of `config.yaml`:
 
 ``` yaml
@@ -87,7 +87,7 @@ sortOrder:
 ```
 
 
-#### Assessment of Report
+### Assessment of Report
 After running the experiment a report is generated which finds the following rule:
 
 ``` go

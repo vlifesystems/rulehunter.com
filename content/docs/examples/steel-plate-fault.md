@@ -1,12 +1,12 @@
-### Outline
+## Outline
 
 A quality control office wants to use machine learning to improve its detection of k scratch faults.
 
-#### Requirements
+### Requirements
 
   * The detection of the _k scratch_ faults must be as accurate as possible
 
-#### The Dataset
+### The Dataset
 This example uses a dataset provided by [Semeion](http://www.semeion.it), Research Center of Sciences of Communication, Via Sersale 117, 00128, Rome, Italy.  It is hosted at:<br />
 <div style="margin-left: 2em; font-family: monospace;">
   [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml).<br />
@@ -15,7 +15,7 @@ This example uses a dataset provided by [Semeion](http://www.semeion.it), Resear
   [Steel Plates Faults Data Set ](https://archive.ics.uci.edu/ml/datasets/Steel+Plates+Faults)<br />
 </div>
 
-### What indicates a _k scratch_ fault?
+## What indicates a _k scratch_ fault?
 Once enough data has been carefully collected, Rulehunter is set to work.  The details of the experiment are recorded in an experiment file called `steel_plate_faults_k_scratch.yaml` which is located in the `experimentsDir` of `config.yaml`:
 
 ``` yaml
@@ -116,7 +116,7 @@ sortOrder:
 ```
 
 
-#### Assessment of Report
+### Assessment of Report
 After running the experiment a report is generated which finds the following rule:
 
 ``` go

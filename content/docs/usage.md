@@ -1,4 +1,4 @@
-### Single Run
+## Single Run
 
 To processes the experiments in the `experimentsDir` directory specified in `config.yaml`, which is located in the current directory:
 ``` bash
@@ -30,14 +30,14 @@ To get help:
 rulehunter help
 ```
 
-### Server
+## Server
 
 To run Rulehunter as a server continually checking and processing experiments:
 ``` bash
 rulehunter serve
 ```
 
-### Service
+## Service
 
 To install Rulehunter as an operating service (which then needs starting separately) using `/usr/local/rulehunter/config.yaml`:
 ``` bash
