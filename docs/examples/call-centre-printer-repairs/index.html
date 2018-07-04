@@ -143,13 +143,13 @@ train:
       - callTime
       - numContacts
       - value
+  ruleGeneration:
+    fields:
+      - name
+      - segment
+    combinationLength: 3
   # The experiment should be run every 40 minutes
   when: &quot;!hasRun || sinceLastRunMinutes &gt; 40&quot;
-ruleGeneration:
-  fields:
-    - name
-    - segment
-  combinationLength: 3
 aggregators:
   - name: &quot;totalContacts&quot;
     kind: &quot;sum&quot;
@@ -364,12 +364,12 @@ train:
       - isComplete
       - isContact
       - value
+  ruleGeneration:
+    fields:
+      - quarter
+      - segment
+    combinationLength: 3
   when: &quot;!hasRun || sinceLastRunMinutes &gt; 40&quot;
-ruleGeneration:
-  fields:
-    - quarter
-    - segment
-  combinationLength: 3
 aggregators:
   - name: &quot;totalContacts&quot;
     kind: &quot;count&quot;
@@ -591,12 +591,12 @@ train:
       - isComplete
       - isContact
       - value
+  ruleGeneration:
+    fields:
+      - callbacks
+      - segment
+    combinationLength: 3
   when: &quot;!hasRun || sinceLastRunMinutes &gt; 40&quot;
-ruleGeneration:
-  fields:
-    - callbacks
-    - segment
-  combinationLength: 3
 aggregators:
   - name: &quot;totalContacts&quot;
     kind: &quot;count&quot;
