@@ -97,13 +97,13 @@
     </nav>
   </div>
   <div class="col-md-10">
-    <h3>Outline</h3>
+    <h2>Outline</h2>
 <p>A quality control office wants to use machine learning to improve its detection of k scratch faults.</p>
-<h4>Requirements</h4>
+<h3>Requirements</h3>
 <ul>
 <li>The detection of the <em>k scratch</em> faults must be as accurate as possible</li>
 </ul>
-<h4>The Dataset</h4>
+<h3>The Dataset</h3>
 <p>This example uses a dataset provided by <a href="http://www.semeion.it">Semeion</a>, Research Center of Sciences of Communication, Via Sersale 117, 00128, Rome, Italy.  It is hosted at:<br /></p>
 <div style="margin-left: 2em; font-family: monospace;">
   [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml).<br />
@@ -111,7 +111,7 @@
   Computer Science. <br />
   [Steel Plates Faults Data Set ](https://archive.ics.uci.edu/ml/datasets/Steel+Plates+Faults)<br />
 </div>
-<h3>What indicates a <em>k scratch</em> fault?</h3>
+<h2>What indicates a <em>k scratch</em> fault?</h2>
 <p>Once enough data has been carefully collected, Rulehunter is set to work.  The details of the experiment are recorded in an experiment file called <code>steel_plate_faults_k_scratch.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 <pre><code class="language-yaml">title: &quot;What indicates a steel plate k scratch fault?&quot;
 category: &quot;engineering&quot;
@@ -208,7 +208,7 @@ sortOrder:
   - aggregator: &quot;mccHasKScratch&quot;
     direction: &quot;descending&quot;
 </code></pre>
-<h4>Assessment of Report</h4>
+<h3>Assessment of Report</h3>
 <p>After running the experiment a report is generated which finds the following rule:</p>
 <pre><code class="language-go">Log_X_Index + Square_Index &gt;= 2.46 &amp;&amp; Outside_X_Index * TypeOfSteel_A400 &gt;= 0.044
 </code></pre>

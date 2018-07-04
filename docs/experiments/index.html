@@ -106,7 +106,7 @@
     </nav>
   </div>
   <div class="col-md-10">
-    <h3>An Experiment file</h3>
+    <h2>An Experiment file</h2>
 <p>An <em>experiment</em> is what describes the dataset that you want to process and what you want the generated rules to aim for.  Each experiment is described by a <code>.yaml</code> or a <code>.json</code> file located in the <code>experimentsDir</code> of <code>config.yaml</code>.  This will look as follows:</p>
 <pre><code class="language-yaml"># The title of the report
 title: &quot;What would indicate good flow?&quot;
@@ -198,7 +198,7 @@ rules:
   - &quot;height &gt; 10&quot;
   - &quot;height &gt; 10 &amp;&amp; height &lt; 20&quot;
 </code></pre>
-<h3>SQL</h3>
+<h2>SQL</h2>
 <p>For more information about <code>dataSourceName</code> see the following for each <code>driverName</code>:</p>
 <ul>
 <li><code>mssql</code> - MS SQL Server - <a href="https://github.com/denisenkom/go-mssqldb/blob/master/README.md">README</a>.</li>
@@ -207,7 +207,7 @@ rules:
 <li><code>sqlite3</code> - sqlite3 - This just uses the filename of the database.</li>
 </ul>
 <p><em>For security reasons any user specified for an SQL source should only have read access to the tables/database as the queries can't be checked for safety.</em></p>
-<h3>Aggregators</h3>
+<h2>Aggregators</h2>
 <p>The aggregators are used to collect data on the records that match against a rule.  There are the following functions:</p>
 <br />
 <table class="table table-bordered">
@@ -241,7 +241,7 @@ rules:
     <td>calculates the sum for an expression calculated on records that match a rule</td>
   </tr>
 </table>
-<h3>Sort Order</h3>
+<h2>Sort Order</h2>
 <p>The rules in the report are sorted in the order of the entries for the <code>sortOrder</code> field.  The aggregators that can be used are the names specified in the <code>aggregators</code> field as well as the following built-in aggregators.</p>
 <br />
 <table class="table table-bordered">
@@ -259,7 +259,7 @@ rules:
     <td>How well a rule passes the goals.  The higher the number the better the match</td>
   </tr>
 </table>
-<h3>When Expressions</h3>
+<h2>When Expressions</h2>
 <p>The <code>when</code> field determines when the experiment is to be run and how often.  It is an expression that supports the following variables:</p>
 <br />
 <table class="table table-bordered">
@@ -297,7 +297,7 @@ rules:
     <td>Whether today is a weekday</td>
   </tr>
 </table>
-<h3>Expressions</h3>
+<h2>Expressions</h2>
 <p>Any expressions used in the experiment file conform to fairly standard Go expressions and can use the following functions:</p>
 <table class="table table-bordered">
   <tr><th>Function</th><th>Description</th></tr>

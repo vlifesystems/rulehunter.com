@@ -97,22 +97,22 @@
     </nav>
   </div>
   <div class="col-md-10">
-    <h3>Outline</h3>
+    <h2>Outline</h2>
 <p>A call centre is representing a client that wants to offer a repair contract to customers who have bought printers from them in the past.  The call centre needs to balance its need to make a profit with the needs of their client.</p>
-<h4>The client's requirements</h4>
+<h3>The client's requirements</h3>
 <ul>
 <li>The ROI (Return On Investment) must be at least 15.0</li>
 <li>At least 25% of contacts must result in a repair contract</li>
 <li>They would like the total value of contracts to be as high as possible</li>
 </ul>
-<h4>The call centre's requirements</h4>
+<h3>The call centre's requirements</h3>
 <ul>
 <li>The ROI for the call centre needs to be at least 1.10</li>
 <li>The clients requirements must be met</li>
 <li>Once the clients requirements are met the call centre would like
 to reach for an ROI of 1.30</li>
 </ul>
-<h4>The call centre costs</h4>
+<h3>The call centre costs</h3>
 <p>The call centre has used the following factors to calculate their calling cost:</p>
 <ul>
 <li>£0.04/min phone call cost</li>
@@ -122,7 +122,7 @@ to reach for an ROI of 1.30</li>
 <p>This gives a cost to the call centre of £0.0062/second of calling:</p>
 <pre><code>(0.04/60) + (10/60/60) + (10/60/60) = 0.0062
 </code></pre>
-<h3>Who should call which segment?</h3>
+<h2>Who should call which segment?</h2>
 <p>Once the campaign has been called for a while it would be useful to find who should call which data segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_who_should_call_which_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 <pre><code class="language-yaml">title: &quot;Who should call which segment?&quot;
 category: &quot;acme&quot;
@@ -200,7 +200,7 @@ sortOrder:
   - aggregator: &quot;meanConversion&quot;
     direction: &quot;descending&quot;
 </code></pre>
-<h4>Assessment of Report</h4>
+<h3>Assessment of Report</h3>
 <p>After running the experiment a report is generated which finds the following rule:</p>
 <pre><code class="language-go">(in(name,&quot;Fred Wilkins&quot;,&quot;Martha Stuart&quot;,&quot;Rebecca Davies&quot;) &amp;&amp; in(segment,&quot;a&quot;,&quot;c&quot;,&quot;f&quot;,&quot;g&quot;)) ||
 (in(name,&quot;Fred Wilkins&quot;,&quot;Mary Harris&quot;) || segment == &quot;g&quot;)
@@ -343,7 +343,7 @@ sortOrder:
 <li>Anyone can call segment: <em>g</em></li>
 </ul>
 <p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.19, this is 1.4 more than without the rule and 1.19 above target.  Again with the rule the client has a conversion of 0.3, this is 0.14 percentage points more than without the rule and 0.05 above the target.  Finally the call centre, with the rule, has an ROI of 1.38, this is 0.73 more than without the rule and 0.08 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
-<h3>When to call each segment?</h3>
+<h2>When to call each segment?</h2>
 <p>Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_when_to_call_each_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 <pre><code class="language-yaml">title: &quot;When to call each segment?&quot;
 category: &quot;acme&quot;
@@ -423,7 +423,7 @@ sortOrder:
   - aggregator: &quot;conversion&quot;
     direction: &quot;descending&quot;
 </code></pre>
-<h4>Assessment of Report</h4>
+<h3>Assessment of Report</h3>
 <p>After running the experiment a report is generated which finds the following rule:</p>
 <pre><code class="language-go">(in(segment,&quot;a&quot;,&quot;d&quot;,&quot;f&quot;,&quot;g&quot;) &amp;&amp; quarter &lt;= 2) || (in(segment,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;) &amp;&amp; quarter &gt;= 3)
 </code></pre>
@@ -570,7 +570,7 @@ sortOrder:
 <li>Segments: <em>b</em>, <em>c</em> and <em>e</em> can be called in quarter <em>3</em> or after</li>
 </ul>
 <p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.39, this is 3.12 more than without the rule and 1.39 above target.  Again with the rule the client has a conversion of 0.34, this is 0.18 percentage points more than without the rule and 0.09 above the target.  Finally the call centre, with the rule, has an ROI of 1.57, this is 1.19 more than without the rule and 0.27 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
-<h3>How many callbacks to make per segment?</h3>
+<h2>How many callbacks to make per segment?</h2>
 <p>Once the campaign has been called for a while it would be useful to find when to call each segment to get the best results.  The details of the experiment are recorded in an experiment file called <code>acmeprinters_repair016_how_many_callbacks_per_segment.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 <pre><code class="language-yaml">title: &quot;How many callbacks to make per segment?&quot;
 category: &quot;acme&quot;
@@ -652,7 +652,7 @@ sortOrder:
 rules:
   - &quot;(callbacks &lt;= 5  &amp;&amp; in(segment,\&quot;a\&quot;,\&quot;d\&quot;,\&quot;f\&quot;,\&quot;g\&quot;)) || (callbacks &lt;= 9 &amp;&amp; in(segment,\&quot;b\&quot;,\&quot;c\&quot;,\&quot;e\&quot;))&quot;
 </code></pre>
-<h4>Assessment of Report</h4>
+<h3>Assessment of Report</h3>
 <p>After running the experiment a report is generated which finds the following rule:</p>
 <pre><code class="language-go">(callbacks &lt;= 5 &amp;&amp; in(segment,&quot;a&quot;,&quot;d&quot;,&quot;f&quot;,&quot;g&quot;)) || (callbacks &lt;= 9 &amp;&amp; in(segment,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;))
 </code></pre>
@@ -799,7 +799,7 @@ rules:
 <li>Segments: <em>b</em>, <em>c</em> and <em>e</em> should have the maximum number of callbacks set to <em>9</em></li>
 </ul>
 <p>Below the aggregators table you can see that the rule passes all the goals, unlike when no rule was used.  With the rule the client has an ROI of 16.33, this is 3.06 more than without the rule and 1.33 above target.  Again with the rule the client has a conversion of 0.33, this is 0.08 percentage points more than without the rule and 0.054 above the target.  Finally the call centre, with the rule, has an ROI of 1.61, this is 1.23 more than without the rule and 0.31 above the stretch target.  This final figure is probably the most important as without the rule the call centre was making a loss and now it is making a profit.  The client is also happy as they are above target on both of their main goals.</p>
-<h3>Conclusion</h3>
+<h2>Conclusion</h2>
 <p>With the use of the three types of rule, the client gets a fantastic result and the call centre makes a healthy profit as well.  A healthy profit is particularly important for this company because they know that sometimes calling is unpredictable and they will often make a loss.  They need to minimize the losses where they can and make the most of profits when they are able.</p>
   </div>
 </div>

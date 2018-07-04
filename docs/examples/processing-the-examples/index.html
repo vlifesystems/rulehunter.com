@@ -97,9 +97,9 @@
     </nav>
   </div>
   <div class="col-md-10">
-    <h3>Using the Examples</h3>
+    <h2>Using the Examples</h2>
 <p>The example experiments demonstrate well how Rulehunter works.  Once you have run them you can tinker with them and compare the results.</p>
-<h4>Preparing the <code>www</code> Directory</h4>
+<h3>Preparing the <code>www</code> Directory</h3>
 <p>Before running <code>rulehunter</code> on the experiments you need to initialize the
 <code>www</code> directory.</p>
 <p>For Linux/MacOS:</p>
@@ -109,7 +109,7 @@ examples/bin/init_www_unix.sh
 <p>For Windows:</p>
 <pre><code class="language-bash">examples\bin\init_www_windows.bat
 </code></pre>
-<h4>Processing the Experiments</h4>
+<h3>Processing the Experiments</h3>
 <p>To process the experiments run <code>rulehunter</code> from the <code>examples/</code> directory:</p>
 <pre><code class="language-bash">rulehunter
 </code></pre>
@@ -122,7 +122,7 @@ the <code>examples/www</code> directory:</p>
 <pre><code class="language-bash">ruby -run -ehttpd . -p8780
 </code></pre>
 <p>If you don't like ruby there is this <a href="https://gist.github.com/willurd/5720255">list of one-liner static webservers</a>.</p>
-<h5>Running as a server</h5>
+<h4>Running as a server</h4>
 <p>If you run Rulehunter as a server/service then it can start a simple static web server for you.  The default <code>config.yaml</code> in the <code>examples/</code> directory is configured to set this up on port: 8780.  Therefore you can point a web browser to <a href="http://localhost:8780">http://localhost:8780</a> to see the website.  If this port is already being used then you can change it from within the config file.</p>
 <pre><code class="language-bash">rulehunter serve
 </code></pre>

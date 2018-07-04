@@ -97,13 +97,13 @@
     </nav>
   </div>
   <div class="col-md-10">
-    <h3>Outline</h3>
+    <h2>Outline</h2>
 <p>A Portuguese bank wants to encourage customers to subscribe to a term deposit.</p>
-<h4>Requirements</h4>
+<h3>Requirements</h3>
 <ul>
 <li>The bank wants to reduce the number of customers it contacts.  Therefore it wants to ensure that those it does contact are most likely to subscribe to a term deposit.</li>
 </ul>
-<h4>The Dataset</h4>
+<h3>The Dataset</h3>
 <p>This example uses a dataset related to a direct marketing campaign run by a Portuguese Bank.  The dataset is described by [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014. It is hosted at:<br /></p>
 <div style="margin-left: 2em; font-family: monospace;">
   [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml).<br />
@@ -111,7 +111,7 @@
   Computer Science. <br />
   [Bank Marketing Data Set ](https://archive.ics.uci.edu/ml/datasets/bank+marketing)
 </div>
-<h3>Will customer subscribe to a bank term deposit?</h3>
+<h2>Will customer subscribe to a bank term deposit?</h2>
 <p>The campaign is run for a while to collect enough data.  The details of the experiment are recorded in an experiment file called <code>bank_subscribe.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 <pre><code class="language-yaml">title: &quot;Will customer subscribe to a bank term deposit?&quot;
 category: &quot;bank&quot;
@@ -179,7 +179,7 @@ sortOrder:
   - aggregator: &quot;mccSubscribe&quot;
     direction: &quot;descending&quot;
 </code></pre>
-<h4>Assessment of Report</h4>
+<h3>Assessment of Report</h3>
 <p>After running the experiment a report is generated which finds the following rule:</p>
 <pre><code class="language-go">in(month,&quot;dec&quot;,&quot;mar&quot;,&quot;oct&quot;,&quot;sep&quot;) || poutcome == &quot;success&quot;
 </code></pre>

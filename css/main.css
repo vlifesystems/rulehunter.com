@@ -23,6 +23,7 @@ body {
 
 .hero h2 {
   color: gray;
+  font-weight: normal;
 }
 
 .quick-buttons {
@@ -38,6 +39,10 @@ body {
 
 pre {
   border-radius: 14px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
 }
 
 ol.doc-breadcrumb {

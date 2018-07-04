@@ -97,15 +97,15 @@
     </nav>
   </div>
   <div class="col-md-10">
-    <h3>Outline</h3>
+    <h2>Outline</h2>
 <p><big><strong><em>The following is a hypothetical scenario used purely to demonstrate Rulehunter.  The results shouldn't be used in any real-world setting.</em></strong></big></p>
 <p>A group of doctors want to find out what indicates that a patient is likely to have breast cancer.  They want to reduce the chance that a patient with breast cancer is miss diagnosed and increase the speed with which letters are sent out for patients to have further investigation.</p>
-<h4>The doctors' requirements</h4>
+<h3>The doctors' requirements</h3>
 <ul>
 <li>Patients who statistically definitely have a malignant breast tumour should automatically be sent a follow-up appointment letter.</li>
 <li>Patients who statistically definitely have a benign breast tumour should automatically be sent an all clear letter.</li>
 </ul>
-<h4>The Dataset</h4>
+<h3>The Dataset</h3>
 <p>This example uses a dataset created by University of Wisconsin and hosted at:<br /></p>
 <div style="margin-left: 2em; font-family: monospace;">
   [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml).<br />
@@ -113,7 +113,7 @@
   Computer Science. <br />
   [Breast Cancer Wisconsin (Diagnostic) Data Set](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic))<br />
 </div>
-<h3>Who should be sent a follow-up appointment letter?</h3>
+<h2>Who should be sent a follow-up appointment letter?</h2>
 <p>The doctors created an experiment to find tumours that statistically are definitely malignant. The details of the experiment are recorded in an experiment file called <code>breast_cancer_wisconsin_malignant_high.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 <pre><code class="language-yaml">title: &quot;Which breast tumours are malignant (very high confidence)?&quot;
 category: &quot;medical&quot;
@@ -236,7 +236,7 @@ sortOrder:
   - aggregator: &quot;numMatches&quot;
     direction: &quot;descending&quot;
 </code></pre>
-<h4>Assessment of Report</h4>
+<h3>Assessment of Report</h3>
 <p>After running the experiment a report is generated which finds the following rule:</p>
 <pre><code class="language-go">  area_worst * symmetry_worst &gt;= 308 || concave_points_worst * texture_worst &gt;= 4.6
 </code></pre>
@@ -315,7 +315,7 @@ sortOrder:
 </code></pre>
 <p>Below the rule you can see the results that this rule gives for the various aggregators specified and below that you can see that it passes all the goals specified.  The change column is the difference between the result for this rule and the original dataset without using a rule.</p>
 <p>The report shows that the tumours for 33% (<em>percentMatches</em>) of the total records can be confidently assessed as malignant.  This represents 88% (<em>recallIsMalignant</em>) of the number of malignant tumours in the dataset.</p>
-<h3>Who should be sent an all clear letter?</h3>
+<h2>Who should be sent an all clear letter?</h2>
 <p>The doctors created an experiment to find tumours that statistically are definitely benign. The details of the experiment are recorded in an experiment file called <code>breast_cancer_wisconsin_benign_high.yaml</code> which is located in the <code>experimentsDir</code> of <code>config.yaml</code>:</p>
 <pre><code class="language-yaml">title: &quot;Which breast tumours are benign (very high confidence)?&quot;
 category: &quot;medical&quot;
@@ -421,7 +421,7 @@ sortOrder:
   - aggregator: &quot;numMatches&quot;
     direction: &quot;descending&quot;
 </code></pre>
-<h4>Assessment of Report</h4>
+<h3>Assessment of Report</h3>
 <p>After running the experiment a report is generated which finds the following rule:</p>
 <pre><code class="language-go">  perimeter_worst * texture_worst &lt;= 1908 || radius_worst * smoothness_mean &lt;= 1.3
 </code></pre>
@@ -499,7 +499,7 @@ sortOrder:
 <pre><code class="language-go">perimeter_worst * texture_worst &lt;= 1908 || radius_worst * smoothness_mean &lt;= 1.3
 </code></pre>
 <p>The report shows that the tumours for 47% (<em>percentMatches</em>) of the total records can be confidently assessed as benign.  This represents 75% (<em>recallIsBenign</em>) of the number of benign tumours in the dataset.</p>
-<h3>Conclusion</h3>
+<h2>Conclusion</h2>
 <p>In the original dataset there were 569 records. If the two rules were used to send out automatic follow-up/all clear letters that would represent 453 records (187 malignant + 266 benign), leaving just 116 records (569 total - 453 automated) for the doctors to manually assess.</p>
 <p>This is huge improvement for patients.  The majority of patients would get a follow-up letter straight away to let them know that either their tumour is benign or that they need to book a follow-up appointment and could potentially begin treatment earlier.</p>
 <p>This would also represent a significant improvement for the doctors who now only need to manually assess 20% of the records (116 manual / 569 total).  This represents a big time saving for the doctors, freeing them up so that they can do more to help patients.</p>
